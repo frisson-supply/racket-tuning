@@ -1,9 +1,9 @@
 import type { Order } from '@/payload-types'
 import type { Metadata } from 'next'
 
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 
-import { OrderItem } from '@/components/OrderItem'
+import { OrderItem } from '@/components/order-item'
 import { headers as getHeaders } from 'next/headers'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'

@@ -1,9 +1,9 @@
 import type { Media, Product } from '@/payload-types'
 
-import { RenderBlocks } from '@/blocks/RenderBlocks'
-import { GridTileImage } from '@/components/Grid/tile'
-import { Gallery } from '@/components/product/Gallery'
-import { ProductDescription } from '@/components/product/ProductDescription'
+import { RenderBlocks } from '@/blocks/render-blocks'
+import { GridTileImage } from '@/components/grid/tile'
+import { Gallery } from '@/components/product/gallery'
+import { ProductDescription } from '@/components/product/product-description'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'

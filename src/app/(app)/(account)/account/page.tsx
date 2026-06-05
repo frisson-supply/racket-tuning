@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
 import { Button } from '@/components/ui/button'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import Link from 'next/link'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'
-import { AccountForm } from '@/components/forms/AccountForm'
+import { AccountForm } from '@/components/forms/account-form'
 import { Order } from '@/payload-types'
-import { OrderItem } from '@/components/OrderItem'
+import { OrderItem } from '@/components/order-item'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
 

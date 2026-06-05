@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React, { Fragment } from 'react'
-import { ConfirmOrder } from '@/components/checkout/ConfirmOrder'
+import { ConfirmOrder } from '@/components/checkout/confirm-order'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 

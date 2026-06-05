@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
-import { RenderParams } from '@/components/RenderParams'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { RenderParams } from '@/components/render-params'
+import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React from 'react'
 import { headers as getHeaders } from 'next/headers'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
-import { CreateAccountForm } from '@/components/forms/CreateAccountForm'
+import { CreateAccountForm } from '@/components/forms/create-account-form'
 import { redirect } from 'next/navigation'
 
 export default async function CreateAccount() {

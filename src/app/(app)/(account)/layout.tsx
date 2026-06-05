@@ -3,8 +3,8 @@ import type { ReactNode } from 'react'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import { RenderParams } from '@/components/RenderParams'
-import { AccountNav } from '@/components/AccountNav'
+import { RenderParams } from '@/components/render-params'
+import { AccountNav } from '@/components/account-nav'
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const headers = await getHeaders()

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-import { RenderBlocks } from '@/blocks/RenderBlocks'
-import { RenderHero } from '@/heros/RenderHero'
-import { generateMeta } from '@/utilities/generateMeta'
+import { RenderBlocks } from '@/blocks/render-blocks'
+import { RenderHero } from '@/heros/render-hero'
+import { generateMeta } from '@/utilities/generate-meta'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'

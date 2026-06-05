@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React from 'react'
 
-import { ForgotPasswordForm } from '@/components/forms/ForgotPasswordForm'
+import { ForgotPasswordForm } from '@/components/forms/forgot-password-form'
 
 export default async function ForgotPasswordPage() {
   return (

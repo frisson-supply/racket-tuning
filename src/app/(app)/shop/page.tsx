@@ -1,5 +1,5 @@
-import { Grid } from '@/components/Grid'
-import { ProductGridItem } from '@/components/ProductGridItem'
+import { Grid } from '@/components/grid'
+import { ProductGridItem } from '@/components/product-grid-item'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'

@@ -1,11 +1,11 @@
-import { AuthProvider } from '@/providers/Auth'
+import { AuthProvider } from '@/providers/auth'
 import { EcommerceProvider } from '@payloadcms/plugin-ecommerce/client/react'
 import { stripeAdapterClient } from '@payloadcms/plugin-ecommerce/payments/stripe'
 import React from 'react'
 
-import { HeaderThemeProvider } from './HeaderTheme'
-import { ThemeProvider } from './Theme'
-import { SonnerProvider } from '@/providers/Sonner'
+import { HeaderThemeProvider } from './header-theme'
+import { ThemeProvider } from './theme'
+import { SonnerProvider } from '@/providers/sonner'
 
 export const Providers: React.FC<{
   children: React.ReactNode

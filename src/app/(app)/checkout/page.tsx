@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React, { Fragment } from 'react'
 
-import { CheckoutPage } from '@/components/checkout/CheckoutPage'
+import { CheckoutPage } from '@/components/checkout/checkout-page'
 
 export default function Checkout() {
   return (
