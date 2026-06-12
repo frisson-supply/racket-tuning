@@ -1,0 +1,15 @@
+.bar {
+  display: none;
+  padding-block: 0.5rem;
+  background-color: #000;
+  color: #fff;
+}
+
+.bar--visible {
+  display: block;
+}
+
+.inner {
+  padding-block: 0.5rem;
+  color: #fff;
+}

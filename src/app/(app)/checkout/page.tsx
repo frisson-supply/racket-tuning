@@ -3,11 +3,12 @@ import type { Metadata } from 'next'
 import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React, { Fragment } from 'react'
 
-import { CheckoutPage } from '@/components/checkout/checkout-page'
+import { CheckoutPage } from '@/features/checkout/checkout-page'
+import styles from '../pages.module.css'
 
 export default function Checkout() {
   return (
-    <div className="container min-h-[90vh] flex">
+    <div className={`container ${styles.checkoutPage}`}>
       {!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && (
         <div>
           <Fragment>

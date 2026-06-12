@@ -1,8 +1,9 @@
-import { Grid } from '@/components/grid'
-import { ProductGridItem } from '@/components/product-grid-item'
+import { Grid } from '@/components/common/grid'
+import { ProductGridItem } from '@/features/product/product-grid-item'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
+import styles from './shop.module.css'
 
 export const metadata = {
   description: 'Search for products in the store.',
@@ -78,7 +79,7 @@ export default async function ShopPage({ searchParams }: Props) {
   return (
     <div>
       {searchValue ? (
-        <p className="mb-4">
+        <p className={styles.resultText}>
           {products.docs?.length === 0
             ? 'There are no products that match '
             : `Showing ${products.docs.length} ${resultsText} for `}
@@ -87,11 +88,11 @@ export default async function ShopPage({ searchParams }: Props) {
       ) : null}
 
       {!searchValue && products.docs?.length === 0 && (
-        <p className="mb-4">No products found. Please try different filters.</p>
+        <p className={styles.resultText}>No products found. Please try different filters.</p>
       )}
 
       {products?.docs.length > 0 ? (
-        <Grid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Grid className={styles.productGrid}>
           {products.docs.map((product) => {
             return <ProductGridItem key={product.id} product={product} />
           })}

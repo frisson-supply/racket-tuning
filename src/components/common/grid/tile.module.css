@@ -1,0 +1,43 @@
+.tile {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background-color: #fff;
+}
+
+.tile:hover {
+  border-color: oklch(57.7% 0.245 264deg);
+}
+
+[data-theme='dark'] .tile {
+  background-color: #000;
+}
+
+.tile--active {
+  border-width: 2px;
+  border-color: oklch(57.7% 0.245 264deg);
+}
+
+.tile--relative {
+  position: relative;
+}
+
+.media {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.media--interactive {
+  transition: transform 300ms ease-in-out;
+}
+
+.tile:hover .media--interactive {
+  transform: scale(1.05);
+}

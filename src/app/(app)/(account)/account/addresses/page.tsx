@@ -6,8 +6,9 @@ import configPromise from '@payload-config'
 import { Order } from '@/payload-types'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
-import { AddressListing } from '@/components/addresses/address-listing'
-import { CreateAddressModal } from '@/components/addresses/create-address-modal'
+import { AddressListing } from '@/features/account/addresses/address-listing'
+import { CreateAddressModal } from '@/features/account/addresses/create-address-modal'
+import styles from '../../account.module.css'
 
 export default async function AddressesPage() {
   const headers = await getHeaders()
@@ -46,10 +47,10 @@ export default async function AddressesPage() {
 
   return (
     <>
-      <div className="border p-8 rounded-lg bg-primary-foreground">
-        <h1 className="text-3xl font-medium mb-8">Addresses</h1>
+      <div className={styles.card}>
+        <h1 className={styles.cardHeading}>Addresses</h1>
 
-        <div className="mb-8">
+        <div className={styles.addressListWrap}>
           <AddressListing />
         </div>
 

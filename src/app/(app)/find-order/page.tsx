@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 
 import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React from 'react'
-import { FindOrderForm } from '@/components/forms/find-order-form'
+import { FindOrderForm } from '@/features/auth/find-order-form'
 import { getPayload } from 'payload'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'
+import styles from '../pages.module.css'
 
 export default async function FindOrderPage() {
   const headers = await getHeaders()
@@ -13,7 +14,7 @@ export default async function FindOrderPage() {
   const { user } = await payload.auth({ headers })
 
   return (
-    <div className="container py-16">
+    <div className={`container ${styles.pagePy}`}>
       <FindOrderForm initialEmail={user?.email} />
     </div>
   )

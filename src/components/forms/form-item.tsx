@@ -1,4 +1,5 @@
 import { cn } from '@/utilities/cn'
+import styles from './form-item.module.css'
 
 type Props = {
   className?: string
@@ -6,5 +7,5 @@ type Props = {
 }
 
 export const FormItem: React.FC<Props> = ({ className, children }) => {
-  return <div className={cn('flex flex-col gap-2', className)}>{children}</div>
+  return <div className={cn(styles.item, className)}>{children}</div>
 }

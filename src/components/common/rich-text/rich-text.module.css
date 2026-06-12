@@ -1,0 +1,5 @@
+@layer components {
+  .noGutter {
+    max-width: none;
+  }
+}

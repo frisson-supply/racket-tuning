@@ -1,0 +1,46 @@
+@layer components {
+  .wrap {
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.8rem;
+  }
+
+  @media (min-width: 64rem) {
+    .wrap {
+      padding: 1.5rem;
+    }
+  }
+
+  .fieldGroup {
+    margin-bottom: 1rem;
+  }
+
+  .fieldGroup:last-child {
+    margin-bottom: 0;
+  }
+
+  .field {
+    margin-bottom: 1.5rem;
+  }
+
+  .field:last-child {
+    margin-bottom: 0;
+  }
+
+  .checkboxRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .error {
+    margin-top: 0.5rem;
+    color: var(--error-500, oklch(62.8% 0.258 29.23));
+    font-size: 0.875rem;
+  }
+
+  .messageWrap {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}

@@ -1,0 +1,58 @@
+.input {
+  background-color: var(--background);
+  display: flex;
+  height: 2.25rem;
+  width: 100%;
+  min-width: 0;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--input);
+  padding-inline: 0.75rem;
+  padding-block: 0.25rem;
+  font-size: 1rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  transition: color 200ms, box-shadow 200ms;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.input::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.input::file-selector-button {
+  display: inline-flex;
+  height: 1.75rem;
+  border: 0;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.input:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (min-width: 48rem) {
+  .input { font-size: 0.875rem; }
+}
+
+.input:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 20%, transparent);
+}
+
+[data-theme='dark'] .input[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 40%, transparent);
+}

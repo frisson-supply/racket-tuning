@@ -1,0 +1,554 @@
+/* ────────────────────────────────────────────────────────────── */
+/* Design tokens exported from Figma (primitives + semantics).     */
+/* Added alongside the existing shadcn-style tokens in             */
+/* globals.css while components migrate to CSS Modules + these     */
+/* tokens. Do not remove the existing tokens until migration is    */
+/* complete.                                                        */
+/* ────────────────────────────────────────────────────────────── */
+
+/* ─── color_primitives ──────────────────────────────────────── */
+:root {
+  --accent-green-100: hsl(74 100% 80%);
+  --accent-green-200: hsl(75 100% 67%);
+  --accent-green-25: hsl(0 0 100%);
+  --accent-green-300: hsl(75 100% 60%);
+  --accent-green-400: hsl(76 100% 50%);
+  --accent-green-50: hsl(72 100% 90%);
+  --accent-green-500: hsl(80 100% 50%);
+  --accent-green-600: hsl(80 100% 40%);
+  --accent-green-700: hsl(80 100% 30%);
+  --accent-green-800: hsl(80 100% 20%);
+  --accent-green-900: hsl(83 100% 12%);
+  --accent-orange-100: hsl(26 100% 89%);
+  --accent-orange-200: hsl(25 100% 80%);
+  --accent-orange-25: hsl(0 0 100%);
+  --accent-orange-300: hsl(22 100% 71%);
+  --accent-orange-400: hsl(20 100% 61%);
+  --accent-orange-50: hsl(22 100% 96%);
+  --accent-orange-500: hsl(21 100% 55%);
+  --accent-orange-600: hsl(22 100% 45%);
+  --accent-orange-700: hsl(20 100% 38%);
+  --accent-orange-800: hsl(19 100% 29%);
+  --accent-orange-900: hsl(18 100% 21%);
+  --brand-primary-100: hsl(219 45% 86%);
+  --brand-primary-200: hsl(218 45% 77%);
+  --brand-primary-25: hsl(0 0 100%);
+  --brand-primary-300: hsl(216 43% 65%);
+  --brand-primary-400: hsl(214 40% 51%);
+  --brand-primary-50: hsl(217 39% 94%);
+  --brand-primary-500: hsl(214 55% 38%);
+  --brand-primary-600: hsl(213 60% 32%);
+  --brand-primary-700: hsl(215 65% 28%);
+  --brand-primary-800: hsl(215 68% 21%);
+  --brand-primary-900: hsl(215 71% 13%);
+  --brand-secondary-100: hsl(209 26% 83%);
+  --brand-secondary-200: hsl(201 24% 72%);
+  --brand-secondary-25: hsl(0 0 100%);
+  --brand-secondary-300: hsl(203 25% 58%);
+  --brand-secondary-400: hsl(203 30% 44%);
+  --brand-secondary-50: hsl(210 30% 92%);
+  --brand-secondary-500: hsl(201 42% 31%);
+  --brand-secondary-600: hsl(204 48% 23%);
+  --brand-secondary-700: hsl(212 42% 17%);
+  --brand-secondary-800: hsl(211 48% 13%);
+  --brand-secondary-900: hsl(211 49% 8%);
+  --neutral-0: hsl(0 0 100%);
+  --neutral-0-20: hsl(0 0 100% / 0.2);
+  --neutral-0-30: hsl(0 0 100% / 0.3);
+  --neutral-100: hsl(240 7% 95%);
+  --neutral-200: hsl(220 6% 90%);
+  --neutral-25: hsl(0 0 100%);
+  --neutral-300: hsl(216 6% 83%);
+  --neutral-400: hsl(214 5% 72%);
+  --neutral-400-70: hsl(214 5% 72% / 0.7);
+  --neutral-50: hsl(240 8% 97%);
+  --neutral-500: hsl(218 4% 61%);
+  --neutral-600: hsl(217 3% 51%);
+  --neutral-700: hsl(218 4% 44%);
+  --neutral-800: hsl(210 3% 40%);
+  --neutral-900: hsl(220 3% 36%);
+  --neutral-900-10: hsl(220 3% 36% / 0.51);
+  --neutral-900-15: hsl(220 3% 36% / 0.15);
+  --neutral-900-50: hsl(220 3% 36% / 0.5);
+  --neutral-alpha: hsl(0 0 100% / 0);
+}
+
+/* ─── font_primitives ───────────────────────────────────────── */
+:root {
+  --family-body: Inter;
+  --family-headings: Geist;
+  --weight-bold: Bold;
+  --weight-medium: SemiBold;
+  --weight-regular: Regular;
+}
+
+/* ─── spacing ────────────────────────────────────────────────── */
+:root {
+  --0: 0rem;
+  --4xs: 0.125rem;
+  --3xs: 0.25rem;
+  --2xs: 0.5rem;
+  --xs: 0.75rem;
+  --sm: 1rem;
+  --md: 1.25rem;
+  --lg: 1.5rem;
+  --xl: 2rem;
+  --2xl: 2.5rem;
+  --3xl: 4rem;
+  --4xl: 5rem;
+}
+
+/* ─── border / radius ───────────────────────────────────────── */
+:root {
+  --shared-radius-square: 0rem;
+  --shared-radius-xs: 0.125rem;
+  --shared-radius-sm: 0.25rem;
+  --shared-radius-md: 0.5rem;
+  --shared-radius-lg: 0.75rem;
+  --shared-radius-xl: 1rem;
+  --shared-radius-2xl: 1.5rem;
+  --shared-radius-circular: 624.9375rem;
+  --shared-width-0: 0rem;
+  --shared-width-sm: 0.0625rem;
+  --shared-width-md: 0.125rem;
+  --shared-width-lg: 0.25rem;
+  --shared-width-xl: 0.5rem;
+
+  --component-radius-button: var(--shared-radius-sm);
+  --component-radius-input-fields: var(--shared-radius-sm);
+  --component-radius-tag: var(--shared-radius-sm);
+  --component-radius-panel: var(--shared-radius-lg);
+  --component-radius-card: var(--shared-radius-xl);
+  --component-radius-pill: var(--shared-radius-circular);
+  --component-radius-swatch: var(--shared-radius-circular);
+}
+
+/* ─── font_semantics ─────────────────────────────────────────── */
+/* Desktop sizes are the default; mobile overrides apply below the */
+/* tablet breakpoint (matches the `layout` tablet breakpoint).     */
+:root {
+  --body-xs: 0.75rem;
+  --body-sm: 0.875rem;
+  --body-md: 1rem;
+  --body-lg: 1.125rem;
+  --body-xl: 1.375rem;
+  --heading-xs: 1.25rem;
+  --heading-sm: 1.5rem;
+  --heading-md: 2rem;
+  --heading-lg: 2.5rem;
+  --heading-xl: 3.25rem;
+  --heading-2xl: 4rem;
+  --heading-3xl: 5rem;
+}
+
+@media (width < 48rem) {
+  :root {
+    --heading-xs: 1rem;
+    --heading-sm: 1.125rem;
+    --heading-md: 1.375rem;
+    --heading-lg: 1.625rem;
+    --heading-xl: 2rem;
+    --heading-2xl: 3.5rem;
+    --heading-3xl: 4rem;
+  }
+}
+
+/* ─── layout ─────────────────────────────────────────────────── */
+/* desktop-lg is the default; narrower breakpoints override below. */
+:root {
+  --column-gap: var(--sm);
+  --container-padding: var(--2xl);
+  --container-max-width: 87.5rem;
+  --breakpoint: 120rem;
+}
+
+@media (width < 120rem) {
+  :root {
+    --container-max-width: 80rem;
+    --breakpoint: 90rem;
+  }
+}
+
+@media (width < 90rem) {
+  :root {
+    --container-padding: var(--lg);
+    --container-max-width: 48rem;
+    --breakpoint: 48rem;
+  }
+}
+
+@media (width < 48rem) {
+  :root {
+    --container-padding: var(--xs);
+    --container-max-width: 22.5rem;
+    --breakpoint: 22.5rem;
+  }
+}
+
+/* ─── color_semantics — light ───────────────────────────────── */
+:root {
+  --component-hack-do-not-implement: hsl(0 0 100% / 0);
+  --component-button-destructive-border-hover: var(--accent-orange-700, hsl(20 100% 38%));
+  --component-button-destructive-border-pressed: var(--accent-orange-800, hsl(19 100% 29%));
+  --component-button-destructive-border-rest: var(--accent-orange-600, hsl(22 100% 45%));
+  --component-button-destructive-content-hover: var(--shared-content-light, hsl(0 0 100%));
+  --component-button-destructive-content-pressed: var(--shared-content-light, hsl(0 0 100%));
+  --component-button-destructive-content-rest: var(--shared-content-light, hsl(0 0 100%));
+  --component-button-destructive-surface-hover: var(--accent-orange-600, hsl(22 100% 45%));
+  --component-button-destructive-surface-pressed: var(--accent-orange-700, hsl(20 100% 38%));
+  --component-button-destructive-surface-rest: var(--accent-orange-500, hsl(21 100% 55%));
+  --component-button-outline-border-hover: var(--neutral-600, hsl(217 3% 51%));
+  --component-button-outline-border-pressed: var(--neutral-800, hsl(210 3% 40%));
+  --component-button-outline-border-rest: var(--neutral-400, hsl(214 5% 72%));
+  --component-button-outline-content-hover: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-outline-content-pressed: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-outline-content-rest: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-outline-surface-hover: var(--shared-surface-2, hsl(240 8% 97%));
+  --component-button-outline-surface-pressed: var(--shared-surface-3, hsl(220 6% 90%));
+  --component-button-outline-surface-rest: var(--shared-surface-base, hsl(0 0 100%));
+  --component-button-primary-border-hover: var(--brand-primary-600, hsl(213 60% 32%));
+  --component-button-primary-border-pressed: var(--brand-primary-700, hsl(215 65% 28%));
+  --component-button-primary-border-rest: var(--brand-primary-600, hsl(213 60% 32%));
+  --component-button-primary-content-hover: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-primary-content-pressed: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-primary-content-rest: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-primary-surface-hover: var(--brand-primary-200, hsl(218 45% 77%));
+  --component-button-primary-surface-pressed: var(--brand-primary-200, hsl(218 45% 77%));
+  --component-button-primary-surface-rest: var(--brand-primary-300, hsl(216 43% 65%));
+  --component-button-solid-border-hover: var(--neutral-800, hsl(210 3% 40%));
+  --component-button-solid-border-pressed: var(--neutral-600, hsl(217 3% 51%));
+  --component-button-solid-border-rest: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-solid-content-hover: var(--shared-content-inverse, hsl(0 0 100%));
+  --component-button-solid-content-pressed: var(--shared-content-inverse, hsl(0 0 100%));
+  --component-button-solid-content-rest: var(--shared-content-inverse, hsl(0 0 100%));
+  --component-button-solid-surface-hover: var(--neutral-800, hsl(210 3% 40%));
+  --component-button-solid-surface-pressed: var(--neutral-900, hsl(220 3% 36%));
+  --component-button-solid-surface-rest: var(--shared-surface-inverse, hsl(220 3% 36%));
+  --component-disabled-border-default: var(--neutral-200, hsl(220 6% 90%));
+  --component-disabled-content-default: var(--neutral-300, hsl(216 6% 83%));
+  --component-disabled-surface-1: var(--neutral-50, hsl(240 8% 97%));
+  --component-disabled-surface-2: var(--neutral-200, hsl(220 6% 90%));
+  --component-footer-surface-default: var(--neutral-900, hsl(220 3% 36%));
+  --component-forms-border-active: var(--shared-border-focus, hsl(213 60% 32%));
+  --component-forms-border-error: var(--shared-border-error, hsl(20 100% 38%));
+  --component-forms-border-filled: var(--shared-border-4, hsl(218 4% 44%));
+  --component-forms-border-focused: var(--shared-border-focus, hsl(213 60% 32%));
+  --component-forms-border-hover: var(--shared-border-4, hsl(218 4% 44%));
+  --component-forms-border-rest: var(--shared-border-3, hsl(214 5% 72%));
+  --component-forms-border-success: var(--shared-border-success, hsl(80 100% 50%));
+  --component-forms-content-entry: var(--shared-content-primary, hsl(220 3% 36%));
+  --component-forms-content-error: var(--shared-content-error, hsl(19 100% 29%));
+  --component-forms-content-hint: var(--shared-content-tertiary, hsl(217 3% 51%));
+  --component-forms-content-label: var(--shared-content-secondary, hsl(218 4% 44%));
+  --component-forms-content-label-floating: var(--shared-content-tertiary, hsl(217 3% 51%));
+  --component-forms-content-placeholder: var(--shared-content-placeholder, hsl(216 6% 83%));
+  --component-forms-content-required: var(--accent-orange-600, hsl(22 100% 45%));
+  --component-forms-content-success: var(--shared-content-success, hsl(80 100% 50%));
+  --component-forms-surface-default: var(--shared-surface-base, hsl(0 0 100%));
+  --component-input-elements-border-active: var(--neutral-900, hsl(220 3% 36%));
+  --component-input-elements-border-active-focused: var(--neutral-900, hsl(220 3% 36%));
+  --component-input-elements-border-active-hover: var(--neutral-900, hsl(220 3% 36%));
+  --component-input-elements-border-active-pressed: var(--brand-secondary-900, hsl(211 49% 8%));
+  --component-input-elements-border-focused: var(--neutral-500, hsl(218 4% 61%));
+  --component-input-elements-border-hover: var(--shared-border-3, hsl(214 5% 72%));
+  --component-input-elements-border-pressed: var(--neutral-600, hsl(217 3% 51%));
+  --component-input-elements-border-rest: var(--shared-border-3, hsl(214 5% 72%));
+  --component-input-elements-content-active: var(--neutral-0, hsl(0 0 100%));
+  --component-input-elements-content-active-focused: var(--neutral-0, hsl(0 0 100%));
+  --component-input-elements-content-active-hover: var(--neutral-0, hsl(0 0 100%));
+  --component-input-elements-content-active-pressed: var(--neutral-0, hsl(0 0 100%));
+  --component-input-elements-content-focused: var(--neutral-50, hsl(240 8% 97%));
+  --component-input-elements-content-hover: var(--neutral-50, hsl(240 8% 97%));
+  --component-input-elements-content-pressed: var(--neutral-100, hsl(240 7% 95%));
+  --component-input-elements-content-rest: var(--neutral-0, hsl(0 0 100%));
+  --component-input-elements-surface-active: var(--neutral-900, hsl(220 3% 36%));
+  --component-input-elements-surface-active-focused: var(--neutral-900, hsl(220 3% 36%));
+  --component-input-elements-surface-active-hover: var(--neutral-800, hsl(210 3% 40%));
+  --component-input-elements-surface-active-pressed: var(--neutral-700, hsl(218 4% 44%));
+  --component-input-elements-surface-default: var(--shared-surface-base, hsl(0 0 100%));
+  --component-input-elements-surface-focused: var(--shared-surface-base, hsl(0 0 100%));
+  --component-input-elements-surface-hover: var(--shared-surface-base, hsl(0 0 100%));
+  --component-input-elements-surface-pressed: var(--shared-surface-2, hsl(240 8% 97%));
+  --component-input-elements-surface-range: var(--brand-primary-300, hsl(216 43% 65%));
+  --component-input-elements-surface-toggle-track: var(--neutral-25, hsl(0 0 100%));
+  --component-pill-neutral-border-hover: var(--neutral-800, hsl(210 3% 40%));
+  --component-pill-neutral-border-pressed: var(--neutral-900, hsl(220 3% 36%));
+  --component-pill-neutral-border-rest: var(--neutral-500, hsl(218 4% 61%));
+  --component-pill-neutral-content-hover: var(--shared-content-inverse, hsl(0 0 100%));
+  --component-pill-neutral-content-pressed: var(--shared-content-inverse, hsl(0 0 100%));
+  --component-pill-neutral-content-rest: var(--shared-content-primary, hsl(220 3% 36%));
+  --component-pill-neutral-surface-hover: var(--neutral-800, hsl(210 3% 40%));
+  --component-pill-neutral-surface-pressed: var(--neutral-900, hsl(220 3% 36%));
+  --component-pill-neutral-surface-rest: var(--shared-surface-alpha-0, hsl(0 0 100% / 0));
+  --component-pill-primary-border-hover: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-pill-primary-border-pressed: var(--brand-primary-700, hsl(215 65% 28%));
+  --component-pill-primary-border-rest: var(--brand-primary-300, hsl(216 43% 65%));
+  --component-pill-primary-content-hover: var(--brand-primary-200, hsl(218 45% 77%));
+  --component-pill-primary-content-pressed: var(--brand-primary-25, hsl(0 0 100%));
+  --component-pill-primary-content-rest: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-pill-primary-surface-hover: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-pill-primary-surface-pressed: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-pill-primary-surface-rest: var(--brand-primary-300, hsl(216 43% 65%));
+  --component-progress-bar-track: var(--neutral-900-15, hsl(220 3% 36% / 0.15));
+  --component-skeleton-content-1: var(--neutral-100, hsl(240 7% 95%));
+  --component-skeleton-content-2: var(--neutral-300, hsl(216 6% 83%));
+  --component-tag-border-attention: var(--component-tag-surface-attention, hsl(19 100% 29%));
+  --component-tag-border-info: var(--accent-orange-600, hsl(22 100% 45%));
+  --component-tag-border-neutral: var(--shared-border-3, hsl(214 5% 72%));
+  --component-tag-border-sale: var(--accent-green-500, hsl(80 100% 50%));
+  --component-tag-content-attention: var(--shared-content-dark, hsl(220 3% 36%));
+  --component-tag-content-info: var(--shared-content-light, hsl(0 0 100%));
+  --component-tag-content-neutral: var(--shared-content-dark, hsl(220 3% 36%));
+  --component-tag-content-sale: var(--shared-content-light, hsl(0 0 100%));
+  --component-tag-surface-attention: var(--accent-orange-800, hsl(19 100% 29%));
+  --component-tag-surface-info: var(--accent-orange-600, hsl(22 100% 45%));
+  --component-tag-surface-neutral: var(--neutral-400-70, hsl(214 5% 72% / 0.7));
+  --component-tag-surface-sale: var(--accent-green-500, hsl(80 100% 50%));
+  --component-toaster-background-error: var(--accent-orange-800, hsl(19 100% 29%));
+  --component-toaster-background-info: var(--accent-orange-300, hsl(22 100% 71%));
+  --component-toaster-background-success: var(--accent-green-100, hsl(74 100% 80%));
+  --component-toaster-background-warning: var(--accent-green-600, hsl(80 100% 40%));
+  --component-toaster-border-error: var(--shared-border-error, hsl(20 100% 38%));
+  --component-toaster-border-info: var(--shared-border-info, hsl(214 40% 51%));
+  --component-toaster-border-success: var(--shared-border-success, hsl(80 100% 50%));
+  --component-toaster-border-warning: var(--shared-border-warning, hsl(20 100% 38%));
+  --component-toaster-content-error: var(--shared-content-error, hsl(19 100% 29%));
+  --component-toaster-content-info: var(--shared-content-info, hsl(214 40% 51%));
+  --component-toaster-content-success: var(--shared-content-success, hsl(80 100% 50%));
+  --component-toaster-content-warning: var(--shared-content-warning, hsl(22 100% 45%));
+  --component-tooltip-surface-default: var(--shared-surface-base, hsl(0 0 100%));
+  --shared-border-1: var(--neutral-0, hsl(0 0 100%));
+  --shared-border-2: var(--neutral-100, hsl(240 7% 95%));
+  --shared-border-3: var(--neutral-400, hsl(214 5% 72%));
+  --shared-border-4: var(--neutral-700, hsl(218 4% 44%));
+  --shared-border-5: var(--neutral-900, hsl(220 3% 36%));
+  --shared-border-error: var(--accent-orange-700, hsl(20 100% 38%));
+  --shared-border-focus: var(--brand-primary-600, hsl(213 60% 32%));
+  --shared-border-info: var(--brand-primary-400, hsl(214 40% 51%));
+  --shared-border-success: var(--accent-green-500, hsl(80 100% 50%));
+  --shared-border-warning: var(--accent-orange-700, hsl(20 100% 38%));
+  --shared-border-brand-1: var(--brand-primary-600, hsl(213 60% 32%));
+  --shared-content-brand: var(--brand-primary-600, hsl(213 60% 32%));
+  --shared-content-dark: var(--neutral-900, hsl(220 3% 36%));
+  --shared-content-error: var(--accent-orange-800, hsl(19 100% 29%));
+  --shared-content-info: var(--brand-primary-400, hsl(214 40% 51%));
+  --shared-content-inverse: var(--neutral-0, hsl(0 0 100%));
+  --shared-content-light: var(--neutral-0, hsl(0 0 100%));
+  --shared-content-link: var(--brand-primary-700, hsl(215 65% 28%));
+  --shared-content-placeholder: var(--neutral-300, hsl(216 6% 83%));
+  --shared-content-primary: var(--neutral-900, hsl(220 3% 36%));
+  --shared-content-secondary: var(--neutral-700, hsl(218 4% 44%));
+  --shared-content-success: var(--accent-green-500, hsl(80 100% 50%));
+  --shared-content-tertiary: var(--neutral-600, hsl(217 3% 51%));
+  --shared-content-text-highlight: var(--neutral-900, hsl(220 3% 36%));
+  --shared-content-warning: var(--accent-orange-600, hsl(22 100% 45%));
+  --shared-effect-drop: var(--neutral-900-10, hsl(220 3% 36% / 0.51));
+  --shared-effect-error: var(--accent-orange-800, hsl(19 100% 29%));
+  --shared-effect-focus: var(--brand-primary-400, hsl(214 40% 51%));
+  --shared-effect-hover: var(--neutral-900-10, hsl(220 3% 36% / 0.51));
+  --shared-effect-outline-brand: var(--brand-primary-100, hsl(219 45% 86%));
+  --shared-effect-press: var(--neutral-900-15, hsl(220 3% 36% / 0.15));
+  --shared-surface-1: var(--neutral-25, hsl(0 0 100%));
+  --shared-surface-2: var(--neutral-50, hsl(240 8% 97%));
+  --shared-surface-3: var(--neutral-200, hsl(220 6% 90%));
+  --shared-surface-alpha-0: var(--neutral-alpha, hsl(0 0 100% / 0));
+  --shared-surface-base: var(--neutral-0, hsl(0 0 100%));
+  --shared-surface-caution-1: var(--accent-orange-600, hsl(22 100% 45%));
+  --shared-surface-caution-2: var(--accent-orange-700, hsl(20 100% 38%));
+  --shared-surface-inverse: var(--neutral-900, hsl(220 3% 36%));
+  --shared-surface-negative-1: var(--accent-orange-700, hsl(20 100% 38%));
+  --shared-surface-negative-2: var(--accent-orange-800, hsl(19 100% 29%));
+  --shared-surface-positive-1: var(--accent-green-500, hsl(80 100% 50%));
+  --shared-surface-positive-2: var(--accent-green-600, hsl(80 100% 40%));
+  --shared-surface-text-highlight: var(--brand-primary-400, hsl(214 40% 51%));
+  --shared-surface-tint-1: var(--neutral-900-50, hsl(220 3% 36% / 0.5));
+  --shared-surface-tint-2: var(--neutral-900-15, hsl(220 3% 36% / 0.15));
+  --shared-surface-brand-1: var(--brand-primary-50, hsl(217 39% 94%));
+  --shared-surface-brand-2: var(--brand-primary-100, hsl(219 45% 86%));
+  --shared-surface-brand-3: var(--brand-primary-800, hsl(215 68% 21%));
+  --shared-surface-brand-alt-1: var(--brand-secondary-25, hsl(0 0 100%));
+}
+
+/* ─── color_semantics — dark ────────────────────────────────── */
+[data-theme='dark'] {
+  --component-hack-do-not-implement: hsl(0 0 100% / 0);
+  --component-button-destructive-border-hover: var(--system-negative-700, hsl(359 91% 34%));
+  --component-button-destructive-border-pressed: var(--system-negative-900, hsl(359 100% 14%));
+  --component-button-destructive-border-rest: var(--system-negative-500, hsl(2 87% 48%));
+  --component-button-destructive-content-hover: var(--shared-content-light, hsl(0 0 100%));
+  --component-button-destructive-content-pressed: var(--shared-content-light, hsl(0 0 100%));
+  --component-button-destructive-content-rest: var(--shared-content-light, hsl(0 0 100%));
+  --component-button-destructive-surface-hover: var(--system-negative-700, hsl(359 91% 34%));
+  --component-button-destructive-surface-pressed: var(--system-negative-900, hsl(359 100% 14%));
+  --component-button-destructive-surface-rest: var(--system-negative-500, hsl(2 87% 48%));
+  --component-button-outline-border-hover: var(--neutral-200, hsl(220 6% 90%));
+  --component-button-outline-border-pressed: var(--neutral-100, hsl(240 7% 95%));
+  --component-button-outline-border-rest: var(--neutral-400, hsl(214 5% 72%));
+  --component-button-outline-content-hover: var(--neutral-0, hsl(0 0 100%));
+  --component-button-outline-content-pressed: var(--neutral-0, hsl(0 0 100%));
+  --component-button-outline-content-rest: var(--neutral-0, hsl(0 0 100%));
+  --component-button-outline-surface-hover: var(--shared-surface-1, hsl(7 12% 8%));
+  --component-button-outline-surface-pressed: var(--shared-surface-2, hsl(220 3% 36%));
+  --component-button-outline-surface-rest: var(--shared-surface-base, hsl(220 3% 36%));
+  --component-button-primary-border-hover: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-button-primary-border-pressed: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-button-primary-border-rest: var(--brand-primary-700, hsl(215 65% 28%));
+  --component-button-primary-content-hover: var(--neutral-0, hsl(0 0 100%));
+  --component-button-primary-content-pressed: var(--neutral-0, hsl(0 0 100%));
+  --component-button-primary-content-rest: var(--neutral-0, hsl(0 0 100%));
+  --component-button-primary-surface-hover: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-button-primary-surface-pressed: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-button-primary-surface-rest: var(--brand-primary-700, hsl(215 65% 28%));
+  --component-button-solid-border-hover: var(--neutral-100, hsl(240 7% 95%));
+  --component-button-solid-border-pressed: var(--neutral-300, hsl(216 6% 83%));
+  --component-button-solid-border-rest: var(--neutral-0, hsl(0 0 100%));
+  --component-button-solid-content-hover: var(--shared-content-inverse, hsl(220 3% 36%));
+  --component-button-solid-content-pressed: var(--shared-content-inverse, hsl(220 3% 36%));
+  --component-button-solid-content-rest: var(--shared-content-inverse, hsl(220 3% 36%));
+  --component-button-solid-surface-hover: var(--neutral-100, hsl(240 7% 95%));
+  --component-button-solid-surface-pressed: var(--neutral-50, hsl(240 8% 97%));
+  --component-button-solid-surface-rest: var(--shared-surface-inverse, hsl(0 0 100%));
+  --component-disabled-border-default: var(--neutral-800, hsl(210 3% 40%));
+  --component-disabled-content-default: var(--neutral-500, hsl(218 4% 61%));
+  --component-disabled-surface-1: var(--neutral-900, hsl(220 3% 36%));
+  --component-disabled-surface-2: var(--neutral-800, hsl(210 3% 40%));
+  --component-footer-surface-default: var(--neutral-1000, hsl(220 3% 36%));
+  --component-forms-border-active: var(--shared-border-focus, hsl(199 68% 91%));
+  --component-forms-border-error: var(--shared-border-error, hsl(3 83% 77%));
+  --component-forms-border-filled: var(--shared-border-5, hsl(0 0 100%));
+  --component-forms-border-focused: var(--shared-border-focus, hsl(199 68% 91%));
+  --component-forms-border-hover: var(--shared-border-4, hsl(216 6% 83%));
+  --component-forms-border-rest: var(--shared-border-4, hsl(216 6% 83%));
+  --component-forms-border-success: var(--shared-border-success, hsl(141 100% 78%));
+  --component-forms-content-entry: var(--shared-content-primary, hsl(0 0 100%));
+  --component-forms-content-error: var(--shared-content-error, hsl(3 83% 77%));
+  --component-forms-content-hint: var(--shared-content-tertiary, hsl(216 6% 83%));
+  --component-forms-content-label: var(--shared-content-primary, hsl(0 0 100%));
+  --component-forms-content-label-floating: var(--shared-content-tertiary, hsl(216 6% 83%));
+  --component-forms-content-placeholder: var(--shared-content-placeholder, hsl(217 3% 51%));
+  --component-forms-content-required: var(--system-negative-300, hsl(3 83% 77%));
+  --component-forms-content-success: var(--shared-content-success, hsl(141 100% 78%));
+  --component-forms-surface-default: var(--shared-surface-base, hsl(220 3% 36%));
+  --component-input-elements-border-active: var(--brand-primary-400, hsl(214 40% 51%));
+  --component-input-elements-border-active-focused: var(--brand-primary-400, hsl(214 40% 51%));
+  --component-input-elements-border-active-hover: var(--brand-primary-300, hsl(216 43% 65%));
+  --component-input-elements-border-active-pressed: var(--brand-primary-300, hsl(216 43% 65%));
+  --component-input-elements-border-focused: var(--neutral-500, hsl(218 4% 61%));
+  --component-input-elements-border-hover: var(--shared-border-3, hsl(217 3% 51%));
+  --component-input-elements-border-pressed: var(--neutral-300, hsl(216 6% 83%));
+  --component-input-elements-border-rest: var(--shared-border-3, hsl(217 3% 51%));
+  --component-input-elements-content-active: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-content-active-focused: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-content-active-hover: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-content-active-pressed: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-content-focused: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-content-hover: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-content-pressed: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-content-rest: var(--neutral-1000, hsl(220 3% 36%));
+  --component-input-elements-surface-active: var(--brand-primary-400, hsl(214 40% 51%));
+  --component-input-elements-surface-active-focused: var(--brand-primary-400, hsl(214 40% 51%));
+  --component-input-elements-surface-active-hover: var(--brand-primary-300, hsl(216 43% 65%));
+  --component-input-elements-surface-active-pressed: var(--brand-primary-500, hsl(214 55% 38%));
+  --component-input-elements-surface-default: var(--shared-surface-base, hsl(220 3% 36%));
+  --component-input-elements-surface-focused: var(--shared-surface-base, hsl(220 3% 36%));
+  --component-input-elements-surface-hover: var(--shared-surface-base, hsl(220 3% 36%));
+  --component-input-elements-surface-pressed: var(--shared-surface-2, hsl(220 3% 36%));
+  --component-input-elements-surface-range: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-input-elements-surface-toggle-track: var(--neutral-25, hsl(0 0 100%));
+  --component-pill-neutral-border-hover: var(--neutral-100, hsl(240 7% 95%));
+  --component-pill-neutral-border-pressed: var(--neutral-0, hsl(0 0 100%));
+  --component-pill-neutral-border-rest: var(--neutral-600, hsl(217 3% 51%));
+  --component-pill-neutral-content-hover: var(--shared-content-inverse, hsl(220 3% 36%));
+  --component-pill-neutral-content-pressed: var(--shared-content-inverse, hsl(220 3% 36%));
+  --component-pill-neutral-content-rest: var(--shared-content-primary, hsl(0 0 100%));
+  --component-pill-neutral-surface-hover: var(--neutral-100, hsl(240 7% 95%));
+  --component-pill-neutral-surface-pressed: var(--neutral-0, hsl(0 0 100%));
+  --component-pill-neutral-surface-rest: var(--neutral-alpha, hsl(0 0 100% / 0));
+  --component-pill-primary-border-hover: var(--brand-primary-700, hsl(215 65% 28%));
+  --component-pill-primary-border-pressed: var(--brand-primary-700, hsl(215 65% 28%));
+  --component-pill-primary-border-rest: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-pill-primary-content-hover: var(--brand-primary-25, hsl(0 0 100%));
+  --component-pill-primary-content-pressed: var(--brand-primary-25, hsl(0 0 100%));
+  --component-pill-primary-content-rest: var(--brand-primary-200, hsl(218 45% 77%));
+  --component-pill-primary-surface-hover: var(--brand-primary-700, hsl(215 65% 28%));
+  --component-pill-primary-surface-pressed: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-pill-primary-surface-rest: var(--brand-primary-800, hsl(215 68% 21%));
+  --component-progress-bar-track: var(--neutral-0-30, hsl(0 0 100% / 0.3));
+  --component-skeleton-content-1: var(--neutral-900, hsl(220 3% 36%));
+  --component-skeleton-content-2: var(--neutral-800, hsl(210 3% 40%));
+  --component-tag-border-attention: var(--component-tag-surface-attention, hsl(41 92% 54%));
+  --component-tag-border-info: var(--system-info-600, hsl(205 91% 40%));
+  --component-tag-border-neutral: var(--shared-border-3, hsl(217 3% 51%));
+  --component-tag-border-sale: var(--system-sale-500, hsl(12 93% 43%));
+  --component-tag-content-attention: var(--shared-content-dark, hsl(220 3% 36%));
+  --component-tag-content-info: var(--shared-content-light, hsl(0 0 100%));
+  --component-tag-content-neutral: var(--shared-content-dark, hsl(220 3% 36%));
+  --component-tag-content-sale: var(--shared-content-light, hsl(0 0 100%));
+  --component-tag-surface-attention: var(--system-caution-600, hsl(41 92% 54%));
+  --component-tag-surface-info: var(--system-info-600, hsl(205 91% 40%));
+  --component-tag-surface-neutral: var(--neutral-400-70, hsl(214 5% 72% / 0.7));
+  --component-tag-surface-sale: var(--system-sale-500, hsl(12 93% 43%));
+  --component-toaster-background-error: var(--system-negative-100, hsl(4 100% 94%));
+  --component-toaster-background-info: var(--system-info-100, hsl(199 48% 94%));
+  --component-toaster-background-success: var(--system-positive-100, hsl(141 100% 94%));
+  --component-toaster-background-warning: var(--system-caution-100, hsl(33 100% 90%));
+  --component-toaster-border-error: var(--shared-border-error, hsl(3 83% 77%));
+  --component-toaster-border-info: var(--shared-border-info, hsl(199 48% 94%));
+  --component-toaster-border-success: var(--shared-border-success, hsl(141 100% 78%));
+  --component-toaster-border-warning: var(--shared-border-warning, hsl(33 100% 90%));
+  --component-toaster-content-error: var(--shared-content-error, hsl(3 83% 77%));
+  --component-toaster-content-info: var(--shared-content-info, hsl(199 48% 94%));
+  --component-toaster-content-success: var(--shared-content-success, hsl(141 100% 78%));
+  --component-toaster-content-warning: var(--shared-content-warning, hsl(33 100% 90%));
+  --component-tooltip-surface-default: var(--shared-surface-1, hsl(7 12% 8%));
+  --shared-border-1: var(--neutral-950, hsl(7 12% 8%));
+  --shared-border-2: var(--neutral-800, hsl(210 3% 40%));
+  --shared-border-3: var(--neutral-600, hsl(217 3% 51%));
+  --shared-border-4: var(--neutral-300, hsl(216 6% 83%));
+  --shared-border-5: var(--neutral-0, hsl(0 0 100%));
+  --shared-border-error: var(--system-negative-300, hsl(3 83% 77%));
+  --shared-border-focus: var(--system-focus-100, hsl(199 68% 91%));
+  --shared-border-info: var(--system-info-100, hsl(199 48% 94%));
+  --shared-border-success: var(--system-positive-300, hsl(141 100% 78%));
+  --shared-border-warning: var(--system-caution-100, hsl(33 100% 90%));
+  --shared-border-brand-1: var(--brand-primary-400, hsl(214 40% 51%));
+  --shared-content-brand: var(--brand-primary-300, hsl(216 43% 65%));
+  --shared-content-dark: var(--neutral-1000, hsl(220 3% 36%));
+  --shared-content-error: var(--system-negative-300, hsl(3 83% 77%));
+  --shared-content-info: var(--system-info-100, hsl(199 48% 94%));
+  --shared-content-inverse: var(--neutral-1000, hsl(220 3% 36%));
+  --shared-content-light: var(--neutral-0, hsl(0 0 100%));
+  --shared-content-link: var(--brand-primary-300, hsl(216 43% 65%));
+  --shared-content-placeholder: var(--neutral-600, hsl(217 3% 51%));
+  --shared-content-primary: var(--neutral-0, hsl(0 0 100%));
+  --shared-content-secondary: var(--neutral-100, hsl(240 7% 95%));
+  --shared-content-success: var(--system-positive-300, hsl(141 100% 78%));
+  --shared-content-tertiary: var(--neutral-300, hsl(216 6% 83%));
+  --shared-content-text-highlight: var(--neutral-0, hsl(0 0 100%));
+  --shared-content-warning: var(--system-caution-100, hsl(33 100% 90%));
+  --shared-effect-drop: var(--neutral-900-50, hsl(220 3% 36% / 0.5));
+  --shared-effect-error: var(--system-negative-900, hsl(359 100% 14%));
+  --shared-effect-focus: var(--system-focus-800, hsl(200 94% 24%));
+  --shared-effect-hover: var(--neutral-0-20, hsl(0 0 100% / 0.2));
+  --shared-effect-outline-brand: var(--brand-primary-200, hsl(218 45% 77%));
+  --shared-effect-press: var(--neutral-0-30, hsl(0 0 100% / 0.3));
+  --shared-surface-1: var(--neutral-950, hsl(7 12% 8%));
+  --shared-surface-2: var(--neutral-900, hsl(220 3% 36%));
+  --shared-surface-3: var(--neutral-800, hsl(210 3% 40%));
+  --shared-surface-alpha-0: var(--neutral-alpha, hsl(0 0 100% / 0));
+  --shared-surface-base: var(--neutral-1000, hsl(220 3% 36%));
+  --shared-surface-caution-1: var(--system-caution-800, hsl(32 95% 24%));
+  --shared-surface-caution-2: var(--system-caution-600, hsl(41 92% 54%));
+  --shared-surface-inverse: var(--neutral-0, hsl(0 0 100%));
+  --shared-surface-negative-1: var(--system-negative-900, hsl(359 100% 14%));
+  --shared-surface-negative-2: var(--system-negative-500, hsl(2 87% 48%));
+  --shared-surface-positive-1: var(--system-positive-800, hsl(141 100% 14%));
+  --shared-surface-positive-2: var(--system-positive-300, hsl(141 100% 78%));
+  --shared-surface-text-highlight: var(--system-focus-800, hsl(200 94% 24%));
+  --shared-surface-tint-1: var(--neutral-900-50, hsl(220 3% 36% / 0.5));
+  --shared-surface-tint-2: var(--neutral-900-15, hsl(220 3% 36% / 0.15));
+  --shared-surface-brand-1: var(--brand-primary-800, hsl(215 68% 21%));
+  --shared-surface-brand-2: var(--brand-primary-700, hsl(215 65% 28%));
+  --shared-surface-brand-3: var(--brand-primary-100, hsl(219 45% 86%));
+  --shared-surface-brand-alt-1: var(--brand-secondary-800, hsl(211 48% 13%));
+}

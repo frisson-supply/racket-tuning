@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
-import { RenderBlocks } from '@/blocks/render-blocks'
-import { RenderHero } from '@/heros/render-hero'
+import { RenderBlocks } from '@/features/page-builder/blocks/render-blocks'
+import { RenderHero } from '@/features/page-builder/heros/render-hero'
 import { generateMeta } from '@/utilities/generate-meta'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -11,6 +11,7 @@ import React from 'react'
 
 import type { Page } from '@/payload-types'
 import { notFound } from 'next/navigation'
+import styles from '../pages.module.css'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -62,7 +63,7 @@ export default async function Page({ params }: Args) {
   const { hero, layout } = page
 
   return (
-    <article className="pt-16 pb-24">
+    <article className={styles.article}>
       <RenderHero {...hero} />
       <RenderBlocks blocks={layout} />
     </article>

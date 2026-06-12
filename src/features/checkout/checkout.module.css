@@ -1,0 +1,264 @@
+@layer components {
+  /* CheckoutForm */
+
+  .paymentActions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* ConfirmOrder */
+
+  .confirmWrap {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .confirmHeading {
+    font-size: 1.5rem;
+  }
+
+  .confirmSpinner {
+    width: 3rem;
+    height: 1.5rem;
+  }
+
+  /* CheckoutPage */
+
+  .processingWrap {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .processingText {
+    text-align: center;
+    max-width: none;
+    align-self: center;
+    margin-bottom: 2rem;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 48rem) {
+    .layout {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .layout {
+      gap: 2rem;
+    }
+  }
+
+  .formCol {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: stretch;
+  }
+
+  @media (min-width: 64rem) {
+    .formCol {
+      flex-basis: 66.666667%;
+    }
+  }
+
+  .sectionHeading {
+    font-weight: 500;
+    font-size: 1.875rem;
+  }
+
+  .guestBox {
+    background-color: var(--accent);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  [data-theme='dark'] .guestBox {
+    background-color: #000;
+  }
+
+  .userBox {
+    background-color: var(--accent);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  [data-theme='dark'] .userBox {
+    background-color: var(--card);
+  }
+
+  .checkboxRow {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .errorWrap {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .paymentSection {
+    padding-bottom: 4rem;
+  }
+
+  .paymentActions {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .noUnderline {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Cart summary */
+
+  .cartCol {
+    flex-basis: 100%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: color-mix(in oklch, var(--primary) 5%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (min-width: 64rem) {
+    .cartCol {
+      flex-basis: 33.333333%;
+      padding-left: 2rem;
+    }
+  }
+
+  .cartHeading {
+    font-size: 1.875rem;
+    font-weight: 500;
+  }
+
+  .cartItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cartThumb {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    height: 5rem;
+    width: 5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .cartThumbInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cartItemMeta {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cartItemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cartItemTitle {
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+
+  .cartItemVariant {
+    font-size: 0.875rem;
+    font-family: monospace;
+    color: color-mix(in oklch, var(--primary) 50%, transparent);
+    letter-spacing: 0.1em;
+  }
+
+  .cartTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cartTotalLabel {
+    text-transform: uppercase;
+  }
+
+  .selfStart {
+    align-self: flex-start;
+  }
+
+  /* CheckoutAddresses */
+
+  .addressesWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .addressesHeader {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  .addressesList {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .addressesListInner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .addressListItem {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+  }
+
+  .addressListItem:last-child {
+    border-bottom: none;
+  }
+}

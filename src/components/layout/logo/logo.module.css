@@ -1,0 +1,8 @@
+.logo {
+  max-width: 9.375rem;
+  filter: invert(1);
+}
+
+[data-theme='dark'] .logo {
+  filter: invert(0);
+}

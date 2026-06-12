@@ -1,0 +1,33 @@
+@layer components {
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .mediaBleed {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  @media (min-width: 48rem) {
+    .mediaBleed {
+      margin-left: -2rem;
+      margin-right: -2rem;
+    }
+  }
+
+  @media (min-width: 86rem) {
+    .mediaBleed {
+      margin-left: -4rem;
+      margin-right: -4rem;
+    }
+  }
+
+  .caption {
+    margin-top: 0.75rem;
+  }
+}

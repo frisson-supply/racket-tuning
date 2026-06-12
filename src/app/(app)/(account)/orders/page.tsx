@@ -3,11 +3,12 @@ import type { Metadata } from 'next'
 
 import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 
-import { OrderItem } from '@/components/order-item'
+import { OrderItem } from '@/features/account/order-item'
 import { headers as getHeaders } from 'next/headers'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
+import styles from '../account.module.css'
 
 export default async function Orders() {
   const headers = await getHeaders()
@@ -39,14 +40,12 @@ export default async function Orders() {
 
   return (
     <>
-      <div className="border p-8 rounded-lg bg-primary-foreground w-full">
-        <h1 className="text-3xl font-medium mb-8">Orders</h1>
-        {(!orders || !Array.isArray(orders) || orders?.length === 0) && (
-          <p className="">You have no orders.</p>
-        )}
+      <div className={styles.cardFull}>
+        <h1 className={styles.cardHeading}>Orders</h1>
+        {(!orders || !Array.isArray(orders) || orders?.length === 0) && <p>You have no orders.</p>}
 
         {orders && orders.length > 0 && (
-          <ul className="flex flex-col gap-6">
+          <ul className={styles.orderListPlain}>
             {orders?.map((order, index) => (
               <li key={order.id}>
                 <OrderItem order={order} />

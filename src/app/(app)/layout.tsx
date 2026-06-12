@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 
-import { AdminBar } from '@/components/admin-bar'
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
-import { LivePreviewListener } from '@/components/live-preview-listener'
+import { AdminBar } from '@/components/admin/admin-bar'
+import { Footer } from '@/components/layout/footer'
+import { Header } from '@/components/layout/header'
+import { LivePreviewListener } from '@/components/admin/live-preview-listener'
 import { ensureStartsWith } from '@/utilities/ensure-starts-with'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/theme/init-theme'
