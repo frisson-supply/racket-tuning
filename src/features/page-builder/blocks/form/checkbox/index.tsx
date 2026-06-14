@@ -34,7 +34,7 @@ export const Checkbox: React.FC<
 
   return (
     <Width width={width}>
-      <div className={styles.checkboxRow}>
+      <div className={styles['checkbox-row']}>
         <CheckboxUi
           defaultChecked={defaultValue}
           id={name}

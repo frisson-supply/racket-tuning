@@ -16,9 +16,9 @@ export const OrderItem: React.FC<Props> = ({ order }) => {
   return (
     <div className={styles.item}>
       <div className={styles.info}>
-        <h3 className={styles.orderId}>{`#${order.id}`}</h3>
+        <h3 className={styles['order-id']}>{`#${order.id}`}</h3>
 
-        <div className={styles.dateRow}>
+        <div className={styles['date-row']}>
           <p className={styles.date}>
             <time dateTime={order.createdAt}>
               {formatDateTime({ date: order.createdAt, format: 'MMMM dd, yyyy' })}

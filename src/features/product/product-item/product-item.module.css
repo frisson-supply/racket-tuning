@@ -17,7 +17,7 @@
     flex-shrink: 0;
   }
 
-  .thumbInner {
+  .thumb-inner {
     position: relative;
     width: 100%;
     height: 100%;
@@ -57,12 +57,12 @@
     text-align: right;
   }
 
-  .subtotalLabel {
+  .subtotal-label {
     font-weight: 500;
     font-size: 1.125rem;
   }
 
-  .subtotalPrice {
+  .subtotal-price {
     font-family: monospace;
     font-size: 0.875rem;
     color: color-mix(in oklch, var(--primary) 50%, transparent);

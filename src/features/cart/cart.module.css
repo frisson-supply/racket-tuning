@@ -1,12 +1,12 @@
 /* ── OpenCartButton ─────────────────────────────────────────────── */
-.openBtn {
+.open-btn {
   position: relative;
   align-items: flex-end;
   cursor: pointer;
 }
 
 /* ── CloseCart ──────────────────────────────────────────────────── */
-.closeWrap {
+.close-wrap {
   position: relative;
   display: flex;
   height: 2.75rem;
@@ -19,23 +19,23 @@
   transition: border-color 200ms;
 }
 
-[data-theme='dark'] .closeWrap {
+[data-theme='dark'] .close-wrap {
   border-color: oklch(43.9% 0 0deg);
   color: #fff;
 }
 
-.closeIcon {
+.close-icon {
   height: 1.5rem;
   width: auto;
   transition: transform 200ms ease-in-out;
 }
 
-.closeIcon:hover {
+.close-icon:hover {
   transform: scale(1.1);
 }
 
 /* ── DeleteItemButton ───────────────────────────────────────────── */
-.deleteBtn {
+.delete-btn {
   cursor: pointer;
   display: flex;
   height: 17px;
@@ -48,23 +48,23 @@
   transition: all 200ms ease-in-out;
 }
 
-.deleteBtn:disabled {
+.delete-btn:disabled {
   cursor: not-allowed;
 }
 
-.deleteIcon {
+.delete-icon {
   margin-inline: 1px;
   height: 1rem;
   width: 1rem;
   color: #fff;
 }
 
-[data-theme='dark'] .deleteIcon {
+[data-theme='dark'] .delete-icon {
   color: #000;
 }
 
 /* ── EditItemQuantityButton ─────────────────────────────────────── */
-.quantityBtn {
+.quantity-btn {
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -80,39 +80,39 @@
   transition: all 200ms ease-in-out;
 }
 
-.quantityBtn:hover:not(:disabled) {
+.quantity-btn:hover:not(:disabled) {
   border: 1px solid oklch(26.9% 0 0deg);
   opacity: 0.8;
 }
 
-.quantityBtn:disabled {
+.quantity-btn:disabled {
   cursor: not-allowed;
 }
 
-.quantityBtn--minus {
+.quantity-btn--minus {
   margin-left: auto;
 }
 
-.quantityIcon {
+.quantity-icon {
   height: 1rem;
   width: 1rem;
 }
 
-[data-theme='dark'] .quantityIcon {
+[data-theme='dark'] .quantity-icon {
   color: oklch(55.6% 0 0deg);
 }
 
-.quantityIcon:hover {
+.quantity-icon:hover {
   color: oklch(77.7% 0.245 264deg);
 }
 
 /* ── CartModal ──────────────────────────────────────────────────── */
-.sheetContent {
+.sheet-content {
   display: flex;
   flex-direction: column;
 }
 
-.emptyState {
+.empty-state {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -120,30 +120,30 @@
   gap: 0.5rem;
 }
 
-.emptyIcon {
+.empty-icon {
   height: 4rem;
 }
 
-.emptyTitle {
+.empty-title {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.cartBody {
+.cart-body {
   display: flex;
   flex-grow: 1;
   padding-inline: 1rem;
 }
 
-.cartInner {
+.cart-inner {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
 }
 
-.itemList {
+.item-list {
   flex-grow: 1;
   overflow: auto;
   padding-block: 1rem;
@@ -155,7 +155,7 @@
   flex-direction: column;
 }
 
-.itemRow {
+.item-row {
   position: relative;
   display: flex;
   width: 100%;
@@ -165,21 +165,21 @@
   padding-block: 1rem;
 }
 
-.deleteWrap {
+.delete-wrap {
   position: absolute;
   z-index: 40;
   margin-top: -0.5rem;
   margin-left: 55px;
 }
 
-.itemLink {
+.item-link {
   z-index: 30;
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-.itemImage {
+.item-image {
   position: relative;
   height: 4rem;
   width: 4rem;
@@ -190,49 +190,49 @@
   background-color: var(--border);
 }
 
-[data-theme='dark'] .itemImage {
+[data-theme='dark'] .item-image {
   border-color: oklch(43.9% 0 0deg);
   background-color: oklch(20.5% 0 0deg);
 }
 
-.itemImageEl {
+.item-image-el {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.itemInfo {
+.item-info {
   display: flex;
   flex: 1;
   flex-direction: column;
   font-size: 1rem;
 }
 
-.itemVariant {
+.item-variant {
   font-size: 0.875rem;
   color: oklch(55.6% 0 0deg);
   text-transform: capitalize;
 }
 
-[data-theme='dark'] .itemVariant {
+[data-theme='dark'] .item-variant {
   color: oklch(70.8% 0 0deg);
 }
 
-.itemActions {
+.item-actions {
   display: flex;
   height: 4rem;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.itemPrice {
+.item-price {
   display: flex;
   justify-content: flex-end;
   text-align: right;
   font-size: 0.875rem;
 }
 
-.quantityRow {
+.quantity-row {
   margin-left: auto;
   display: flex;
   height: 2.25rem;
@@ -242,31 +242,31 @@
   border: 1px solid var(--border);
 }
 
-.quantityCount {
+.quantity-count {
   width: 1.5rem;
   text-align: center;
 }
 
-.quantityCountText {
+.quantity-count-text {
   width: 100%;
   font-size: 0.875rem;
 }
 
-.cartFooter {
+.cart-footer {
   padding-inline: 1rem;
 }
 
-.cartSummary {
+.cart-summary {
   padding-block: 1rem;
   font-size: 0.875rem;
   color: oklch(55.6% 0 0deg);
 }
 
-[data-theme='dark'] .cartSummary {
+[data-theme='dark'] .cart-summary {
   color: oklch(70.8% 0 0deg);
 }
 
-.subtotalRow {
+.subtotal-row {
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -275,16 +275,16 @@
   padding-block: 0.25rem;
 }
 
-.subtotalPrice {
+.subtotal-price {
   text-align: right;
   font-size: 1rem;
   color: #000;
 }
 
-[data-theme='dark'] .subtotalPrice {
+[data-theme='dark'] .subtotal-price {
   color: #fff;
 }
 
-.checkoutLink {
+.checkout-link {
   width: 100%;
 }

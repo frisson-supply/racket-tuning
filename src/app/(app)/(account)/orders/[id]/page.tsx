@@ -115,7 +115,7 @@ export default async function Order({ params, searchParams }: PageProps) {
 
   return (
     <div>
-      <div className={styles.orderHeader}>
+      <div className={styles['order-header']}>
         {user ? (
           <div>
             <Button asChild variant="ghost">
@@ -129,14 +129,14 @@ export default async function Order({ params, searchParams }: PageProps) {
           <div></div>
         )}
 
-        <h1 className={styles.orderBadge}>{`Order #${order.id}`}</h1>
+        <h1 className={styles['order-badge']}>{`Order #${order.id}`}</h1>
       </div>
 
-      <div className={styles.orderCard}>
-        <div className={styles.orderMeta}>
+      <div className={styles['order-card']}>
+        <div className={styles['order-meta']}>
           <div>
-            <p className={styles.orderLabel}>Order Date</p>
-            <p className={styles.orderValue}>
+            <p className={styles['order-label']}>Order Date</p>
+            <p className={styles['order-value']}>
               <time dateTime={order.createdAt}>
                 {formatDateTime({ date: order.createdAt, format: 'MMMM dd, yyyy' })}
               </time>
@@ -144,13 +144,13 @@ export default async function Order({ params, searchParams }: PageProps) {
           </div>
 
           <div>
-            <p className={styles.orderLabel}>Total</p>
-            {order.amount && <Price className={styles.orderValue} amount={order.amount} />}
+            <p className={styles['order-label']}>Total</p>
+            {order.amount && <Price className={styles['order-value']} amount={order.amount} />}
           </div>
 
           {order.status && (
-            <div className={styles.orderStatusCol}>
-              <p className={styles.orderLabel}>Status</p>
+            <div className={styles['order-status-col']}>
+              <p className={styles['order-label']}>Status</p>
               <OrderStatus status={order.status} />
             </div>
           )}
@@ -158,8 +158,8 @@ export default async function Order({ params, searchParams }: PageProps) {
 
         {order.items && (
           <div>
-            <h2 className={styles.sectionLabel}>Items</h2>
-            <ul className={styles.itemList}>
+            <h2 className={styles['section-label']}>Items</h2>
+            <ul className={styles['item-list']}>
               {order.items?.map((item, index) => {
                 if (typeof item.product === 'string') {
                   return null
@@ -188,7 +188,7 @@ export default async function Order({ params, searchParams }: PageProps) {
 
         {order.shippingAddress && (
           <div>
-            <h2 className={styles.sectionLabel}>Shipping Address</h2>
+            <h2 className={styles['section-label']}>Shipping Address</h2>
 
             {/* @ts-expect-error - some kind of type hell */}
             <AddressItem address={order.shippingAddress} hideActions />

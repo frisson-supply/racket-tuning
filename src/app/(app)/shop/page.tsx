@@ -79,7 +79,7 @@ export default async function ShopPage({ searchParams }: Props) {
   return (
     <div>
       {searchValue ? (
-        <p className={styles.resultText}>
+        <p className={styles['result-text']}>
           {products.docs?.length === 0
             ? 'There are no products that match '
             : `Showing ${products.docs.length} ${resultsText} for `}
@@ -88,11 +88,11 @@ export default async function ShopPage({ searchParams }: Props) {
       ) : null}
 
       {!searchValue && products.docs?.length === 0 && (
-        <p className={styles.resultText}>No products found. Please try different filters.</p>
+        <p className={styles['result-text']}>No products found. Please try different filters.</p>
       )}
 
       {products?.docs.length > 0 ? (
-        <Grid className={styles.productGrid}>
+        <Grid className={styles['product-grid']}>
           {products.docs.map((product) => {
             return <ProductGridItem key={product.id} product={product} />
           })}

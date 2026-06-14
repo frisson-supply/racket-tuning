@@ -43,21 +43,21 @@ export function CartModal() {
         <OpenCartButton quantity={totalQuantity} />
       </SheetTrigger>
 
-      <SheetContent className={styles.sheetContent}>
+      <SheetContent className={styles['sheet-content']}>
         <SheetHeader>
           <SheetTitle>My Cart</SheetTitle>
           <SheetDescription>Manage your cart here, add items to view the total.</SheetDescription>
         </SheetHeader>
 
         {!cart || cart?.items?.length === 0 ? (
-          <div className={styles.emptyState}>
-            <ShoppingCart className={styles.emptyIcon} />
-            <p className={styles.emptyTitle}>Your cart is empty.</p>
+          <div className={styles['empty-state']}>
+            <ShoppingCart className={styles['empty-icon']} />
+            <p className={styles['empty-title']}>Your cart is empty.</p>
           </div>
         ) : (
-          <div className={styles.cartBody}>
-            <div className={styles.cartInner}>
-              <ul className={styles.itemList}>
+          <div className={styles['cart-body']}>
+            <div className={styles['cart-inner']}>
+              <ul className={styles['item-list']}>
                 {cart?.items?.map((item, i) => {
                   const product = item.product
                   const variant = item.variant
@@ -107,19 +107,19 @@ export function CartModal() {
 
                   return (
                     <li className={styles.item} key={i}>
-                      <div className={styles.itemRow}>
-                        <div className={styles.deleteWrap}>
+                      <div className={styles['item-row']}>
+                        <div className={styles['delete-wrap']}>
                           <DeleteItemButton item={item} />
                         </div>
                         <Link
-                          className={styles.itemLink}
+                          className={styles['item-link']}
                           href={`/products/${(item.product as Product)?.slug}`}
                         >
-                          <div className={styles.itemImage}>
+                          <div className={styles['item-image']}>
                             {image?.url && (
                               <Image
                                 alt={image?.alt || product?.title || ''}
-                                className={styles.itemImageEl}
+                                className={styles['item-image-el']}
                                 height={94}
                                 src={image.url}
                                 width={94}
@@ -127,10 +127,10 @@ export function CartModal() {
                             )}
                           </div>
 
-                          <div className={styles.itemInfo}>
+                          <div className={styles['item-info']}>
                             <span>{product?.title}</span>
                             {isVariant && variant ? (
-                              <p className={styles.itemVariant}>
+                              <p className={styles['item-variant']}>
                                 {variant.options
                                   ?.map((option: number | VariantOption) => {
                                     if (typeof option === 'object') return option.label
@@ -141,14 +141,14 @@ export function CartModal() {
                             ) : null}
                           </div>
                         </Link>
-                        <div className={styles.itemActions}>
+                        <div className={styles['item-actions']}>
                           {typeof price === 'number' && (
-                            <Price amount={price} className={styles.itemPrice} />
+                            <Price amount={price} className={styles['item-price']} />
                           )}
-                          <div className={styles.quantityRow}>
+                          <div className={styles['quantity-row']}>
                             <EditItemQuantityButton item={item} type="minus" />
-                            <p className={styles.quantityCount}>
-                              <span className={styles.quantityCountText}>{item.quantity}</span>
+                            <p className={styles['quantity-count']}>
+                              <span className={styles['quantity-count-text']}>{item.quantity}</span>
                             </p>
                             <EditItemQuantityButton item={item} type="plus" />
                           </div>
@@ -159,17 +159,17 @@ export function CartModal() {
                 })}
               </ul>
 
-              <div className={styles.cartFooter}>
-                <div className={styles.cartSummary}>
+              <div className={styles['cart-footer']}>
+                <div className={styles['cart-summary']}>
                   {typeof cart?.subtotal === 'number' && (
-                    <div className={styles.subtotalRow}>
+                    <div className={styles['subtotal-row']}>
                       <p>Total</p>
-                      <Price amount={cart?.subtotal} className={styles.subtotalPrice} />
+                      <Price amount={cart?.subtotal} className={styles['subtotal-price']} />
                     </div>
                   )}
 
                   <Button asChild>
-                    <Link className={styles.checkoutLink} href="/checkout">
+                    <Link className={styles['checkout-link']} href="/checkout">
                       Proceed to Checkout
                     </Link>
                   </Button>

@@ -75,7 +75,7 @@ export const CreateAccountForm: React.FC = () => {
   )
 
   return (
-    <form className={`${styles['form--sm']} ${styles.formPadded}`} onSubmit={handleSubmit(onSubmit)}>
+    <form className={`${styles['form--sm']} ${styles['form-padded']}`} onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(proseStyles.prose, styles['mb-6'])}>
         <p>
           {`This is where new customers can signup and create a new account. To manage all users, `}
@@ -85,7 +85,7 @@ export const CreateAccountForm: React.FC = () => {
 
       <Message error={error} />
 
-      <div className={styles.fieldGroup}>
+      <div className={styles['field-group']}>
         <FormItem>
           <Label htmlFor="email" className={styles['mb-2']}>
             Email Address

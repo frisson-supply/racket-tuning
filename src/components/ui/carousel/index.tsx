@@ -154,7 +154,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        styles.prevBtn,
+        styles['prev-btn'],
         orientation === 'horizontal' ? styles['prevBtn--horizontal'] : styles['prevBtn--vertical'],
         className,
       )}
@@ -182,7 +182,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        styles.nextBtn,
+        styles['next-btn'],
         orientation === 'horizontal' ? styles['nextBtn--horizontal'] : styles['nextBtn--vertical'],
         className,
       )}

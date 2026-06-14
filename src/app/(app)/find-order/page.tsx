@@ -14,7 +14,7 @@ export default async function FindOrderPage() {
   const { user } = await payload.auth({ headers })
 
   return (
-    <div className={`container ${styles.pagePy}`}>
+    <div className={`container ${styles['page-py']}`}>
       <FindOrderForm initialEmail={user?.email} />
     </div>
   )

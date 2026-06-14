@@ -6,7 +6,7 @@ import Link from 'next/link'
 import React from 'react'
 
 type CMSLinkType = {
-  appearance?: 'inline' | ButtonProps['variant']
+  appearance?: 'inline' | ButtonProps['variant'] | null
   children?: React.ReactNode
   className?: string
   label?: string | null
@@ -23,7 +23,7 @@ type CMSLinkType = {
 export const CMSLink: React.FC<CMSLinkType> = (props) => {
   const {
     type,
-    appearance = 'inline',
+    appearance: appearanceFromProps,
     children,
     className,
     label,
@@ -32,6 +32,8 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
     size: sizeFromProps,
     url,
   } = props
+
+  const appearance = appearanceFromProps ?? 'inline'
 
   const href =
     type === 'reference' && typeof reference?.value === 'object' && reference.value.slug

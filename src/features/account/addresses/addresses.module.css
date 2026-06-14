@@ -25,12 +25,12 @@
     gap: 2rem;
   }
 
-  .listItem {
+  .list-item {
     border-bottom: 1px solid var(--border);
     padding-bottom: 2rem;
   }
 
-  .listItem:last-child {
+  .list-item:last-child {
     border-bottom: none;
   }
 }

@@ -18,10 +18,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <RenderParams className="" />
       </div>
 
-      <div className={`container ${styles.layoutRow}`}>
+      <div className={`container ${styles['layout-row']}`}>
         {user && <AccountNav className={styles.nav} />}
 
-        <div className={styles.contentArea}>{children}</div>
+        <div className={styles['content-area']}>{children}</div>
       </div>
     </div>
   )

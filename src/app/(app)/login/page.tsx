@@ -22,11 +22,11 @@ export default async function Login() {
 
   return (
     <div className="container">
-      <div className={styles.authInner}>
+      <div className={styles['auth-inner']}>
         <RenderParams />
 
-        <h1 className={styles.authHeading}>Log in</h1>
-        <p className={styles.authIntro}>
+        <h1 className={styles['auth-heading']}>Log in</h1>
+        <p className={styles['auth-intro']}>
           {`This is where your customers will login to manage their account, review their order history, and more. To manage all users, `}
           <Link href="/admin/collections/users">login to the admin dashboard</Link>.
         </p>

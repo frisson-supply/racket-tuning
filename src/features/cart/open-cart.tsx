@@ -15,7 +15,7 @@ export function OpenCartButton({
     <Button
       variant="nav"
       size="clear"
-      className={cn('navLink relative items-end', styles.openBtn, className)}
+      className={cn('navLink relative items-end', styles['open-btn'], className)}
       {...rest}
     >
       <span>Cart</span>

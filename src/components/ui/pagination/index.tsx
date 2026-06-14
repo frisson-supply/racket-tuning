@@ -61,7 +61,7 @@ function PaginationPrevious({ className, ...props }: React.ComponentProps<typeof
       {...props}
     >
       <ChevronLeftIcon />
-      <span className={styles.prevLabel}>Previous</span>
+      <span className={styles['prev-label']}>Previous</span>
     </PaginationLink>
   )
 }
@@ -74,7 +74,7 @@ function PaginationNext({ className, ...props }: React.ComponentProps<typeof Pag
       className={cn(styles.next, className)}
       {...props}
     >
-      <span className={styles.nextLabel}>Next</span>
+      <span className={styles['next-label']}>Next</span>
       <ChevronRightIcon />
     </PaginationLink>
   )

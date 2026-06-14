@@ -22,9 +22,9 @@ function PathFilterItem({ item }: { item: PathFilterItemType }) {
   newParams.delete('q')
 
   return (
-    <li className={styles.pathItem} key={item.title}>
+    <li className={styles['path-item']} key={item.title}>
       <DynamicTag
-        className={cn(styles.pathLink, active && styles['pathLink--active'])}
+        className={cn(styles['path-link'], active && styles['pathLink--active'])}
         href={createUrl(item.path, newParams)}
       >
         {item.title}
@@ -48,9 +48,9 @@ function SortFilterItem({ item }: { item: SortFilterItemType }) {
   const DynamicTag = active ? 'p' : Link
 
   return (
-    <li className={styles.sortItem} key={item.title}>
+    <li className={styles['sort-item']} key={item.title}>
       <DynamicTag
-        className={cn(styles.sortLink, active && styles['sortLink--active'])}
+        className={cn(styles['sort-link'], active && styles['sortLink--active'])}
         href={href}
         prefetch={!active ? false : undefined}
       >

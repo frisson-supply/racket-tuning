@@ -51,7 +51,7 @@ export const CarouselBlock: React.FC<
   if (!products?.length) return null
 
   return (
-    <div className={styles.blockWrap}>
+    <div className={styles['block-wrap']}>
       <CarouselClient products={products} />
     </div>
   )

@@ -17,7 +17,7 @@ async function CategoryList() {
 
   return (
     <div>
-      <h3 className={styles.categoriesTitle}>Category</h3>
+      <h3 className={styles['categories-title']}>Category</h3>
 
       <ul>
         {categories.docs.map((category) => {
@@ -36,7 +36,7 @@ export function Categories() {
   return (
     <Suspense
       fallback={
-        <div className={styles.skeletonWrapper}>
+        <div className={styles['skeleton-wrapper']}>
           <div className={cn(styles.skeleton, styles['skeleton--title'])} />
           <div className={cn(styles.skeleton, styles['skeleton--title'])} />
           <div className={cn(styles.skeleton, styles['skeleton--item'])} />

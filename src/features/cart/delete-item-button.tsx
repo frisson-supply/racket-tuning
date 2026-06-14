@@ -14,7 +14,7 @@ export function DeleteItemButton({ item }: { item: CartItem }) {
     <form>
       <button
         aria-label="Remove cart item"
-        className={styles.deleteBtn}
+        className={styles['delete-btn']}
         disabled={!itemId || isLoading}
         onClick={(e: React.FormEvent<HTMLButtonElement>) => {
           e.preventDefault()
@@ -22,7 +22,7 @@ export function DeleteItemButton({ item }: { item: CartItem }) {
         }}
         type="button"
       >
-        <XIcon className={styles.deleteIcon} />
+        <XIcon className={styles['delete-icon']} />
       </button>
     </form>
   )

@@ -18,8 +18,8 @@ export const Code: React.FC<Props> = ({ code, language = '' }) => {
         <pre className={styles.pre}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ className: 'table-row', line })}>
-              <span className={styles.lineNum}>{i + 1}</span>
-              <span className={styles.lineCode}>
+              <span className={styles['line-num']}>{i + 1}</span>
+              <span className={styles['line-code']}>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token })} />
                 ))}

@@ -36,7 +36,7 @@ export const CategoryItem: React.FC<Props> = ({ category }) => {
   return (
     <button
       onClick={() => setQuery()}
-      className={cn(styles.categoryBtn, isActive && styles['categoryBtn--active'])}
+      className={cn(styles['category-btn'], isActive && styles['categoryBtn--active'])}
     >
       {category.title}
     </button>

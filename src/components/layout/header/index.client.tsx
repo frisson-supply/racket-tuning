@@ -24,18 +24,18 @@ export function HeaderClient({ header }: Props) {
   return (
     <div className={styles.wrapper}>
       <nav className={cn(styles.nav, 'container')}>
-        <div className={styles.mobileToggle}>
+        <div className={styles['mobile-toggle']}>
           <Suspense fallback={null}>
             <MobileMenu menu={menu} />
           </Suspense>
         </div>
         <div className={styles.inner}>
-          <div className={styles.logoGroup}>
-            <Link className={styles.logoLink} href="/">
-              <LogoIcon className={styles.logoIcon} />
+          <div className={styles['logo-group']}>
+            <Link className={styles['logo-link']} href="/">
+              <LogoIcon className={styles['logo-icon']} />
             </Link>
             {menu.length ? (
-              <ul className={styles.menuList}>
+              <ul className={styles['menu-list']}>
                 {menu.map((item) => (
                   <li key={item.id}>
                     <CMSLink
@@ -55,7 +55,7 @@ export function HeaderClient({ header }: Props) {
             ) : null}
           </div>
 
-          <div className={styles.cartGroup}>
+          <div className={styles['cart-group']}>
             <Suspense fallback={<OpenCartButton />}>
               <Cart />
             </Suspense>

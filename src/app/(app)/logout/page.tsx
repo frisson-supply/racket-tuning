@@ -8,7 +8,7 @@ import styles from '../pages.module.css'
 
 export default async function Logout() {
   return (
-    <div className={`container ${styles.logoutInner}`}>
+    <div className={`container ${styles['logout-inner']}`}>
       <LogoutPage />
     </div>
   )

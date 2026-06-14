@@ -49,7 +49,7 @@ export const LoginForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Message error={error} />
-      <div className={styles.fieldGroup}>
+      <div className={styles['field-group']}>
         <FormItem>
           <Label htmlFor="email">Email</Label>
           <Input
@@ -80,7 +80,7 @@ export const LoginForm: React.FC = () => {
 
       <div className={styles.actions}>
         <Button asChild variant="outline" size="lg">
-          <Link href={`/create-account${allParams}`} className={styles.halfGrow}>
+          <Link href={`/create-account${allParams}`} className={styles['half-grow']}>
             Create an account
           </Link>
         </Button>

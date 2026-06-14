@@ -17,13 +17,13 @@
   }
 }
 
-.mobileToggle {
+.mobile-toggle {
   display: block;
   flex-shrink: 0;
 }
 
 @media (min-width: 48rem) {
-  .mobileToggle {
+  .mobile-toggle {
     display: none;
   }
 }
@@ -35,7 +35,7 @@
   justify-content: space-between;
 }
 
-.logoGroup {
+.logo-group {
   display: flex;
   width: 100%;
   align-items: flex-end;
@@ -43,12 +43,12 @@
 }
 
 @media (min-width: 48rem) {
-  .logoGroup {
+  .logo-group {
     width: 33.333%;
   }
 }
 
-.logoLink {
+.logo-link {
   display: flex;
   width: 100%;
   align-items: center;
@@ -57,17 +57,17 @@
 }
 
 @media (min-width: 48rem) {
-  .logoLink {
+  .logo-link {
     width: auto;
   }
 }
 
-.logoIcon {
+.logo-icon {
   width: 1.5rem;
   height: auto;
 }
 
-.menuList {
+.menu-list {
   display: none;
   gap: 1rem;
   font-size: 0.875rem;
@@ -75,30 +75,30 @@
 }
 
 @media (min-width: 48rem) {
-  .menuList {
+  .menu-list {
     display: flex;
   }
 }
 
-.cartGroup {
+.cart-group {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
 }
 
 @media (min-width: 48rem) {
-  .cartGroup {
+  .cart-group {
     width: 33.333%;
   }
 }
 
 /* navLink — underline animation */
-.navLink {
+.nav-link {
   overflow: hidden;
   border-radius: unset;
 }
 
-.navLink::after {
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -109,10 +109,10 @@
   transition: transform 0.3s;
 }
 
-.navLink:not(.navLinkActive):hover::after {
+.nav-link:not(.nav-link-active):hover::after {
   transform: translateY(-2px);
 }
 
-.navLinkActive::after {
+.nav-link-active::after {
   transform: translateY(-2px);
 }

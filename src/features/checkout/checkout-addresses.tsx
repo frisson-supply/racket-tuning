@@ -40,9 +40,9 @@ export const CheckoutAddresses: React.FC<Props> = ({
   }
 
   return (
-    <div className={styles.addressesWrap}>
+    <div className={styles['addresses-wrap']}>
       <div>
-        <h3 className={styles.addressesHeader}>{heading}</h3>
+        <h3 className={styles['addresses-header']}>{heading}</h3>
         <p className={styles['addresses-description']}>{description}</p>
       </div>
       <AddressesModal setAddress={setAddress} />
@@ -75,10 +75,10 @@ const AddressesModal: React.FC<Props> = ({ setAddress }) => {
           <DialogTitle>{'Select an address'}</DialogTitle>
         </DialogHeader>
 
-        <div className={styles.addressesList}>
-          <ul className={styles.addressesListInner}>
+        <div className={styles['addresses-list']}>
+          <ul className={styles['addresses-list-inner']}>
             {addresses.map((address) => (
-              <li key={address.id} className={styles.addressListItem}>
+              <li key={address.id} className={styles['address-list-item']}>
                 <AddressItem
                   address={address}
                   beforeActions={

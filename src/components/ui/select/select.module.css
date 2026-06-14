@@ -68,7 +68,7 @@
 }
 
 /* chevron icon opacity */
-.chevronIcon {
+.chevron-icon {
   opacity: 0.5;
   width: 1rem;
   height: 1rem;
@@ -112,7 +112,7 @@
   padding: 0.25rem;
 }
 
-.viewportPopper {
+.viewport-popper {
   height: var(--radix-select-trigger-height);
   width: 100%;
   scroll-margin-block: 0.25rem;
@@ -160,7 +160,7 @@
   color: var(--muted-foreground);
 }
 
-.itemIndicator {
+.item-indicator {
   position: absolute;
   right: 0.5rem;
   display: flex;
@@ -178,7 +178,7 @@
   background-color: var(--border);
 }
 
-.scrollBtn {
+.scroll-btn {
   display: flex;
   cursor: default;
   align-items: center;
@@ -186,7 +186,7 @@
   padding-block: 0.25rem;
 }
 
-.scrollBtn svg {
+.scroll-btn svg {
   width: 1rem;
   height: 1rem;
 }

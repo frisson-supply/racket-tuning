@@ -32,7 +32,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className={styles.chevronIcon} />
+        <ChevronDownIcon className={styles['chevron-icon']} />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
@@ -56,7 +56,7 @@ function SelectContent({
         <SelectPrimitive.Viewport
           className={cn(
             styles.viewport,
-            position === 'popper' && styles.viewportPopper,
+            position === 'popper' && styles['viewport-popper'],
           )}
         >
           {children}
@@ -88,7 +88,7 @@ function SelectItem({
       className={cn(styles.item, className)}
       {...props}
     >
-      <span className={styles.itemIndicator}>
+      <span className={styles['item-indicator']}>
         <SelectPrimitive.ItemIndicator>
           <CheckIcon style={{ width: '1rem', height: '1rem' }} />
         </SelectPrimitive.ItemIndicator>
@@ -118,7 +118,7 @@ function SelectScrollUpButton({
   return (
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
-      className={cn(styles.scrollBtn, className)}
+      className={cn(styles['scroll-btn'], className)}
       {...props}
     >
       <ChevronUpIcon />
@@ -133,7 +133,7 @@ function SelectScrollDownButton({
   return (
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
-      className={cn(styles.scrollBtn, className)}
+      className={cn(styles['scroll-btn'], className)}
       {...props}
     >
       <ChevronDownIcon />

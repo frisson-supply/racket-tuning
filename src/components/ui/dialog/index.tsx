@@ -54,7 +54,7 @@ function DialogContent({
       >
         {children}
         {showCloseButton && (
-          <DialogPrimitive.Close data-slot="dialog-close" className={styles.closeBtn}>
+          <DialogPrimitive.Close data-slot="dialog-close" className={styles['close-btn']}>
             <XIcon />
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>

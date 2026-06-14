@@ -17,9 +17,9 @@ export function CopyButton({ code }: { code: string }) {
   }
 
   return (
-    <div className={styles.copyWrap}>
+    <div className={styles['copy-wrap']}>
       <Button
-        className={styles.copyBtn}
+        className={styles['copy-btn']}
         variant={'secondary'}
         onClick={async () => {
           await navigator.clipboard.writeText(code)

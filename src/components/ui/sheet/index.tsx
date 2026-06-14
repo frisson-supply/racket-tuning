@@ -53,7 +53,7 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className={styles.closeBtn}>
+        <SheetPrimitive.Close className={styles['close-btn']}>
           <XIcon />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>

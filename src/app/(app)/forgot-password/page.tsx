@@ -8,7 +8,7 @@ import styles from '../pages.module.css'
 
 export default async function ForgotPasswordPage() {
   return (
-    <div className={`container ${styles.pagePy}`}>
+    <div className={`container ${styles['page-py']}`}>
       <ForgotPasswordForm />
     </div>
   )

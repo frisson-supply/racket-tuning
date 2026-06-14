@@ -4,7 +4,7 @@ import styles from './shop.module.css'
 
 export default function Loading() {
   return (
-    <Grid className={styles.loadingGrid}>
+    <Grid className={styles['loading-grid']}>
       {Array(12)
         .fill(0)
         .map((_, index) => {

@@ -54,9 +54,9 @@ export function ProductDescription({ product }: { product: Product }) {
 
   return (
     <div className={styles.description}>
-      <div className={styles.descHeader}>
-        <h1 className={styles.descTitle}>{product.title}</h1>
-        <div className={styles.descPriceWrap}>
+      <div className={styles['desc-header']}>
+        <h1 className={styles['desc-title']}>{product.title}</h1>
+        <div className={styles['desc-price-wrap']}>
           {hasVariants ? (
             <Price highestAmount={highestAmount} lowestAmount={lowestAmount} />
           ) : (
@@ -76,12 +76,12 @@ export function ProductDescription({ product }: { product: Product }) {
           <hr />
         </>
       )}
-      <div className={styles.descActionsRow}>
+      <div className={styles['desc-actions-row']}>
         <Suspense fallback={null}>
           <StockIndicator product={product} />
         </Suspense>
       </div>
-      <div className={styles.descActionsRow}>
+      <div className={styles['desc-actions-row']}>
         <Suspense fallback={null}>
           <AddToCart product={product} />
         </Suspense>

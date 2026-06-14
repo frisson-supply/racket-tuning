@@ -48,9 +48,9 @@ export default async function AddressesPage() {
   return (
     <>
       <div className={styles.card}>
-        <h1 className={styles.cardHeading}>Addresses</h1>
+        <h1 className={styles['card-heading']}>Addresses</h1>
 
-        <div className={styles.addressListWrap}>
+        <div className={styles['address-list-wrap']}>
           <AddressListing />
         </div>
 

@@ -6,7 +6,7 @@
   border-bottom: 0;
 }
 
-.triggerHeader {
+.trigger-header {
   display: flex;
 }
 
@@ -70,7 +70,7 @@
   animation: accordion-up 0.2s ease-out;
 }
 
-.contentInner {
+.content-inner {
   padding-top: 0;
   padding-bottom: 1rem;
 }

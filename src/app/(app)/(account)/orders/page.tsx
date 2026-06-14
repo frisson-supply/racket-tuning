@@ -40,12 +40,12 @@ export default async function Orders() {
 
   return (
     <>
-      <div className={styles.cardFull}>
-        <h1 className={styles.cardHeading}>Orders</h1>
+      <div className={styles['card-full']}>
+        <h1 className={styles['card-heading']}>Orders</h1>
         {(!orders || !Array.isArray(orders) || orders?.length === 0) && <p>You have no orders.</p>}
 
         {orders && orders.length > 0 && (
-          <ul className={styles.orderListPlain}>
+          <ul className={styles['order-list-plain']}>
             {orders?.map((order, index) => (
               <li key={order.id}>
                 <OrderItem order={order} />

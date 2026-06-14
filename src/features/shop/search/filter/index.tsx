@@ -23,13 +23,13 @@ export function FilterList({ list, title }: { list: ListItem[]; title?: string }
   return (
     <React.Fragment>
       <nav>
-        {title ? <h3 className={styles.filterTitle}>{title}</h3> : null}
-        <ul className={styles.filterListDesktop}>
+        {title ? <h3 className={styles['filter-title']}>{title}</h3> : null}
+        <ul className={styles['filter-list-desktop']}>
           <Suspense fallback={null}>
             <FilterItemList list={list} />
           </Suspense>
         </ul>
-        <ul className={styles.filterListMobile}>
+        <ul className={styles['filter-list-mobile']}>
           <Suspense fallback={null}>
             <FilterItemDropdown list={list} />
           </Suspense>

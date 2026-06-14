@@ -49,29 +49,29 @@
   }
 
   /* Grid overrides passed to Grid component */
-  .productGrid {
+  .product-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   @media (min-width: 40rem) {
-    .productGrid {
+    .product-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (min-width: 64rem) {
-    .productGrid {
+    .product-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  .loadingGrid {
+  .loading-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 64rem) {
-    .loadingGrid {
+    .loading-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
@@ -85,7 +85,7 @@
     background-color: #171717;
   }
 
-  .resultText {
+  .result-text {
     margin-bottom: 1rem;
   }
 

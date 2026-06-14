@@ -22,7 +22,7 @@ export const ThreeItemGridItem: React.FC<Props> = ({ item, size }) => {
 
   return (
     <div className={size === 'full' ? styles['item--full'] : styles['item--half']}>
-      <Link className={styles.itemLink} href={`/products/${item.slug}`}>
+      <Link className={styles['item-link']} href={`/products/${item.slug}`}>
         <GridTileImage
           label={{
             amount: price!,

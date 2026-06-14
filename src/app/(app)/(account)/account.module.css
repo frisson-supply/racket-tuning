@@ -1,6 +1,6 @@
 @layer pages {
   /* Layout */
-  .layoutRow {
+  .layout-row {
     margin-top: 4rem;
     padding-bottom: 2rem;
     display: flex;
@@ -23,7 +23,7 @@
     }
   }
 
-  .contentArea {
+  .content-area {
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -38,7 +38,7 @@
     background-color: var(--primary-foreground);
   }
 
-  .cardFull {
+  .card-full {
     border: 1px solid var(--border);
     padding: 2rem;
     border-radius: 0.5rem;
@@ -46,40 +46,40 @@
     width: 100%;
   }
 
-  .cardHeading {
+  .card-heading {
     font-size: 1.875rem;
     font-weight: 500;
     margin-bottom: 2rem;
   }
 
-  .cardIntro {
+  .card-intro {
     margin-bottom: 2rem;
   }
 
   /* Order lists */
-  .orderList {
+  .order-list {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .orderListPlain {
+  .order-list-plain {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
 
-  .emptyText {
+  .empty-text {
     margin-bottom: 2rem;
   }
 
-  .addressListWrap {
+  .address-list-wrap {
     margin-bottom: 2rem;
   }
 
   /* Order detail */
-  .orderHeader {
+  .order-header {
     display: flex;
     gap: 2rem;
     justify-content: space-between;
@@ -87,7 +87,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .orderBadge {
+  .order-badge {
     font-size: 0.875rem;
     text-transform: uppercase;
     font-family: monospace;
@@ -98,7 +98,7 @@
     letter-spacing: 0.07em;
   }
 
-  .orderCard {
+  .order-card {
     background-color: var(--card);
     border: 1px solid var(--border);
     border-radius: 0.5rem;
@@ -108,20 +108,20 @@
     gap: 3rem;
   }
 
-  .orderMeta {
+  .order-meta {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
 
   @media (min-width: 64rem) {
-    .orderMeta {
+    .order-meta {
       flex-direction: row;
       justify-content: space-between;
     }
   }
 
-  .orderLabel {
+  .order-label {
     font-family: monospace;
     text-transform: uppercase;
     color: color-mix(in oklch, var(--primary) 50%, transparent);
@@ -129,16 +129,16 @@
     font-size: 0.875rem;
   }
 
-  .orderValue {
+  .order-value {
     font-size: 1.125rem;
   }
 
-  .orderStatusCol {
+  .order-status-col {
     flex-grow: 1;
     max-width: 33.333%;
   }
 
-  .sectionLabel {
+  .section-label {
     font-family: monospace;
     color: color-mix(in oklch, var(--primary) 50%, transparent);
     margin-bottom: 1rem;
@@ -146,7 +146,7 @@
     font-size: 0.875rem;
   }
 
-  .itemList {
+  .item-list {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

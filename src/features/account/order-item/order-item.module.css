@@ -24,7 +24,7 @@
     gap: 1rem;
   }
 
-  .orderId {
+  .order-id {
     font-size: 0.875rem;
     text-transform: uppercase;
     font-family: monospace;
@@ -37,19 +37,19 @@
   }
 
   @media (min-width: 40rem) {
-    .orderId {
+    .order-id {
       max-width: none;
     }
   }
 
-  .dateRow {
+  .date-row {
     display: flex;
     flex-direction: column-reverse;
     gap: 1.5rem;
   }
 
   @media (min-width: 40rem) {
-    .dateRow {
+    .date-row {
       flex-direction: row;
       align-items: center;
     }

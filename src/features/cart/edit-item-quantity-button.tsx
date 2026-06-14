@@ -39,7 +39,7 @@ export function EditItemQuantityButton({ type, item }: { item: CartItem; type: '
       <button
         disabled={disabled || isLoading}
         aria-label={type === 'plus' ? 'Increase item quantity' : 'Reduce item quantity'}
-        className={cn(styles.quantityBtn, type === 'minus' && styles['quantityBtn--minus'])}
+        className={cn(styles['quantity-btn'], type === 'minus' && styles['quantityBtn--minus'])}
         onClick={(e: React.FormEvent<HTMLButtonElement>) => {
           e.preventDefault()
           if (item.id) {
@@ -50,9 +50,9 @@ export function EditItemQuantityButton({ type, item }: { item: CartItem; type: '
         type="button"
       >
         {type === 'plus' ? (
-          <PlusIcon className={styles.quantityIcon} />
+          <PlusIcon className={styles['quantity-icon']} />
         ) : (
-          <MinusIcon className={styles.quantityIcon} />
+          <MinusIcon className={styles['quantity-icon']} />
         )}
       </button>
     </form>

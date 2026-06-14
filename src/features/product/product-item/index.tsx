@@ -59,7 +59,7 @@ export const ProductItem: React.FC<Props> = ({
   return (
     <div className={styles.item}>
       <div className={styles.thumb}>
-        <div className={styles.thumbInner}>
+        <div className={styles['thumb-inner']}>
           {image && typeof image !== 'string' && (
             <Media fill imgClassName={styles['thumb-image']} resource={image} />
           )}
@@ -88,9 +88,9 @@ export const ProductItem: React.FC<Props> = ({
 
         {itemPrice && quantity && (
           <div className={styles.subtotal}>
-            <p className={styles.subtotalLabel}>Subtotal</p>
+            <p className={styles['subtotal-label']}>Subtotal</p>
             <Price
-              className={styles.subtotalPrice}
+              className={styles['subtotal-price']}
               amount={itemPrice * quantity}
               currencyCode={currencyCode}
             />

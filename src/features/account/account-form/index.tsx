@@ -98,7 +98,7 @@ export const AccountForm: React.FC = () => {
             <p>
               {'Change your account details below, or '}
               <Button
-                className={styles.linkBtn}
+                className={styles['link-btn']}
                 onClick={() => setChangePassword(!changePassword)}
                 type="button"
                 variant="link"
@@ -109,7 +109,7 @@ export const AccountForm: React.FC = () => {
             </p>
           </div>
 
-          <div className={styles.fieldGroup}>
+          <div className={styles['field-group']}>
             <FormItem>
               <Label htmlFor="email" className={styles['mb-2']}>
                 Email Address
@@ -141,7 +141,7 @@ export const AccountForm: React.FC = () => {
             <p>
               {'Change your password below, or '}
               <Button
-                className={styles.linkBtn}
+                className={styles['link-btn']}
                 onClick={() => setChangePassword(!changePassword)}
                 type="button"
                 variant="link"
@@ -152,7 +152,7 @@ export const AccountForm: React.FC = () => {
             </p>
           </div>
 
-          <div className={styles.fieldGroup}>
+          <div className={styles['field-group']}>
             <FormItem>
               <Label htmlFor="password" className={styles['mb-2']}>
                 New password

@@ -16,7 +16,7 @@ export const AddressListing: React.FC = () => {
     <div>
       <ul className={styles.list}>
         {addresses.map((address) => (
-          <li key={address.id} className={styles.listItem}>
+          <li key={address.id} className={styles['list-item']}>
             <AddressItem address={address} />
           </li>
         ))}

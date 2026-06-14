@@ -108,8 +108,8 @@ export const CheckoutPage: React.FC = () => {
 
   if (cartIsEmpty && isProcessingPayment) {
     return (
-      <div className={styles.processingWrap}>
-        <div className={cn(proseStyles.prose, styles.processingText)}>
+      <div className={styles['processing-wrap']}>
+        <div className={cn(proseStyles.prose, styles['processing-text'])}>
           <p>Processing your payment...</p>
         </div>
         <LoadingSpinner />
@@ -128,12 +128,12 @@ export const CheckoutPage: React.FC = () => {
 
   return (
     <div className={styles.layout}>
-      <div className={styles.formCol}>
-        <h2 className={styles.sectionHeading}>Contact</h2>
+      <div className={styles['form-col']}>
+        <h2 className={styles['section-heading']}>Contact</h2>
         {!user && (
-          <div className={styles.guestBox}>
+          <div className={styles['guest-box']}>
             <div className={proseStyles.prose}>
-              <Button asChild className={styles.noUnderline} variant="outline">
+              <Button asChild className={styles['no-underline']} variant="outline">
                 <Link href="/login">Log in</Link>
               </Button>
               <p className={styles['guest-action-row']}>
@@ -144,7 +144,7 @@ export const CheckoutPage: React.FC = () => {
           </div>
         )}
         {user ? (
-          <div className={styles.userBox}>
+          <div className={styles['user-box']}>
             <div>
               <p>{user.email}</p>{' '}
               <p>
@@ -156,7 +156,7 @@ export const CheckoutPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className={styles.guestBox}>
+          <div className={styles['guest-box']}>
             <div>
               <p className={styles['mb-4']}>Enter your email to checkout as a guest.</p>
 
@@ -186,7 +186,7 @@ export const CheckoutPage: React.FC = () => {
           </div>
         )}
 
-        <h2 className={styles.sectionHeading}>Address</h2>
+        <h2 className={styles['section-heading']}>Address</h2>
 
         {billingAddress ? (
           <div>
@@ -218,7 +218,7 @@ export const CheckoutPage: React.FC = () => {
           />
         )}
 
-        <div className={styles.checkboxRow}>
+        <div className={styles['checkbox-row']}>
           <Checkbox
             id="shippingTheSameAsBilling"
             checked={billingAddressSameAsShipping}
@@ -270,7 +270,7 @@ export const CheckoutPage: React.FC = () => {
 
         {!paymentData && (
           <Button
-            className={styles.selfStart}
+            className={styles['self-start']}
             disabled={!canGoToPayment}
             onClick={(e) => {
               e.preventDefault()
@@ -282,7 +282,7 @@ export const CheckoutPage: React.FC = () => {
         )}
 
         {!paymentData?.['clientSecret'] && error && (
-          <div className={styles.errorWrap}>
+          <div className={styles['error-wrap']}>
             <Message error={error} />
 
             <Button
@@ -300,8 +300,8 @@ export const CheckoutPage: React.FC = () => {
         <Suspense fallback={<React.Fragment />}>
           {/* @ts-ignore */}
           {paymentData && paymentData?.['clientSecret'] && (
-            <div className={styles.paymentSection}>
-              <h2 className={styles.sectionHeading}>Payment</h2>
+            <div className={styles['payment-section']}>
+              <h2 className={styles['section-heading']}>Payment</h2>
               {error && <p>{`Error: ${error}`}</p>}
               <Elements
                 options={{
@@ -330,7 +330,7 @@ export const CheckoutPage: React.FC = () => {
                 }}
                 stripe={stripe}
               >
-                <div className={styles.paymentActions}>
+                <div className={styles['payment-actions']}>
                   <CheckoutForm
                     customerEmail={email}
                     billingAddress={billingAddress}
@@ -338,7 +338,7 @@ export const CheckoutPage: React.FC = () => {
                   />
                   <Button
                     variant="ghost"
-                    className={styles.selfStart}
+                    className={styles['self-start']}
                     onClick={() => setPaymentData(null)}
                   >
                     Cancel payment
@@ -351,8 +351,8 @@ export const CheckoutPage: React.FC = () => {
       </div>
 
       {!cartIsEmpty && (
-        <div className={styles.cartCol}>
-          <h2 className={styles.cartHeading}>Your cart</h2>
+        <div className={styles['cart-col']}>
+          <h2 className={styles['cart-heading']}>Your cart</h2>
           {cart?.items?.map((item, index) => {
             if (typeof item.product === 'object' && item.product) {
               const {
@@ -393,19 +393,19 @@ export const CheckoutPage: React.FC = () => {
               }
 
               return (
-                <div className={styles.cartItem} key={index}>
-                  <div className={styles.cartThumb}>
-                    <div className={styles.cartThumbInner}>
+                <div className={styles['cart-item']} key={index}>
+                  <div className={styles['cart-thumb']}>
+                    <div className={styles['cart-thumb-inner']}>
                       {image && typeof image !== 'string' && (
                         <Media fill imgClassName={styles['cart-thumb-image']} resource={image} />
                       )}
                     </div>
                   </div>
-                  <div className={styles.cartItemMeta}>
-                    <div className={styles.cartItemInfo}>
-                      <p className={styles.cartItemTitle}>{title}</p>
+                  <div className={styles['cart-item-meta']}>
+                    <div className={styles['cart-item-info']}>
+                      <p className={styles['cart-item-title']}>{title}</p>
                       {variant && typeof variant === 'object' && (
-                        <p className={styles.cartItemVariant}>
+                        <p className={styles['cart-item-variant']}>
                           {variant.options
                             ?.map((option: number | VariantOption) => {
                               if (typeof option === 'object') return option.label
@@ -428,8 +428,8 @@ export const CheckoutPage: React.FC = () => {
             return null
           })}
           <hr />
-          <div className={styles.cartTotal}>
-            <span className={styles.cartTotalLabel}>Total</span>{' '}
+          <div className={styles['cart-total']}>
+            <span className={styles['cart-total-label']}>Total</span>{' '}
             <Price className={styles['cart-total-amount']} amount={cart.subtotal || 0} />
           </div>
         </div>

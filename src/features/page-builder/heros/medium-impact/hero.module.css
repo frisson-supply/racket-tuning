@@ -8,20 +8,20 @@
     gap: 1rem;
   }
 
-  .mediaBleed {
+  .media-bleed {
     margin-left: -1rem;
     margin-right: -1rem;
   }
 
   @media (min-width: 48rem) {
-    .mediaBleed {
+    .media-bleed {
       margin-left: -2rem;
       margin-right: -2rem;
     }
   }
 
   @media (min-width: 86rem) {
-    .mediaBleed {
+    .media-bleed {
       margin-left: -4rem;
       margin-right: -4rem;
     }

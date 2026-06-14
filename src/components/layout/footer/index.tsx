@@ -21,14 +21,14 @@ export async function Footer() {
       <div className="container">
         <div className={styles.upper}>
           <div>
-            <Link className={styles.logoLink} href="/">
-              <LogoIcon className={styles.logoIcon} />
+            <Link className={styles['logo-link']} href="/">
+              <LogoIcon className={styles['logo-icon']} />
               <span className="sr-only">{SITE_NAME}</span>
             </Link>
           </div>
           <Suspense
             fallback={
-              <div className={styles.skeletonFallback}>
+              <div className={styles['skeleton-fallback']}>
                 {Array.from({ length: 6 }).map((_, i) => (
                   <div key={i} className={styles.skeleton} />
                 ))}
@@ -41,14 +41,14 @@ export async function Footer() {
       </div>
       <div className={styles.lower}>
         <div className="container">
-          <div className={styles.lowerInner}>
+          <div className={styles['lower-inner']}>
             <p>
               &copy; {copyrightDate} {copyrightName}
               {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
             </p>
             <hr className={styles.divider} />
             <p>Designed in Michigan</p>
-            <p className={styles.creditGroup}>
+            <p className={styles['credit-group']}>
               <a className={styles.credit} href="https://payloadcms.com">
                 Crafted by Payload
               </a>

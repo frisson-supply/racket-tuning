@@ -5,8 +5,8 @@ import styles from './cart.module.css'
 
 export function CloseCart({ className }: { className?: string }) {
   return (
-    <div className={styles.closeWrap}>
-      <XIcon className={cn(styles.closeIcon, className)} />
+    <div className={styles['close-wrap']}>
+      <XIcon className={cn(styles['close-icon'], className)} />
     </div>
   )
 }

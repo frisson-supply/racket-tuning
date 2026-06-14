@@ -52,7 +52,7 @@ export const RichText: React.FC<Props> = (props) => {
     <RichTextWithoutBlocks
       converters={jsxConverters}
       className={cn(
-        enableGutter ? 'container' : styles.noGutter,
+        enableGutter ? 'container' : styles['no-gutter'],
         enableProse && styles.prose,
         className,
       )}

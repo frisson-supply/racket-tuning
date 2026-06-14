@@ -29,9 +29,9 @@ export function VariantSelector({ product }: { product: Product }) {
     if (!options || !Array.isArray(options) || !options.length) return <></>
 
     return (
-      <dl className={styles.variantGroup} key={type.id}>
-        <dt className={styles.variantLabel}>{type.label}</dt>
-        <dd className={styles.variantOptions}>
+      <dl className={styles['variant-group']} key={type.id}>
+        <dt className={styles['variant-label']}>{type.label}</dt>
+        <dd className={styles['variant-options']}>
           <React.Fragment>
             {options?.map((option) => {
               if (!option || typeof option !== 'object') return <></>
@@ -77,7 +77,7 @@ export function VariantSelector({ product }: { product: Product }) {
                 <Button
                   variant="ghost"
                   aria-disabled={!isAvailableForSale}
-                  className={cn(styles.variantBtn, isActive && styles['variantBtn--active'])}
+                  className={cn(styles['variant-btn'], isActive && styles['variantBtn--active'])}
                   disabled={!isAvailableForSale}
                   key={option.id}
                   onClick={() => {

@@ -1,4 +1,4 @@
-.sheetContent {
+.sheet-content {
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -29,13 +29,13 @@
   width: auto;
 }
 
-.menuList {
+.menu-list {
   display: flex;
   width: 100%;
   flex-direction: column;
 }
 
-.menuItem {
+.menu-item {
   padding-block: 0.5rem;
 }
 
@@ -43,7 +43,7 @@
   margin-top: 1rem;
 }
 
-.sectionTitle {
+.section-title {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
@@ -54,17 +54,17 @@
   margin-block: 0.5rem;
 }
 
-.accountList {
+.account-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.logoutItem {
+.logout-item {
   margin-top: 1.5rem;
 }
 
-.authButtons {
+.auth-buttons {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -72,39 +72,39 @@
 }
 
 @media (min-width: 40rem) {
-  .authButtons {
+  .auth-buttons {
     flex-direction: row;
     align-items: center;
   }
 }
 
-.authButton {
+.auth-button {
   width: 100%;
 }
 
 @media (min-width: 40rem) {
-  .authButton {
+  .auth-button {
     flex: 1;
   }
 }
 
-.authOr {
+.auth-or {
   text-align: center;
   font-size: 0.875rem;
   color: var(--muted-foreground);
 }
 
 @media (min-width: 40rem) {
-  .authOr {
+  .auth-or {
     font-size: 1rem;
   }
 }
 
-.sheetBody {
+.sheet-body {
   padding-block: 1rem;
 }
 
-.sheetHeader {
+.sheet-header {
   padding-inline: 0;
   padding-top: 1rem;
   padding-bottom: 0;

@@ -81,8 +81,8 @@ export const AddressForm: React.FC<Props> = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.fieldGroup}>
-        <div className={`${styles.fieldRow} ${styles['fieldRow--responsive']}`}>
+      <div className={styles['field-group']}>
+        <div className={`${styles['field-row']} ${styles['fieldRow--responsive']}`}>
           <FormItem className="shrink">
             <Label htmlFor="title">Title</Label>
 

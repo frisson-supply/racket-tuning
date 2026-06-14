@@ -34,34 +34,34 @@
   padding-top: 1rem;
 }
 
-.prevBtn,
-.nextBtn {
+.prev-btn,
+.next-btn {
   position: absolute;
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
 }
 
-.prevBtn--horizontal {
+.prev-btn--horizontal {
   top: 50%;
   left: -3rem;
   translate: 0 -50%;
 }
 
-.prevBtn--vertical {
+.prev-btn--vertical {
   top: -3rem;
   left: 50%;
   translate: -50% 0;
   rotate: 90deg;
 }
 
-.nextBtn--horizontal {
+.next-btn--horizontal {
   top: 50%;
   right: -3rem;
   translate: 0 -50%;
 }
 
-.nextBtn--vertical {
+.next-btn--vertical {
   bottom: -3rem;
   left: 50%;
   translate: -50% 0;

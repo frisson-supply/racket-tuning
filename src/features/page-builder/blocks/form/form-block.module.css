@@ -27,11 +27,11 @@
     }
   }
 
-  .fieldGroup {
+  .field-group {
     margin-bottom: 1rem;
   }
 
-  .fieldGroup:last-child {
+  .field-group:last-child {
     margin-bottom: 0;
   }
 
@@ -43,7 +43,7 @@
     margin-bottom: 0;
   }
 
-  .checkboxRow {
+  .checkbox-row {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -55,7 +55,7 @@
     font-size: 0.875rem;
   }
 
-  .messageWrap {
+  .message-wrap {
     margin-top: 3rem;
     margin-bottom: 3rem;
   }

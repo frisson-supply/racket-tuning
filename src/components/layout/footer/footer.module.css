@@ -24,7 +24,7 @@
   }
 }
 
-.logoLink {
+.logo-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -32,18 +32,18 @@
 }
 
 @media (min-width: 48rem) {
-  .logoLink { padding-top: 0.25rem; }
+  .logo-link { padding-top: 0.25rem; }
 }
 
-[data-theme='dark'] .logoLink {
+[data-theme='dark'] .logo-link {
   color: #fff;
 }
 
-.logoIcon {
+.logo-icon {
   width: 1.5rem;
 }
 
-.skeletonFallback {
+.skeleton-fallback {
   display: flex;
   height: 188px;
   width: 200px;
@@ -70,7 +70,7 @@
   font-size: 0.875rem;
 }
 
-.lowerInner {
+.lower-inner {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -79,7 +79,7 @@
 }
 
 @media (min-width: 48rem) {
-  .lowerInner {
+  .lower-inner {
     flex-direction: row;
     gap: 0;
   }
@@ -105,6 +105,6 @@
   color: #fff;
 }
 
-.creditGroup {
+.credit-group {
   margin-left: auto;
 }

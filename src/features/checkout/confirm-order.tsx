@@ -53,10 +53,10 @@ export const ConfirmOrder: React.FC = () => {
   }, [cart, confirmOrder, router, searchParams])
 
   return (
-    <div className={styles.confirmWrap}>
-      <h1 className={styles.confirmHeading}>Confirming Order</h1>
+    <div className={styles['confirm-wrap']}>
+      <h1 className={styles['confirm-heading']}>Confirming Order</h1>
 
-      <LoadingSpinner className={styles.confirmSpinner} />
+      <LoadingSpinner className={styles['confirm-spinner']} />
     </div>
   )
 }

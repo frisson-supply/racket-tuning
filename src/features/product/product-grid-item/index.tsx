@@ -33,18 +33,18 @@ export const ProductGridItem: React.FC<Props> = ({ product }) => {
     gallery?.[0]?.image && typeof gallery[0]?.image !== 'string' ? gallery[0]?.image : false
 
   return (
-    <Link className={styles.gridItemLink} href={`/products/${product.slug}`}>
+    <Link className={styles['grid-item-link']} href={`/products/${product.slug}`}>
       {image ? (
         <Media
-          className={styles.gridItemMedia}
+          className={styles['grid-item-media']}
           height={80}
-          imgClassName={styles.gridItemImg}
+          imgClassName={styles['grid-item-img']}
           resource={image}
           width={80}
         />
       ) : null}
 
-      <div className={styles.gridItemMeta}>
+      <div className={styles['grid-item-meta']}>
         <div>{title}</div>
         {typeof price === 'number' && <Price amount={price} />}
       </div>

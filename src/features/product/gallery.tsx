@@ -48,22 +48,22 @@ export const Gallery: React.FC<Props> = ({ gallery }) => {
 
   return (
     <div>
-      <div className={styles.galleryMain}>
+      <div className={styles['gallery-main']}>
         <Media
           resource={gallery[current].image}
-          className={styles.galleryMainMedia}
+          className={styles['gallery-main-media']}
           imgClassName={styles['gallery-main-image']}
         />
       </div>
 
-      <Carousel setApi={setApi} className={styles.galleryCarousel} opts={{ align: 'start', loop: false }}>
+      <Carousel setApi={setApi} className={styles['gallery-carousel']} opts={{ align: 'start', loop: false }}>
         <CarouselContent>
           {gallery.map((item, i) => {
             if (typeof item.image !== 'object') return null
 
             return (
               <CarouselItem
-                className={styles.galleryThumb}
+                className={styles['gallery-thumb']}
                 key={`${item.image.id}-${i}`}
                 onClick={() => setCurrent(i)}
               >

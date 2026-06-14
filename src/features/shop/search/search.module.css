@@ -1,17 +1,17 @@
 @layer components {
   /* Categories */
 
-  .categoriesTitle {
+  .categories-title {
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
     color: #737373;
   }
 
-  [data-theme='dark'] .categoriesTitle {
+  [data-theme='dark'] .categories-title {
     color: #a3a3a3;
   }
 
-  .skeletonWrapper {
+  .skeleton-wrapper {
     grid-column: span 2;
     display: none;
     height: 400px;
@@ -22,7 +22,7 @@
   }
 
   @media (min-width: 64rem) {
-    .skeletonWrapper {
+    .skeleton-wrapper {
       display: block;
     }
   }
@@ -51,100 +51,100 @@
     background-color: #404040;
   }
 
-  .categoryBtn {
+  .category-btn {
     cursor: pointer;
   }
 
-  .categoryBtn--active {
+  .category-btn--active {
     text-decoration: underline;
   }
 
   /* Filter */
 
-  .filterTitle {
+  .filter-title {
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
     color: #737373;
   }
 
-  [data-theme='dark'] .filterTitle {
+  [data-theme='dark'] .filter-title {
     color: #a3a3a3;
   }
 
-  .filterListDesktop {
+  .filter-list-desktop {
     display: none;
   }
 
   @media (min-width: 48rem) {
-    .filterListDesktop {
+    .filter-list-desktop {
       display: block;
     }
   }
 
-  .filterListMobile {
+  .filter-list-mobile {
     display: block;
   }
 
   @media (min-width: 48rem) {
-    .filterListMobile {
+    .filter-list-mobile {
       display: none;
     }
   }
 
   /* PathFilterItem */
 
-  .pathItem {
+  .path-item {
     margin-top: 0.5rem;
     display: flex;
     color: #000;
   }
 
-  [data-theme='dark'] .pathItem {
+  [data-theme='dark'] .path-item {
     color: #fff;
   }
 
-  .pathLink {
+  .path-link {
     width: 100%;
     font-size: 0.875rem;
     text-underline-offset: 4px;
   }
 
-  .pathLink:hover {
+  .path-link:hover {
     text-decoration: underline;
   }
 
-  [data-theme='dark'] .pathLink:hover {
+  [data-theme='dark'] .path-link:hover {
     color: #f5f5f5;
   }
 
-  .pathLink--active {
+  .path-link--active {
     text-decoration: underline;
     text-underline-offset: 4px;
   }
 
   /* SortFilterItem */
 
-  .sortItem {
+  .sort-item {
     margin-top: 0.5rem;
     display: flex;
     font-size: 0.875rem;
     color: #000;
   }
 
-  [data-theme='dark'] .sortItem {
+  [data-theme='dark'] .sort-item {
     color: #fff;
   }
 
-  .sortLink {
+  .sort-link {
     width: 100%;
     text-underline-offset: 4px;
   }
 
-  .sortLink:hover {
+  .sort-link:hover {
     text-decoration: underline;
   }
 
-  .sortLink--active {
+  .sort-link--active {
     text-decoration: underline;
     text-underline-offset: 4px;
   }
@@ -155,7 +155,7 @@
     position: relative;
   }
 
-  .dropdownTrigger {
+  .dropdown-trigger {
     display: flex;
     width: 100%;
     align-items: center;
@@ -167,15 +167,15 @@
     cursor: pointer;
   }
 
-  [data-theme='dark'] .dropdownTrigger {
+  [data-theme='dark'] .dropdown-trigger {
     border-color: rgb(255 255 255 / 0.3);
   }
 
-  .dropdownChevron {
+  .dropdown-chevron {
     height: 1rem;
   }
 
-  .dropdownContent {
+  .dropdown-content {
     position: absolute;
     z-index: 40;
     width: 100%;
@@ -185,18 +185,18 @@
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 
-  [data-theme='dark'] .dropdownContent {
+  [data-theme='dark'] .dropdown-content {
     background-color: #000;
   }
 
   /* Search input */
 
-  .searchForm {
+  .search-form {
     position: relative;
     width: 100%;
   }
 
-  .searchInput {
+  .search-input {
     width: 100%;
     border-radius: 0.5rem;
     border: 1px solid var(--border);
@@ -206,21 +206,21 @@
     color: #000;
   }
 
-  .searchInput::placeholder {
+  .search-input::placeholder {
     color: #737373;
   }
 
-  [data-theme='dark'] .searchInput {
+  [data-theme='dark'] .search-input {
     border-color: #262626;
     background-color: #000;
     color: #fff;
   }
 
-  [data-theme='dark'] .searchInput::placeholder {
+  [data-theme='dark'] .search-input::placeholder {
     color: #a3a3a3;
   }
 
-  .searchIconWrap {
+  .search-icon-wrap {
     position: absolute;
     right: 0;
     top: 0;
@@ -230,7 +230,7 @@
     align-items: center;
   }
 
-  .searchIcon {
+  .search-icon {
     height: 1rem;
   }
 }

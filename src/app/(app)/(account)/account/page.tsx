@@ -52,14 +52,14 @@ export default async function AccountPage() {
   return (
     <>
       <div className={styles.card}>
-        <h1 className={styles.cardHeading}>Account settings</h1>
+        <h1 className={styles['card-heading']}>Account settings</h1>
         <AccountForm />
       </div>
 
       <div className={styles.card}>
-        <h2 className={styles.cardHeading}>Recent Orders</h2>
+        <h2 className={styles['card-heading']}>Recent Orders</h2>
 
-        <div className={cn(proseStyles.prose, styles.cardIntro)}>
+        <div className={cn(proseStyles.prose, styles['card-intro'])}>
           <p>
             These are the most recent orders you have placed. Each order is associated with an
             payment. As you place more orders, they will appear in your orders list.
@@ -67,11 +67,11 @@ export default async function AccountPage() {
         </div>
 
         {(!orders || !Array.isArray(orders) || orders?.length === 0) && (
-          <p className={styles.emptyText}>You have no orders.</p>
+          <p className={styles['empty-text']}>You have no orders.</p>
         )}
 
         {orders && orders.length > 0 && (
-          <ul className={styles.orderList}>
+          <ul className={styles['order-list']}>
             {orders?.map((order, index) => (
               <li key={order.id}>
                 <OrderItem order={order} />

@@ -58,7 +58,7 @@ export const ArchiveBlock: React.FC<
     <div className={styles.wrap} id={`block-${id}`}>
       {introContent && (
         <div className={`container ${styles.intro}`}>
-          <RichText className={styles.introContent} data={introContent} enableGutter={false} />
+          <RichText className={styles['intro-content']} data={introContent} enableGutter={false} />
         </div>
       )}
       <CollectionArchive posts={posts} />

@@ -30,7 +30,7 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
         {media && typeof media === 'object' && (
           <div>
             <Media
-              className={styles.mediaBleed}
+              className={styles['media-bleed']}
               priority
               resource={media}
             />

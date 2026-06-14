@@ -44,7 +44,7 @@ export function CategoryTabs() {
   return (
     <Suspense
       fallback={
-        <div className={styles.skeletonContainer}>
+        <div className={styles['skeleton-container']}>
           <div className={cn(styles.skeleton, styles['skeleton--header'])} />
           <div className={cn(styles.skeleton, styles['skeleton--header'])} />
           {Array.from({ length: 8 }).map((_, i) => (

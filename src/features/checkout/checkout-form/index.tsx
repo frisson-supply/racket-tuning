@@ -134,7 +134,7 @@ export const CheckoutForm: React.FC<Props> = ({
     <form onSubmit={handleSubmit}>
       {error && <Message error={error} />}
       <PaymentElement />
-      <div className={styles.paymentActions}>
+      <div className={styles['payment-actions']}>
         <Button disabled={!stripe || isLoading} type="submit" variant="default">
           {isLoading ? 'Loading...' : 'Pay now'}
         </Button>

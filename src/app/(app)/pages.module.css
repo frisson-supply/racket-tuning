@@ -1,10 +1,10 @@
 @layer pages {
-  .pagePy {
+  .page-py {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
 
-  .authInner {
+  .auth-inner {
     max-width: 36rem;
     margin-left: auto;
     margin-right: auto;
@@ -12,12 +12,12 @@
     margin-bottom: 3rem;
   }
 
-  .authHeading {
+  .auth-heading {
     font-size: 1.8rem;
     margin-bottom: 1rem;
   }
 
-  .authIntro {
+  .auth-intro {
     margin-bottom: 2rem;
   }
 
@@ -26,25 +26,25 @@
     padding-bottom: 6rem;
   }
 
-  .checkoutPage {
+  .checkout-page {
     min-height: 90vh;
     display: flex;
   }
 
-  .confirmPage {
+  .confirm-page {
     min-height: 90vh;
     display: flex;
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
 
-  .logoutInner {
+  .logout-inner {
     max-width: 32rem;
     margin-top: 4rem;
     margin-bottom: 4rem;
   }
 
-  .headingXl {
+  .heading-xl {
     font-size: 1.25rem;
     margin-bottom: 1rem;
   }

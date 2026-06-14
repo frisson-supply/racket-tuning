@@ -41,17 +41,17 @@ export function FilterItemDropdown({ list }: { list: ListItem[] }) {
   return (
     <div className={styles.dropdown} ref={ref}>
       <div
-        className={styles.dropdownTrigger}
+        className={styles['dropdown-trigger']}
         onClick={() => {
           setOpenSelect(!openSelect)
         }}
       >
         <div>{active}</div>
-        <ChevronDownIcon className={styles.dropdownChevron} />
+        <ChevronDownIcon className={styles['dropdown-chevron']} />
       </div>
       {openSelect && (
         <div
-          className={styles.dropdownContent}
+          className={styles['dropdown-content']}
           onClick={() => {
             setOpenSelect(false)
           }}

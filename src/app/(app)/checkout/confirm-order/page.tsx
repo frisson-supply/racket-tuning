@@ -17,7 +17,7 @@ export default async function ConfirmOrderPage({
   const paymentIntent = searchParams.paymentId
 
   return (
-    <div className={`container ${styles.confirmPage}`}>
+    <div className={`container ${styles['confirm-page']}`}>
       <ConfirmOrder />
     </div>
   )

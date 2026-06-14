@@ -7,7 +7,7 @@ import styles from '../form-block.module.css'
 
 export const Message: React.FC<{ message: SerializedEditorState }> = ({ message }) => {
   return (
-    <Width className={styles.messageWrap} width="100">
+    <Width className={styles['message-wrap']} width="100">
       {message && <RichText data={message} />}
     </Width>
   )

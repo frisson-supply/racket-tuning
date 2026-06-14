@@ -52,17 +52,17 @@ export function MobileMenu({ menu }: Props) {
         <MenuIcon />
       </SheetTrigger>
 
-      <SheetContent side="left" className={styles.sheetContent}>
-        <SheetHeader className={styles.sheetHeader}>
+      <SheetContent side="left" className={styles['sheet-content']}>
+        <SheetHeader className={styles['sheet-header']}>
           <SheetTitle>My Store</SheetTitle>
           <SheetDescription />
         </SheetHeader>
 
-        <div className={styles.sheetBody}>
+        <div className={styles['sheet-body']}>
           {menu?.length ? (
-            <ul className={styles.menuList}>
+            <ul className={styles['menu-list']}>
               {menu.map((item) => (
-                <li className={styles.menuItem} key={item.id}>
+                <li className={styles['menu-item']} key={item.id}>
                   <CMSLink {...item.link} appearance="link" />
                 </li>
               ))}
@@ -72,13 +72,13 @@ export function MobileMenu({ menu }: Props) {
 
         {user ? (
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>My account</h2>
+            <h2 className={styles['section-title']}>My account</h2>
             <hr className={styles.divider} />
-            <ul className={styles.accountList}>
+            <ul className={styles['account-list']}>
               <li><Link href="/orders">Orders</Link></li>
               <li><Link href="/account/addresses">Addresses</Link></li>
               <li><Link href="/account">Manage account</Link></li>
-              <li className={styles.logoutItem}>
+              <li className={styles['logout-item']}>
                 <Button asChild variant="outline">
                   <Link href="/logout">Log out</Link>
                 </Button>
@@ -87,13 +87,13 @@ export function MobileMenu({ menu }: Props) {
           </div>
         ) : (
           <div>
-            <h2 className={styles.sectionTitle}>My account</h2>
-            <div className={styles.authButtons}>
-              <Button asChild className={styles.authButton} variant="outline">
+            <h2 className={styles['section-title']}>My account</h2>
+            <div className={styles['auth-buttons']}>
+              <Button asChild className={styles['auth-button']} variant="outline">
                 <Link href="/login">Log in</Link>
               </Button>
-              <span className={styles.authOr}>or</span>
-              <Button asChild className={styles.authButton}>
+              <span className={styles['auth-or']}>or</span>
+              <Button asChild className={styles['auth-button']}>
                 <Link href="/create-account">Create an account</Link>
               </Button>
             </div>

@@ -35,7 +35,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
           )}
         </div>
       </div>
-      <div className={styles.mediaWrap}>
+      <div className={styles['media-wrap']}>
         {media && typeof media === 'object' && (
           <Media fill imgClassName={styles['media-image']} priority resource={media} />
         )}

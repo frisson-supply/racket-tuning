@@ -8,7 +8,7 @@ import styles from '../pages.module.css'
 
 export default function Checkout() {
   return (
-    <div className={`container ${styles.checkoutPage}`}>
+    <div className={`container ${styles['checkout-page']}`}>
       {!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && (
         <div>
           <Fragment>

@@ -1,5 +1,5 @@
 @layer components {
-  .blockWrap {
+  .block-wrap {
     width: 100%;
     padding-bottom: 1.5rem;
     padding-top: 0.25rem;
@@ -9,7 +9,7 @@
     width: 100%;
   }
 
-  .carouselItem {
+  .carousel-item {
     position: relative;
     aspect-ratio: 1 / 1;
     height: 30vh;
@@ -20,12 +20,12 @@
   }
 
   @media (min-width: 48rem) {
-    .carouselItem {
+    .carousel-item {
       width: 33.333333%;
     }
   }
 
-  .itemLink {
+  .item-link {
     position: relative;
     height: 100%;
     width: 100%;

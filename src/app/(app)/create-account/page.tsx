@@ -21,8 +21,8 @@ export default async function CreateAccount() {
   }
 
   return (
-    <div className={`container ${styles.pagePy}`}>
-      <h1 className={styles.headingXl}>Create Account</h1>
+    <div className={`container ${styles['page-py']}`}>
+      <h1 className={styles['heading-xl']}>Create Account</h1>
       <RenderParams />
       <CreateAccountForm />
     </div>

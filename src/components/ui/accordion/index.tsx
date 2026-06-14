@@ -30,7 +30,7 @@ function AccordionTrigger({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
   return (
-    <AccordionPrimitive.Header className={styles.triggerHeader}>
+    <AccordionPrimitive.Header className={styles['trigger-header']}>
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(styles.trigger, className)}
@@ -54,7 +54,7 @@ function AccordionContent({
       className={styles.content}
       {...props}
     >
-      <div className={cn(styles.contentInner, className)}>{children}</div>
+      <div className={cn(styles['content-inner'], className)}>{children}</div>
     </AccordionPrimitive.Content>
   )
 }

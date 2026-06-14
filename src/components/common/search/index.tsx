@@ -32,18 +32,18 @@ export const Search: React.FC<Props> = ({ className }) => {
   }
 
   return (
-    <form className={cn(styles.searchForm, className)} onSubmit={onSubmit}>
+    <form className={cn(styles['search-form'], className)} onSubmit={onSubmit}>
       <input
         autoComplete="off"
-        className={styles.searchInput}
+        className={styles['search-input']}
         defaultValue={searchParams?.get('q') || ''}
         key={searchParams?.get('q')}
         name="search"
         placeholder="Search for products..."
         type="text"
       />
-      <div className={styles.searchIconWrap}>
-        <SearchIcon className={styles.searchIcon} />
+      <div className={styles['search-icon-wrap']}>
+        <SearchIcon className={styles['search-icon']} />
       </div>
     </form>
   )

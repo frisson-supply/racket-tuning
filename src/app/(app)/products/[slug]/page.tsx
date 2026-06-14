@@ -118,21 +118,21 @@ export default async function ProductPage({ params }: Args) {
         }}
         type="application/ld+json"
       />
-      <div className={`container ${styles.pageWrap}`}>
-        <Button asChild variant="ghost" className={styles.backBtn}>
+      <div className={`container ${styles['page-wrap']}`}>
+        <Button asChild variant="ghost" className={styles['back-btn']}>
           <Link href="/shop">
             <ChevronLeftIcon />
             All products
           </Link>
         </Button>
-        <div className={styles.productCard}>
-          <div className={styles.galleryCol}>
-            <Suspense fallback={<div className={styles.galleryFallback} />}>
+        <div className={styles['product-card']}>
+          <div className={styles['gallery-col']}>
+            <Suspense fallback={<div className={styles['gallery-fallback']} />}>
               {Boolean(gallery?.length) && <Gallery gallery={gallery} />}
             </Suspense>
           </div>
 
-          <div className={styles.infoCol}>
+          <div className={styles['info-col']}>
             <ProductDescription product={product} />
           </div>
         </div>
@@ -156,11 +156,11 @@ function RelatedProducts({ products }: { products: Product[] }) {
 
   return (
     <div className={styles.related}>
-      <h2 className={styles.relatedHeading}>Related Products</h2>
-      <ul className={styles.relatedList}>
+      <h2 className={styles['related-heading']}>Related Products</h2>
+      <ul className={styles['related-list']}>
         {products.map((product) => (
-          <li className={styles.relatedItem} key={product.id}>
-            <Link className={styles.relatedLink} href={`/products/${product.slug}`}>
+          <li className={styles['related-item']} key={product.id}>
+            <Link className={styles['related-link']} href={`/products/${product.slug}`}>
               <GridTileImage
                 label={{
                   amount: product.priceInUSD!,

@@ -1,12 +1,12 @@
 /* ── Gallery ────────────────────────────────────────────────────── */
-.galleryMain {
+.gallery-main {
   position: relative;
   width: 100%;
   overflow: hidden;
   margin-bottom: 2rem;
 }
 
-.galleryMainMedia {
+.gallery-main-media {
   width: 100%;
 }
 
@@ -15,11 +15,11 @@
   border-radius: var(--radius-md);
 }
 
-.galleryCarousel {
+.gallery-carousel {
   width: 100%;
 }
 
-.galleryThumb {
+.gallery-thumb {
   flex-basis: 20%;
   cursor: pointer;
 }
@@ -34,26 +34,26 @@
 }
 
 /* ── VariantSelector ────────────────────────────────────────────── */
-.variantGroup {
+.variant-group {
   /* dt/dd wrapper — no styles needed */
 }
 
-.variantLabel {
+.variant-label {
   margin-bottom: 1rem;
   font-size: 0.875rem;
 }
 
-.variantOptions {
+.variant-options {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
 
-.variantBtn {
+.variant-btn {
   padding-inline: 0.5rem;
 }
 
-.variantBtn--active {
+.variant-btn--active {
   background-color: color-mix(in oklch, var(--primary) 5%, transparent);
   color: var(--primary);
 }
@@ -65,44 +65,44 @@
   gap: 1.5rem;
 }
 
-.descHeader {
+.desc-header {
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 64rem) {
-  .descHeader {
+  .desc-header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 }
 
-.descTitle {
+.desc-title {
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.descPriceWrap {
+.desc-price-wrap {
   text-transform: uppercase;
   font-family: var(--font-mono), monospace;
 }
 
-.descActionsRow {
+.desc-actions-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 /* ── ProductGridItem ────────────────────────────────────────────── */
-.gridItemLink {
+.grid-item-link {
   position: relative;
   display: inline-block;
   height: 100%;
   width: 100%;
 }
 
-.gridItemMedia {
+.grid-item-media {
   position: relative;
   aspect-ratio: 1;
   object-fit: cover;
@@ -112,7 +112,7 @@
   background-color: var(--primary-foreground);
 }
 
-.gridItemImg {
+.grid-item-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -120,11 +120,11 @@
   transition: transform 300ms ease-in-out;
 }
 
-.gridItemLink:hover .gridItemImg {
+.grid-item-link:hover .grid-item-img {
   transform: scale(1.02);
 }
 
-.gridItemMeta {
+.grid-item-meta {
   font-family: var(--font-mono), monospace;
   color: color-mix(in oklch, var(--primary) 50%, transparent);
   display: flex;
@@ -133,6 +133,6 @@
   margin-top: 1rem;
 }
 
-.gridItemLink:hover .gridItemMeta {
+.grid-item-link:hover .grid-item-meta {
   color: var(--primary);
 }
