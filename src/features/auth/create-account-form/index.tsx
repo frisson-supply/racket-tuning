@@ -11,7 +11,9 @@ import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useCallback, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { cn } from '@/utilities/cn'
 import styles from '@/components/forms/forms.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 type FormData = {
   email: string
@@ -74,7 +76,7 @@ export const CreateAccountForm: React.FC = () => {
 
   return (
     <form className={`${styles['form--sm']} ${styles.formPadded}`} onSubmit={handleSubmit(onSubmit)}>
-      <div className="prose dark:prose-invert mb-6">
+      <div className={cn(proseStyles.prose, styles['mb-6'])}>
         <p>
           {`This is where new customers can signup and create a new account. To manage all users, `}
           <Link href="/admin/collections/users">login to the admin dashboard</Link>.
@@ -85,7 +87,7 @@ export const CreateAccountForm: React.FC = () => {
 
       <div className={styles.fieldGroup}>
         <FormItem>
-          <Label htmlFor="email" className="mb-2">
+          <Label htmlFor="email" className={styles['mb-2']}>
             Email Address
           </Label>
           <Input
@@ -97,7 +99,7 @@ export const CreateAccountForm: React.FC = () => {
         </FormItem>
 
         <FormItem>
-          <Label htmlFor="password" className="mb-2">
+          <Label htmlFor="password" className={styles['mb-2']}>
             New password
           </Label>
           <Input
@@ -109,7 +111,7 @@ export const CreateAccountForm: React.FC = () => {
         </FormItem>
 
         <FormItem>
-          <Label htmlFor="passwordConfirm" className="mb-2">
+          <Label htmlFor="passwordConfirm" className={styles['mb-2']}>
             Confirm Password
           </Label>
           <Input
@@ -127,7 +129,7 @@ export const CreateAccountForm: React.FC = () => {
         {loading ? 'Processing' : 'Create Account'}
       </Button>
 
-      <div className="prose dark:prose-invert mt-8">
+      <div className={cn(proseStyles.prose, styles['mt-8'])}>
         <p>
           {'Already have an account? '}
           <Link href={`/login${allParams}`}>Login</Link>

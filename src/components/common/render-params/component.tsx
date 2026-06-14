@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 
 import { Message } from '../message'
+import styles from './render-params.module.css'
 
 export type Props = {
   className?: string
@@ -34,7 +35,7 @@ export const RenderParamsComponent: React.FC<Props> = ({
 
           return (
             <Message
-              className="mb-8"
+              className={styles['mb-8']}
               key={paramValue}
               {...{
                 [params[index]]: paramValue,

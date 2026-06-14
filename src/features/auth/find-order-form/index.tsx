@@ -9,7 +9,9 @@ import { useAuth } from '@/providers/auth'
 import React, { Fragment, useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { sendOrderAccessEmail } from './send-order-access-email'
+import { cn } from '@/utilities/cn'
 import styles from '@/components/forms/forms.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 type FormData = {
   email: string
@@ -62,7 +64,7 @@ export const FindOrderForm: React.FC<Props> = ({ initialEmail }) => {
     return (
       <Fragment>
         <h1 className={styles.heading}>Check your email</h1>
-        <div className="prose dark:prose-invert">
+        <div className={proseStyles.prose}>
           <p>
             {`If an order exists with the provided email and order ID, we've sent you an email with a link to view your order details.`}
           </p>
@@ -74,7 +76,7 @@ export const FindOrderForm: React.FC<Props> = ({ initialEmail }) => {
   return (
     <Fragment>
       <h1 className={styles.heading}>Find my order</h1>
-      <div className="prose dark:prose-invert mb-8">
+      <div className={cn(proseStyles.prose, styles['mb-8'])}>
         <p>{`Please enter your email and order ID below. We'll send you a link to view your order.`}</p>
       </div>
       <form
@@ -82,7 +84,7 @@ export const FindOrderForm: React.FC<Props> = ({ initialEmail }) => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <FormItem>
-          <Label htmlFor="email" className="mb-2">
+          <Label htmlFor="email" className={styles['mb-2']}>
             Email address
           </Label>
           <Input
@@ -93,7 +95,7 @@ export const FindOrderForm: React.FC<Props> = ({ initialEmail }) => {
           {errors.email && <FormError message={errors.email.message} />}
         </FormItem>
         <FormItem>
-          <Label htmlFor="orderID" className="mb-2">
+          <Label htmlFor="orderID" className={styles['mb-2']}>
             Order ID
           </Label>
           <Input

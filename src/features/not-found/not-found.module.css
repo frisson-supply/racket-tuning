@@ -3,4 +3,8 @@
     padding-top: 7rem;
     padding-bottom: 7rem;
   }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
 }

@@ -61,7 +61,7 @@ export const ProductItem: React.FC<Props> = ({
       <div className={styles.thumb}>
         <div className={styles.thumbInner}>
           {image && typeof image !== 'string' && (
-            <Media fill imgClassName="rounded-lg object-cover" resource={image} />
+            <Media fill imgClassName={styles['thumb-image']} resource={image} />
           )}
         </div>
       </div>

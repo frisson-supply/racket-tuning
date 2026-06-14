@@ -42,4 +42,9 @@
     min-height: 80vh;
     user-select: none;
   }
+
+  .media-image {
+    z-index: -1;
+    object-fit: cover;
+  }
 }

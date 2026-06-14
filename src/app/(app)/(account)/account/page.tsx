@@ -10,7 +10,9 @@ import { Order } from '@/payload-types'
 import { OrderItem } from '@/features/account/order-item'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
+import { cn } from '@/utilities/cn'
 import styles from '../account.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 export default async function AccountPage() {
   const headers = await getHeaders()
@@ -57,7 +59,7 @@ export default async function AccountPage() {
       <div className={styles.card}>
         <h2 className={styles.cardHeading}>Recent Orders</h2>
 
-        <div className={`prose dark:prose-invert ${styles.cardIntro}`}>
+        <div className={cn(proseStyles.prose, styles.cardIntro)}>
           <p>
             These are the most recent orders you have placed. Each order is associated with an
             payment. As you place more orders, they will appear in your orders list.

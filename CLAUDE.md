@@ -45,6 +45,10 @@ When adding new content types (e.g. a "Services" collection/pages, before/after 
 
 **Planned styling direction**: The project is moving toward **CSS Modules with CSS `@layer`** instead of Tailwind utility classes. When creating or significantly touching components, prefer co-located `*.module.css` files using `@layer` (e.g. `reset, base, components, utilities, overrides`) over adding Tailwind utility classes, and reuse the existing CSS variable design tokens defined in `globals.css`. Migration is incremental — don't do a mass rewrite of unrelated components, but new/changed components should follow the CSS Modules approach.
 
+## Documentation
+
+The `README.md` covers setup and commands. Reference docs for the underlying Payload Ecommerce Template (collections, access control, Stripe, deployment, migrations, seeding, etc.) live in `docs/payload-template.md`.
+
 ## Secrets
 
 NEVER read, open, or print the contents of `.env` (or any `.env.*` file containing real secrets). If you need to know which variables are defined, ask the user or check `.env.example` for the variable names only.

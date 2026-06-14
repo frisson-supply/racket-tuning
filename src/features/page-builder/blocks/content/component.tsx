@@ -23,7 +23,7 @@ export const ContentBlock: React.FC<
   }
 
   return (
-    <div className="container my-16">
+    <div className={`container ${styles.wrap}`}>
       <div className={styles.grid}>
         {columns &&
           columns.length > 0 &&

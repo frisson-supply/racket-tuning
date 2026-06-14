@@ -151,7 +151,7 @@ export default async function Order({ params, searchParams }: PageProps) {
           {order.status && (
             <div className={styles.orderStatusCol}>
               <p className={styles.orderLabel}>Status</p>
-              <OrderStatus className="text-sm" status={order.status} />
+              <OrderStatus status={order.status} />
             </div>
           )}
         </div>

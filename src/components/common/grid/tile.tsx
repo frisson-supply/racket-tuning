@@ -35,7 +35,7 @@ export const GridTileImage: React.FC<Props> = ({
         <Media
           className={cn(styles.media, isInteractive && styles['media--interactive'])}
           height={80}
-          imgClassName="h-full w-full object-cover"
+          imgClassName={styles['media-image']}
           resource={props.media}
           width={80}
         />

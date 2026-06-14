@@ -25,18 +25,17 @@ type NodeTypes =
 const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
   ...defaultConverters,
   blocks: {
-    banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
+    banner: ({ node }) => <BannerBlock className={styles['block-banner']} {...node.fields} />,
     mediaBlock: ({ node }) => (
       <MediaBlock
-        className="col-start-1 col-span-3"
-        imgClassName="m-0"
+        imgClassName={styles['block-media-image']}
         {...node.fields}
-        captionClassName="mx-auto max-w-3xl"
+        captionClassName={styles['block-media-caption']}
         enableGutter={false}
         disableInnerContainer={true}
       />
     ),
-    code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
+    code: ({ node }) => <CodeBlock className={styles.blockCode} {...node.fields} />,
     cta: ({ node }) => <CallToActionBlock {...node.fields} />,
   },
 })
@@ -54,7 +53,7 @@ export const RichText: React.FC<Props> = (props) => {
       converters={jsxConverters}
       className={cn(
         enableGutter ? 'container' : styles.noGutter,
-        enableProse && 'mx-auto prose md:prose-md dark:prose-invert',
+        enableProse && styles.prose,
         className,
       )}
       {...rest}

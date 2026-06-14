@@ -52,7 +52,7 @@ export const Gallery: React.FC<Props> = ({ gallery }) => {
         <Media
           resource={gallery[current].image}
           className={styles.galleryMainMedia}
-          imgClassName="w-full rounded-lg"
+          imgClassName={styles['gallery-main-image']}
         />
       </div>
 

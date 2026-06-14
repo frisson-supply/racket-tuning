@@ -9,7 +9,9 @@ import { Label } from '@/components/ui/label'
 import Link from 'next/link'
 import React, { Fragment, useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { cn } from '@/utilities/cn'
 import styles from '@/components/forms/forms.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 type FormData = {
   email: string
@@ -52,7 +54,7 @@ export const ForgotPasswordForm: React.FC = () => {
       {!success && (
         <React.Fragment>
           <h1 className={styles.heading}>Forgot Password</h1>
-          <div className="prose dark:prose-invert mb-8">
+          <div className={cn(proseStyles.prose, styles['mb-8'])}>
             <p>
               {`Please enter your email below. You will receive an email message with instructions on
               how to reset your password. To manage your all users, `}
@@ -60,10 +62,10 @@ export const ForgotPasswordForm: React.FC = () => {
             </p>
           </div>
           <form className={styles['form--sm']} onSubmit={handleSubmit(onSubmit)}>
-            <Message className="mb-8" error={error} />
+            <Message className={styles['mb-8']} error={error} />
 
-            <FormItem className="mb-8">
-              <Label htmlFor="email" className="mb-2">
+            <FormItem className={styles['mb-8']}>
+              <Label htmlFor="email" className={styles['mb-2']}>
                 Email address
               </Label>
               <Input
@@ -83,7 +85,7 @@ export const ForgotPasswordForm: React.FC = () => {
       {success && (
         <React.Fragment>
           <h1 className={styles.heading}>Request submitted</h1>
-          <div className="prose dark:prose-invert">
+          <div className={proseStyles.prose}>
             <p>Check your email for a link that will allow you to securely reset your password.</p>
           </div>
         </React.Fragment>

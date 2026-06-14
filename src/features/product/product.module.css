@@ -10,6 +10,11 @@
   width: 100%;
 }
 
+.gallery-main-image {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
 .galleryCarousel {
   width: 100%;
 }

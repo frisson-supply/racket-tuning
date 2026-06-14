@@ -15,6 +15,7 @@ import { Controller } from 'react-hook-form'
 import { Error } from '../error'
 import { Width } from '../width'
 import { stateOptions } from './options'
+import selectStyles from '@/components/ui/select/select.module.css'
 
 export const State: React.FC<
   StateField & {
@@ -38,7 +39,7 @@ export const State: React.FC<
 
           return (
             <Select onValueChange={(val) => onChange(val)} value={controlledValue?.value}>
-              <SelectTrigger className="w-full" id={name}>
+              <SelectTrigger className={selectStyles['full-width']} id={name}>
                 <SelectValue placeholder={label} />
               </SelectTrigger>
               <SelectContent>

@@ -8,6 +8,7 @@ import { MediaBlock } from '@/features/page-builder/blocks/media-block/component
 import { ThreeItemGridBlock } from '@/features/page-builder/blocks/three-item-grid/component'
 import { toKebabCase } from '@/utilities/to-kebab-case'
 import React, { Fragment } from 'react'
+import styles from './render-blocks.module.css'
 
 import type { Page } from '@/payload-types'
 
@@ -40,7 +41,7 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="my-16" key={index}>
+                <div className={styles['block-wrap']} key={index}>
                   {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                   {/* @ts-ignore - weird type mismatch here */}
                   <Block id={toKebabCase(blockName!)} {...block} />

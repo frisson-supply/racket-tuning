@@ -43,7 +43,7 @@ export const CheckoutAddresses: React.FC<Props> = ({
     <div className={styles.addressesWrap}>
       <div>
         <h3 className={styles.addressesHeader}>{heading}</h3>
-        <p className="text-muted-foreground">{description}</p>
+        <p className={styles['addresses-description']}>{description}</p>
       </div>
       <AddressesModal setAddress={setAddress} />
     </div>

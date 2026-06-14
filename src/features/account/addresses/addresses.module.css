@@ -8,6 +8,10 @@
     flex-grow: 1;
   }
 
+  .item-title {
+    font-weight: 500;
+  }
+
   .actions {
     flex-shrink: 1;
     display: flex;

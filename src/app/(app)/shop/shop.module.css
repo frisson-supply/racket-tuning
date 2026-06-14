@@ -88,4 +88,8 @@
   .resultText {
     margin-bottom: 1rem;
   }
+
+  .result-query {
+    font-weight: 700;
+  }
 }

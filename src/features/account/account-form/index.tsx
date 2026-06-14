@@ -12,7 +12,9 @@ import { useRouter } from 'next/navigation'
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import { cn } from '@/utilities/cn'
 import styles from '@/components/forms/forms.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 type FormData = {
   email: string
@@ -92,7 +94,7 @@ export const AccountForm: React.FC = () => {
     <form className={styles['form--md']} onSubmit={handleSubmit(onSubmit)}>
       {!changePassword ? (
         <Fragment>
-          <div className="prose dark:prose-invert mb-8">
+          <div className={cn(proseStyles.prose, styles['mb-8'])}>
             <p>
               {'Change your account details below, or '}
               <Button
@@ -109,7 +111,7 @@ export const AccountForm: React.FC = () => {
 
           <div className={styles.fieldGroup}>
             <FormItem>
-              <Label htmlFor="email" className="mb-2">
+              <Label htmlFor="email" className={styles['mb-2']}>
                 Email Address
               </Label>
               <Input
@@ -121,7 +123,7 @@ export const AccountForm: React.FC = () => {
             </FormItem>
 
             <FormItem>
-              <Label htmlFor="name" className="mb-2">
+              <Label htmlFor="name" className={styles['mb-2']}>
                 Name
               </Label>
               <Input
@@ -135,7 +137,7 @@ export const AccountForm: React.FC = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <div className="prose dark:prose-invert mb-8">
+          <div className={cn(proseStyles.prose, styles['mb-8'])}>
             <p>
               {'Change your password below, or '}
               <Button
@@ -152,7 +154,7 @@ export const AccountForm: React.FC = () => {
 
           <div className={styles.fieldGroup}>
             <FormItem>
-              <Label htmlFor="password" className="mb-2">
+              <Label htmlFor="password" className={styles['mb-2']}>
                 New password
               </Label>
               <Input
@@ -164,7 +166,7 @@ export const AccountForm: React.FC = () => {
             </FormItem>
 
             <FormItem>
-              <Label htmlFor="passwordConfirm" className="mb-2">
+              <Label htmlFor="passwordConfirm" className={styles['mb-2']}>
                 Confirm password
               </Label>
               <Input

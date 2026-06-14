@@ -27,7 +27,7 @@ export const AddressItem: React.FC<Props> = ({
   return (
     <div className={styles.item}>
       <div className={styles.content}>
-        <p className="font-medium">
+        <p className={styles['item-title']}>
           {address.title && <span>{address.title} </span>}
           {address.firstName} {address.lastName}
         </p>

@@ -12,6 +12,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useCallback, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from '@/components/forms/forms.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 type FormData = {
   email: string
@@ -69,7 +70,7 @@ export const LoginForm: React.FC = () => {
           {errors.password && <FormError message={errors.password.message} />}
         </FormItem>
 
-        <div className="prose prose-a:hover:text-primary dark:prose-invert">
+        <div className={proseStyles.prose}>
           <p>
             Forgot your password?{' '}
             <Link href={`/forgot-password${allParams}`}>Click here to reset it</Link>

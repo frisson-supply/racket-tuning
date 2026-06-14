@@ -126,9 +126,9 @@ export const FormBlock: React.FC<
   )
 
   return (
-    <div className="container lg:max-w-3xl">
+    <div className={`container ${styles.container}`}>
       {enableIntro && introContent && !hasSubmitted && (
-        <RichText className="mb-8 lg:mb-12" data={introContent} enableGutter={false} />
+        <RichText className={styles.intro} data={introContent} enableGutter={false} />
       )}
       <div className={styles.wrap}>
         <FormProvider {...formMethods}>

@@ -47,6 +47,31 @@
     margin-bottom: 2rem;
   }
 
+  .empty-cart {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .guest-action-row {
+    margin-top: 0;
+  }
+
+  .guest-action-separator {
+    margin-inline: 0.5rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
   .layout {
     display: flex;
     flex-direction: column;
@@ -139,6 +164,10 @@
     color: inherit;
   }
 
+  .underline-link {
+    text-decoration: underline;
+  }
+
   /* Cart summary */
 
   .cartCol {
@@ -187,6 +216,10 @@
     height: 100%;
   }
 
+  .cart-thumb-image {
+    border-radius: var(--radius-md);
+  }
+
   .cartItemMeta {
     display: flex;
     flex-grow: 1;
@@ -223,6 +256,11 @@
     text-transform: uppercase;
   }
 
+  .cart-total-amount {
+    font-size: 1.875rem;
+    font-weight: 500;
+  }
+
   .selfStart {
     align-self: flex-start;
   }
@@ -239,6 +277,10 @@
     margin-bottom: 0.5rem;
     font-weight: 500;
     font-size: 1.25rem;
+  }
+
+  .addresses-description {
+    color: var(--muted-foreground);
   }
 
   .addressesList {

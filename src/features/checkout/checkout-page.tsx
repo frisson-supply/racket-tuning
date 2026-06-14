@@ -19,13 +19,15 @@ import { CheckoutForm } from '@/features/checkout/checkout-form'
 import { useAddresses, useCart, usePayments } from '@payloadcms/plugin-ecommerce/client/react'
 import { CheckoutAddresses } from '@/features/checkout/checkout-addresses'
 import { CreateAddressModal } from '@/features/account/addresses/create-address-modal'
-import { Address } from '@/payload-types'
+import { Address, VariantOption } from '@/payload-types'
 import { Checkbox } from '@/components/ui/checkbox'
 import { AddressItem } from '@/features/account/addresses/address-item'
 import { FormItem } from '@/components/forms/form-item'
 import { toast } from 'sonner'
 import { LoadingSpinner } from '@/components/common/loading-spinner'
+import { cn } from '@/utilities/cn'
 import styles from './checkout.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 const apiKey = `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
 const stripe = loadStripe(apiKey)
@@ -107,7 +109,7 @@ export const CheckoutPage: React.FC = () => {
   if (cartIsEmpty && isProcessingPayment) {
     return (
       <div className={styles.processingWrap}>
-        <div className="prose dark:prose-invert text-center max-w-none self-center mb-8">
+        <div className={cn(proseStyles.prose, styles.processingText)}>
           <p>Processing your payment...</p>
         </div>
         <LoadingSpinner />
@@ -117,7 +119,7 @@ export const CheckoutPage: React.FC = () => {
 
   if (cartIsEmpty) {
     return (
-      <div className="prose dark:prose-invert py-12 w-full items-center">
+      <div className={cn(proseStyles.prose, styles['empty-cart'])}>
         <p>Your cart is empty.</p>
         <Link href="/search">Continue shopping?</Link>
       </div>
@@ -130,12 +132,12 @@ export const CheckoutPage: React.FC = () => {
         <h2 className={styles.sectionHeading}>Contact</h2>
         {!user && (
           <div className={styles.guestBox}>
-            <div className="prose dark:prose-invert">
+            <div className={proseStyles.prose}>
               <Button asChild className={styles.noUnderline} variant="outline">
                 <Link href="/login">Log in</Link>
               </Button>
-              <p className="mt-0">
-                <span className="mx-2">or</span>
+              <p className={styles['guest-action-row']}>
+                <span className={styles['guest-action-separator']}>or</span>
                 <Link href="/create-account">create an account</Link>
               </p>
             </div>
@@ -147,7 +149,7 @@ export const CheckoutPage: React.FC = () => {
               <p>{user.email}</p>{' '}
               <p>
                 Not you?{' '}
-                <Link className="underline" href="/logout">
+                <Link className={styles['underline-link']} href="/logout">
                   Log out
                 </Link>
               </p>
@@ -156,9 +158,9 @@ export const CheckoutPage: React.FC = () => {
         ) : (
           <div className={styles.guestBox}>
             <div>
-              <p className="mb-4">Enter your email to checkout as a guest.</p>
+              <p className={styles['mb-4']}>Enter your email to checkout as a guest.</p>
 
-              <FormItem className="mb-6">
+              <FormItem className={styles['mb-6']}>
                 <Label htmlFor="email">Email Address</Label>
                 <Input
                   disabled={!emailEditable}
@@ -370,14 +372,14 @@ export const CheckoutPage: React.FC = () => {
               if (isVariant) {
                 price = variant?.priceInUSD
 
-                const imageVariant = product.gallery?.find((item) => {
+                const imageVariant = product.gallery?.find((item: NonNullable<typeof product.gallery>[number]) => {
                   if (!item.variantOption) return false
                   const variantOptionID =
                     typeof item.variantOption === 'object'
                       ? item.variantOption.id
                       : item.variantOption
 
-                  const hasMatch = variant?.options?.some((option) => {
+                  const hasMatch = variant?.options?.some((option: number | VariantOption) => {
                     if (typeof option === 'object') return option.id === variantOptionID
                     else return option === variantOptionID
                   })
@@ -395,7 +397,7 @@ export const CheckoutPage: React.FC = () => {
                   <div className={styles.cartThumb}>
                     <div className={styles.cartThumbInner}>
                       {image && typeof image !== 'string' && (
-                        <Media fill imgClassName="rounded-lg" resource={image} />
+                        <Media fill imgClassName={styles['cart-thumb-image']} resource={image} />
                       )}
                     </div>
                   </div>
@@ -405,7 +407,7 @@ export const CheckoutPage: React.FC = () => {
                       {variant && typeof variant === 'object' && (
                         <p className={styles.cartItemVariant}>
                           {variant.options
-                            ?.map((option) => {
+                            ?.map((option: number | VariantOption) => {
                               if (typeof option === 'object') return option.label
                               return null
                             })
@@ -428,7 +430,7 @@ export const CheckoutPage: React.FC = () => {
           <hr />
           <div className={styles.cartTotal}>
             <span className={styles.cartTotalLabel}>Total</span>{' '}
-            <Price className="text-3xl font-medium" amount={cart.subtotal || 0} />
+            <Price className={styles['cart-total-amount']} amount={cart.subtotal || 0} />
           </div>
         </div>
       )}

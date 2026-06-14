@@ -1,0 +1,14 @@
+@layer components {
+  .trigger {
+    width: auto;
+    background-color: transparent;
+    gap: 0.5rem;
+    border: none;
+  }
+
+  @media (width >= 48rem) {
+    .trigger {
+      padding-left: 0.75rem;
+    }
+  }
+}

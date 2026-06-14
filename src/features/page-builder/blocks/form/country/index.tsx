@@ -15,6 +15,7 @@ import { Controller } from 'react-hook-form'
 import { Error } from '../error'
 import { Width } from '../width'
 import { countryOptions } from './options'
+import selectStyles from '@/components/ui/select/select.module.css'
 
 export const Country: React.FC<
   CountryField & {
@@ -28,9 +29,7 @@ export const Country: React.FC<
 > = ({ name, control, errors, label, required, width }) => {
   return (
     <Width width={width}>
-      <Label className="" htmlFor={name}>
-        {label}
-      </Label>
+      <Label htmlFor={name}>{label}</Label>
       <Controller
         control={control}
         defaultValue=""
@@ -40,7 +39,7 @@ export const Country: React.FC<
 
           return (
             <Select onValueChange={(val) => onChange(val)} value={controlledValue?.value}>
-              <SelectTrigger className="w-full" id={name}>
+              <SelectTrigger className={selectStyles['full-width']} id={name}>
                 <SelectValue placeholder={label} />
               </SelectTrigger>
               <SelectContent>

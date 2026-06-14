@@ -16,6 +16,7 @@ import {
 
 import { titles } from './constants'
 import { Button } from '@/components/ui/button'
+import selectStyles from '@/components/ui/select/select.module.css'
 import { deepMergeSimple } from 'payload/shared'
 import { FormError } from '@/components/forms/form-error'
 import { FormItem } from '@/components/forms/form-item'
@@ -193,7 +194,7 @@ export const AddressForm: React.FC<Props> = ({
             required
             defaultValue={initialData?.country || ''}
           >
-            <SelectTrigger id="country" className="w-full">
+            <SelectTrigger id="country" className={selectStyles['full-width']}>
               <SelectValue placeholder="Country" />
             </SelectTrigger>
             <SelectContent>

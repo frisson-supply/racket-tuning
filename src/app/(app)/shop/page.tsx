@@ -83,7 +83,7 @@ export default async function ShopPage({ searchParams }: Props) {
           {products.docs?.length === 0
             ? 'There are no products that match '
             : `Showing ${products.docs.length} ${resultsText} for `}
-          <span className="font-bold">&quot;{searchValue}&quot;</span>
+          <span className={styles['result-query']}>&quot;{searchValue}&quot;</span>
         </p>
       ) : null}
 
