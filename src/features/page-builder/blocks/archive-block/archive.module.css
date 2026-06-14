@@ -1,0 +1,15 @@
+@layer components {
+  .wrap {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .intro {
+    margin-bottom: 4rem;
+  }
+
+  .intro-content {
+    margin-left: 0;
+    max-width: 48rem;
+  }
+}

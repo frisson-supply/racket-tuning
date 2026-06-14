@@ -1,0 +1,111 @@
+.sheet-content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.trigger {
+  position: relative;
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--border);
+  color: #000;
+  transition: border-color 200ms;
+  background: transparent;
+  cursor: pointer;
+}
+
+[data-theme='dark'] .trigger {
+  border-color: oklch(43.9% 0 0deg);
+  background-color: #000;
+  color: #fff;
+}
+
+.trigger svg {
+  height: 1rem;
+  width: auto;
+}
+
+.menu-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.menu-item {
+  padding-block: 0.5rem;
+}
+
+.section {
+  margin-top: 1rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 100%;
+  border-color: rgb(255 255 255 / 5%);
+  margin-block: 0.5rem;
+}
+
+.account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logout-item {
+  margin-top: 1.5rem;
+}
+
+.auth-buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (min-width: 40rem) {
+  .auth-buttons {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.auth-button {
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  .auth-button {
+    flex: 1;
+  }
+}
+
+.auth-or {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 40rem) {
+  .auth-or {
+    font-size: 1rem;
+  }
+}
+
+.sheet-body {
+  padding-block: 1rem;
+}
+
+.sheet-header {
+  padding-inline: 0;
+  padding-top: 1rem;
+  padding-bottom: 0;
+}

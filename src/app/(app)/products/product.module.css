@@ -1,0 +1,121 @@
+@layer pages {
+  .page-wrap {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .back-btn {
+    margin-bottom: 1rem;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    background-color: var(--primary-foreground);
+  }
+
+  @media (min-width: 48rem) {
+    .product-card {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .product-card {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  .gallery-col {
+    height: 100%;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  @media (min-width: 64rem) {
+    .gallery-col {
+      flex-basis: 50%;
+    }
+  }
+
+  .gallery-fallback {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    max-height: 550px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .info-col {
+    flex-basis: 100%;
+  }
+
+  @media (min-width: 64rem) {
+    .info-col {
+      flex-basis: 50%;
+    }
+  }
+
+  .related {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .related-heading {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .related-list {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-top: 0.25rem;
+  }
+
+  .related-item {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 29.6875rem) {
+    .related-item {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 40rem) {
+    .related-item {
+      width: 33.333%;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .related-item {
+      width: 25%;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .related-item {
+      width: 20%;
+    }
+  }
+
+  .related-link {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}

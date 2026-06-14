@@ -1,0 +1,51 @@
+@layer pages {
+  .page-py {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .auth-inner {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .auth-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .auth-intro {
+    margin-bottom: 2rem;
+  }
+
+  .article {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  .checkout-page {
+    min-height: 90vh;
+    display: flex;
+  }
+
+  .confirm-page {
+    min-height: 90vh;
+    display: flex;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .logout-inner {
+    max-width: 32rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .heading-xl {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}

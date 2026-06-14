@@ -1,0 +1,18 @@
+.status {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono), monospace;
+  text-transform: uppercase;
+  padding-block: 0;
+  padding-inline: 0.5rem;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+}
+
+.processing {
+  background-color: color-mix(in oklch, var(--primary) 10%, transparent);
+}
+
+.completed {
+  background-color: var(--success);
+}

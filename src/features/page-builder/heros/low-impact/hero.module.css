@@ -1,0 +1,9 @@
+@layer components {
+  .wrap {
+    margin-top: 4rem;
+  }
+
+  .content {
+    max-width: 48rem;
+  }
+}

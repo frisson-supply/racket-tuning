@@ -1,0 +1,50 @@
+@layer components {
+  .wrap {
+    position: relative;
+    margin-top: -10.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .inner {
+    margin-bottom: 2rem;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    max-width: 36.5rem;
+  }
+
+  @media (min-width: 48rem) {
+    .content {
+      text-align: center;
+    }
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media (min-width: 48rem) {
+    .links {
+      justify-content: center;
+    }
+  }
+
+  .media-wrap {
+    min-height: 80vh;
+    user-select: none;
+  }
+
+  .media-image {
+    z-index: -1;
+    object-fit: cover;
+  }
+}

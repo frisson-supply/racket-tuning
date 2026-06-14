@@ -3,11 +3,12 @@ import type { Metadata } from 'next'
 import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React from 'react'
 
-import { ForgotPasswordForm } from '@/components/forms/forgot-password-form'
+import { ForgotPasswordForm } from '@/features/auth/forgot-password-form'
+import styles from '../pages.module.css'
 
 export default async function ForgotPasswordPage() {
   return (
-    <div className="container py-16">
+    <div className={`container ${styles['page-py']}`}>
       <ForgotPasswordForm />
     </div>
   )

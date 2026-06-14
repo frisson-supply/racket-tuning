@@ -1,0 +1,33 @@
+@layer components {
+  .wrap {
+    margin-block: 4rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 4rem;
+  }
+
+  @media (min-width: 64rem) {
+    .grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+
+  .column {
+    grid-column: span 4;
+  }
+
+  @media (min-width: 48rem) {
+    .column--notfull {
+      grid-column: span 2;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .column {
+      grid-column: span var(--col-span, 4);
+    }
+  }
+}

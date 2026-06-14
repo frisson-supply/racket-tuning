@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  color: color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+.link:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.link--active {
+  color: var(--primary);
+}
+
+.divider {
+  width: 100%;
+  border-color: rgb(255 255 255 / 5%);
+}

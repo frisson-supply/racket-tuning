@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 
-import { RenderParams } from '@/components/render-params'
+import { RenderParams } from '@/components/common/render-params'
 import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import React from 'react'
 import { headers as getHeaders } from 'next/headers'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
-import { CreateAccountForm } from '@/components/forms/create-account-form'
+import { CreateAccountForm } from '@/features/auth/create-account-form'
 import { redirect } from 'next/navigation'
+import styles from '../pages.module.css'
 
 export default async function CreateAccount() {
   const headers = await getHeaders()
@@ -20,8 +21,8 @@ export default async function CreateAccount() {
   }
 
   return (
-    <div className="container py-16">
-      <h1 className="text-xl mb-4">Create Account</h1>
+    <div className={`container ${styles['page-py']}`}>
+      <h1 className={styles['heading-xl']}>Create Account</h1>
       <RenderParams />
       <CreateAccountForm />
     </div>

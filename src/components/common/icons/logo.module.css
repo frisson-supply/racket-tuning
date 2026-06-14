@@ -1,0 +1,7 @@
+@layer components {
+  .icon {
+    height: 1rem;
+    width: 1rem;
+    color: var(--foreground);
+  }
+}

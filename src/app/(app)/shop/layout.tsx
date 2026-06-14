@@ -1,21 +1,22 @@
-import { Categories } from '@/components/layout/search/categories'
-import { FilterList } from '@/components/layout/search/filter'
+import { Categories } from '@/features/shop/search/categories'
+import { FilterList } from '@/features/shop/search/filter'
 import { sorting } from '@/lib/constants'
-import { Search } from '@/components/search'
+import { Search } from '@/components/common/search'
 import React, { Suspense } from 'react'
+import styles from './shop.module.css'
 
 export default function ShopLayout({ children }: { children: React.ReactNode }) {
   return (
     <Suspense fallback={null}>
-      <div className="container flex flex-col gap-8 my-16 pb-4 ">
-        <Search className="mb-8" />
+      <div className={`container ${styles.layout}`}>
+        <Search className={styles.searchBar} />
 
-        <div className="flex flex-col md:flex-row items-start justify-between gap-16 md:gap-4">
-          <div className="w-full flex-none flex flex-col gap-4 md:gap-8 basis-1/5">
+        <div className={styles.inner}>
+          <div className={styles.sidebar}>
             <Categories />
             <FilterList list={sorting} title="Sort by" />
           </div>
-          <div className="min-h-screen w-full">{children}</div>
+          <div className={styles.main}>{children}</div>
         </div>
       </div>
     </Suspense>

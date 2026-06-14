@@ -30,10 +30,10 @@ export default buildConfig({
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
-      beforeLogin: ['@/components/BeforeLogin#BeforeLogin'],
+      beforeLogin: ['@/components/admin/before-login/index#BeforeLogin'],
       // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
-      beforeDashboard: ['@/components/BeforeDashboard#BeforeDashboard'],
+      beforeDashboard: ['@/components/admin/before-dashboard/index#BeforeDashboard'],
     },
     user: Users.slug,
   },
@@ -42,6 +42,9 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
+    push: process.env.VERCEL_ENV
+      ? process.env.VERCEL_ENV !== 'production'
+      : process.env.NODE_ENV !== 'production',
   }),
   editor: lexicalEditor({
     features: () => {

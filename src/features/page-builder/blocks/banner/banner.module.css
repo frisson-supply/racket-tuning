@@ -1,0 +1,37 @@
+@layer components {
+  .wrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .inner {
+    border: 1px solid var(--border);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: calc(var(--radius) - 2px);
+  }
+
+  .inner--info {
+    border-color: var(--border);
+    background-color: var(--card);
+  }
+
+  .inner--error {
+    border-color: var(--error-500, oklch(62.8% 0.258 29.23));
+    background-color: color-mix(in oklch, var(--error-500, oklch(62.8% 0.258 29.23)) 30%, transparent);
+  }
+
+  .inner--success {
+    border-color: var(--success-500, oklch(64.3% 0.206 151.31));
+    background-color: color-mix(in oklch, var(--success-500, oklch(64.3% 0.206 151.31)) 30%, transparent);
+  }
+
+  .inner--warning {
+    border-color: var(--warning-500, oklch(79.5% 0.184 86.05));
+    background-color: color-mix(in oklch, var(--warning-500, oklch(79.5% 0.184 86.05)) 30%, transparent);
+  }
+}

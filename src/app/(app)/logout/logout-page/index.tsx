@@ -3,6 +3,7 @@
 import { useAuth } from '@/providers/auth'
 import Link from 'next/link'
 import React, { Fragment, useEffect, useState } from 'react'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 export const LogoutPage: React.FC = (props) => {
   const { logout } = useAuth()
@@ -25,7 +26,7 @@ export const LogoutPage: React.FC = (props) => {
   return (
     <Fragment>
       {(error || success) && (
-        <div className="prose dark:prose-invert">
+        <div className={proseStyles.prose}>
           <h1>{error || success}</h1>
           <p>
             What would you like to do next?

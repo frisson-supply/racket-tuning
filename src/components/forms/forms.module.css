@@ -1,0 +1,104 @@
+@layer components {
+  .form--sm {
+    max-width: 32rem;
+  }
+
+  .form--md {
+    max-width: 36rem;
+  }
+
+  .form--flex {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .field-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 48rem) {
+    .field-row--responsive {
+      flex-direction: row;
+    }
+  }
+
+  .form-padded {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .actions-start {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .half-grow {
+    flex-grow: 1;
+    max-width: 50%;
+  }
+
+  .link-btn {
+    padding-left: 0;
+    padding-right: 0;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .self-start {
+    align-self: flex-start;
+  }
+
+  .prose-hint {
+    color: color-mix(in oklch, var(--primary) 70%, transparent);
+    margin-bottom: 1.5rem;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .heading-xl {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+
+  .mt-8 {
+    margin-top: 2rem;
+  }
+}

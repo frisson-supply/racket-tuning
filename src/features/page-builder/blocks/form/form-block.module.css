@@ -1,0 +1,62 @@
+@layer components {
+  @media (min-width: 64rem) {
+    .container {
+      max-width: 48rem;
+    }
+  }
+
+  .intro {
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 64rem) {
+    .intro {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .wrap {
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.8rem;
+  }
+
+  @media (min-width: 64rem) {
+    .wrap {
+      padding: 1.5rem;
+    }
+  }
+
+  .field-group {
+    margin-bottom: 1rem;
+  }
+
+  .field-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .field {
+    margin-bottom: 1.5rem;
+  }
+
+  .field:last-child {
+    margin-bottom: 0;
+  }
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .error {
+    margin-top: 0.5rem;
+    color: var(--error-500, oklch(62.8% 0.258 29.23));
+    font-size: 0.875rem;
+  }
+
+  .message-wrap {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}

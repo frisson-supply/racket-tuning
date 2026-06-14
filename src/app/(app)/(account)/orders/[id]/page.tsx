@@ -1,19 +1,20 @@
 import type { Order } from '@/payload-types'
 import type { Metadata } from 'next'
 
-import { Price } from '@/components/price'
+import { Price } from '@/components/common/price'
 import { Button } from '@/components/ui/button'
 import { formatDateTime } from '@/utilities/format-date-time'
 import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ChevronLeftIcon } from 'lucide-react'
-import { ProductItem } from '@/components/product-item'
+import { ProductItem } from '@/features/product/product-item'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import { OrderStatus } from '@/components/order-status'
-import { AddressItem } from '@/components/addresses/address-item'
+import { OrderStatus } from '@/features/account/order-status'
+import { AddressItem } from '@/features/account/addresses/address-item'
+import styles from '../../account.module.css'
 
 export const dynamic = 'force-dynamic'
 
@@ -113,10 +114,10 @@ export default async function Order({ params, searchParams }: PageProps) {
   }
 
   return (
-    <div className="">
-      <div className="flex gap-8 justify-between items-center mb-6">
+    <div>
+      <div className={styles['order-header']}>
         {user ? (
-          <div className="flex gap-4">
+          <div>
             <Button asChild variant="ghost">
               <Link href="/orders">
                 <ChevronLeftIcon />
@@ -128,39 +129,37 @@ export default async function Order({ params, searchParams }: PageProps) {
           <div></div>
         )}
 
-        <h1 className="text-sm uppercase font-mono px-2 bg-primary/10 rounded tracking-[0.07em]">
-          <span className="">{`Order #${order.id}`}</span>
-        </h1>
+        <h1 className={styles['order-badge']}>{`Order #${order.id}`}</h1>
       </div>
 
-      <div className="bg-card border rounded-lg px-6 py-4 flex flex-col gap-12">
-        <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
-          <div className="">
-            <p className="font-mono uppercase text-primary/50 mb-1 text-sm">Order Date</p>
-            <p className="text-lg">
+      <div className={styles['order-card']}>
+        <div className={styles['order-meta']}>
+          <div>
+            <p className={styles['order-label']}>Order Date</p>
+            <p className={styles['order-value']}>
               <time dateTime={order.createdAt}>
                 {formatDateTime({ date: order.createdAt, format: 'MMMM dd, yyyy' })}
               </time>
             </p>
           </div>
 
-          <div className="">
-            <p className="font-mono uppercase text-primary/50 mb-1 text-sm">Total</p>
-            {order.amount && <Price className="text-lg" amount={order.amount} />}
+          <div>
+            <p className={styles['order-label']}>Total</p>
+            {order.amount && <Price className={styles['order-value']} amount={order.amount} />}
           </div>
 
           {order.status && (
-            <div className="grow max-w-1/3">
-              <p className="font-mono uppercase text-primary/50 mb-1 text-sm">Status</p>
-              <OrderStatus className="text-sm" status={order.status} />
+            <div className={styles['order-status-col']}>
+              <p className={styles['order-label']}>Status</p>
+              <OrderStatus status={order.status} />
             </div>
           )}
         </div>
 
         {order.items && (
           <div>
-            <h2 className="font-mono text-primary/50 mb-4 uppercase text-sm">Items</h2>
-            <ul className="flex flex-col gap-6">
+            <h2 className={styles['section-label']}>Items</h2>
+            <ul className={styles['item-list']}>
               {order.items?.map((item, index) => {
                 if (typeof item.product === 'string') {
                   return null
@@ -189,7 +188,7 @@ export default async function Order({ params, searchParams }: PageProps) {
 
         {order.shippingAddress && (
           <div>
-            <h2 className="font-mono text-primary/50 mb-4 uppercase text-sm">Shipping Address</h2>
+            <h2 className={styles['section-label']}>Shipping Address</h2>
 
             {/* @ts-expect-error - some kind of type hell */}
             <AddressItem address={order.shippingAddress} hideActions />

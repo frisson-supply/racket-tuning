@@ -1,0 +1,23 @@
+.wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper--visible {
+  display: flex;
+}
+
+.loader {
+  animation: spin 1s linear infinite;
+  color: var(--primary);
+}
+
+.loader--sm { width: 1.5rem; height: 1.5rem; }
+.loader--md { width: 2rem;   height: 2rem; }
+.loader--lg { width: 3rem;   height: 3rem; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

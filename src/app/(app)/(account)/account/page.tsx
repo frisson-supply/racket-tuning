@@ -5,11 +5,14 @@ import { mergeOpenGraph } from '@/utilities/merge-open-graph'
 import Link from 'next/link'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'
-import { AccountForm } from '@/components/forms/account-form'
+import { AccountForm } from '@/features/account/account-form'
 import { Order } from '@/payload-types'
-import { OrderItem } from '@/components/order-item'
+import { OrderItem } from '@/features/account/order-item'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
+import { cn } from '@/utilities/cn'
+import styles from '../account.module.css'
+import proseStyles from '@/components/common/rich-text/rich-text.module.css'
 
 export default async function AccountPage() {
   const headers = await getHeaders()
@@ -48,15 +51,15 @@ export default async function AccountPage() {
 
   return (
     <>
-      <div className="border p-8 rounded-lg bg-primary-foreground">
-        <h1 className="text-3xl font-medium mb-8">Account settings</h1>
+      <div className={styles.card}>
+        <h1 className={styles['card-heading']}>Account settings</h1>
         <AccountForm />
       </div>
 
-      <div className=" border p-8 rounded-lg bg-primary-foreground">
-        <h2 className="text-3xl font-medium mb-8">Recent Orders</h2>
+      <div className={styles.card}>
+        <h2 className={styles['card-heading']}>Recent Orders</h2>
 
-        <div className="prose dark:prose-invert mb-8">
+        <div className={cn(proseStyles.prose, styles['card-intro'])}>
           <p>
             These are the most recent orders you have placed. Each order is associated with an
             payment. As you place more orders, they will appear in your orders list.
@@ -64,11 +67,11 @@ export default async function AccountPage() {
         </div>
 
         {(!orders || !Array.isArray(orders) || orders?.length === 0) && (
-          <p className="mb-8">You have no orders.</p>
+          <p className={styles['empty-text']}>You have no orders.</p>
         )}
 
         {orders && orders.length > 0 && (
-          <ul className="flex flex-col gap-6 mb-8">
+          <ul className={styles['order-list']}>
             {orders?.map((order, index) => (
               <li key={order.id}>
                 <OrderItem order={order} />

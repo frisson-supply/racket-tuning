@@ -1,0 +1,31 @@
+.item {
+  margin-top: 0.5rem;
+  display: flex;
+  font-size: 0.875rem;
+  color: #000;
+}
+
+[data-theme='dark'] .item {
+  color: #fff;
+}
+
+.link {
+  width: 100%;
+  font-family: var(--font-mono), monospace;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--primary) 50%, transparent);
+  padding-inline: 0.5rem;
+  font-size: 0.875rem;
+  padding-block: 0.25rem;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.link:hover {
+  background-color: rgb(255 255 255 / 5%);
+  color: var(--primary);
+}
+
+.link--active {
+  background-color: rgb(255 255 255 / 5%);
+  color: var(--primary);
+}

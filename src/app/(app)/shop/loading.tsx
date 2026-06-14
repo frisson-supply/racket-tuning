@@ -1,13 +1,14 @@
-import { Grid } from '@/components/grid'
+import { Grid } from '@/components/common/grid'
 import React from 'react'
+import styles from './shop.module.css'
 
 export default function Loading() {
   return (
-    <Grid className="grid-cols-2 lg:grid-cols-3">
+    <Grid className={styles['loading-grid']}>
       {Array(12)
         .fill(0)
         .map((_, index) => {
-          return <div className="animate-pulse bg-neutral-100 dark:bg-neutral-900" key={index} />
+          return <div className={styles.skeleton} key={index} />
         })}
     </Grid>
   )

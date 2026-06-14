@@ -1,0 +1,52 @@
+@layer pages {
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    max-width: 36rem;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    padding: 2rem;
+  }
+
+  @media (min-width: 48rem) {
+    .card {
+      padding: 3rem;
+    }
+  }
+
+  .heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .message {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #2563eb;
+    padding: 1rem;
+    letter-spacing: 0.05em;
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
+
+  .button:hover {
+    opacity: 0.9;
+  }
+}

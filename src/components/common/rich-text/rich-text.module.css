@@ -1,0 +1,134 @@
+@layer components {
+  .no-gutter {
+    max-width: none;
+  }
+
+  .mb-0 {
+    margin-bottom: 0;
+  }
+
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose {
+    max-width: 65ch;
+    margin-inline: auto;
+    line-height: 1.75;
+  }
+
+  @media (width >= 48rem) {
+    .prose {
+      max-width: 80ch;
+    }
+  }
+
+  .prose :global(h1) {
+    font-size: 2.25em;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.5em;
+    line-height: 1.3;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.25em;
+    line-height: 1.4;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+  }
+
+  .prose :global(h4) {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose :global(p) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    padding-inline-start: 1.625em;
+  }
+
+  .prose :global(li) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose :global(a) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose :global(strong) {
+    font-weight: 600;
+  }
+
+  .prose :global(blockquote) {
+    border-inline-start: 0.25em solid var(--border);
+    padding-inline-start: 1em;
+    font-style: italic;
+    color: var(--muted-foreground);
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.875em;
+    background-color: var(--muted);
+    border-radius: var(--radius-sm);
+    padding: 0.125em 0.375em;
+  }
+
+  .prose :global(pre) {
+    background-color: var(--muted);
+    border-radius: var(--radius-md);
+    padding: 1em;
+    overflow-x: auto;
+  }
+
+  .prose :global(pre code) {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .prose :global(img) {
+    border-radius: var(--radius-md);
+  }
+
+  .prose :global(hr) {
+    border-color: var(--border);
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  /* ─── prose spacing/layout modifiers ─────────────────────────── */
+  .prose-max-w-none {
+    max-width: none;
+  }
+
+  /* ─── rich-text block spacing ────────────────────────────────── */
+  .block-banner {
+    margin-bottom: 1rem;
+  }
+
+  .block-media-image {
+    margin: 0;
+  }
+
+  .block-media-caption {
+    margin-inline: auto;
+    max-width: 48rem;
+  }
+}
