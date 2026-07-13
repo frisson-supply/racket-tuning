@@ -2,7 +2,7 @@ import { Banner } from '@payloadcms/ui'
 import React from 'react'
 
 import { SeedButton } from './seed-button'
-import './index.scss'
+import './before-dashboard.scss'
 
 const baseClass = 'before-dashboard'
 

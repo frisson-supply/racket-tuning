@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 
+import { AboutPanel } from '@/components/about-panel'
 import { AdminBar } from '@/components/admin/admin-bar'
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
@@ -42,7 +43,15 @@ const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : 
     }),
 } */
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+  flyout,
+  modal,
+}: {
+  children: ReactNode
+  flyout: ReactNode
+  modal: ReactNode
+}) {
   return (
     <html
       className={[geistSans.variable, geistMono.variable, inter.variable]
@@ -61,9 +70,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <AdminBar />
           <LivePreviewListener />
 
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <AboutPanel />
+
+          <div data-flyout-main>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+          {flyout}
+          {modal}
         </Providers>
       </body>
     </html>

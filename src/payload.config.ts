@@ -18,6 +18,7 @@ import { Categories } from '@/collections/categories'
 import { Media } from '@/collections/media'
 import { Pages } from '@/collections/pages'
 import { Users } from '@/collections/users'
+import { About } from '@/globals/about'
 import { Footer } from '@/globals/footer'
 import { Header } from '@/globals/header'
 import { plugins } from './plugins'
@@ -83,7 +84,7 @@ export default buildConfig({
   }),
   //email: nodemailerAdapter(),
   endpoints: [],
-  globals: [Header, Footer],
+  globals: [Header, Footer, About],
   plugins,
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

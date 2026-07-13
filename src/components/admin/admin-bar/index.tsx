@@ -2,9 +2,9 @@
 
 import type { PayloadAdminBarProps } from '@payloadcms/admin-bar'
 
-import { cn } from '@/utilities/cn'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { PayloadAdminBar } from '@payloadcms/admin-bar'
+import { SettingsIcon } from 'lucide-react'
 import React, { useState } from 'react'
 import { User } from '@/payload-types'
 import styles from './admin-bar.module.css'
@@ -32,6 +32,7 @@ export const AdminBar: React.FC<{
   const { adminBarProps } = props || {}
   const segments = useSelectedLayoutSegments()
   const [show, setShow] = useState(false)
+  const [open, setOpen] = useState(false)
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore - todo fix, not sure why this is erroring
   const collection = collectionLabels?.[segments?.[1]] ? segments?.[1] : 'pages'
@@ -42,16 +43,16 @@ export const AdminBar: React.FC<{
     setShow(Boolean(canSeeAdmin))
   }, [])
 
+  if (!show) return null
+
   return (
-    <div className={cn(styles.bar, show && styles['bar--visible'])}>
-      <div className="container">
+    <div className={styles.bar}>
+      <div className={styles.panel} style={{ display: open ? 'flex' : 'none' }}>
         <PayloadAdminBar
           {...adminBarProps}
-          className={styles.inner}
+          className={styles.root}
           classNames={{
-            controls: 'font-medium text-white',
-            logo: 'text-white',
-            user: 'text-white',
+            logo: styles.logo,
           }}
           cmsURL={process.env.NEXT_PUBLIC_SERVER_URL}
           collectionLabels={{
@@ -62,18 +63,22 @@ export const AdminBar: React.FC<{
             // @ts-ignore - todo fix, not sure why this is erroring
             singular: collectionLabels[collection]?.singular || 'Page',
           }}
+          divProps={{ className: styles.controls }}
           logo={<Title />}
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore - todo fix, not sure why this is erroring
           onAuthChange={onAuthChange}
-          style={{
-            backgroundColor: 'transparent',
-            padding: 0,
-            position: 'relative',
-            zIndex: 'unset',
-          }}
+          unstyled
         />
       </div>
+      <button
+        aria-label="Toggle CMS menu"
+        className={styles.toggle}
+        onClick={() => setOpen((prev) => !prev)}
+        type="button"
+      >
+        <SettingsIcon size={16} />
+      </button>
     </div>
   )
 }
