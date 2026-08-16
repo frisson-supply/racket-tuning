@@ -9,7 +9,7 @@ import type { Header } from 'src/payload-types'
 
 import { LogoIcon } from '@/components/common/icons/logo'
 import { NavDropdown } from './nav-dropdown'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useAuth } from '@/providers/auth'
 import { cn } from '@/utilities/cn'
 import { localeFromPathname, localizedHref } from '@/utilities/localized-path'
@@ -44,7 +44,6 @@ function ChevronIcon() {
 export function HeaderClient({ header }: Props) {
   const menu = header.navItems || []
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const { user } = useAuth()
   const locale = localeFromPathname(pathname)
 
@@ -54,7 +53,9 @@ export function HeaderClient({ header }: Props) {
   useEffect(() => {
     setMenuOpen(false)
     setOpenDropdownId(null)
-  }, [pathname, searchParams])
+    // ponytail: pathname-only. Query-string navigation won't close the menu;
+    // add a Suspense-wrapped useSearchParams if that ever becomes reachable.
+  }, [pathname])
 
   const toggleDropdown = (id: string) => {
     setOpenDropdownId((current) => (current === id ? null : id))
