@@ -2,6 +2,11 @@ name: Migrate production database
 
 on:
   workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Actually run migrations (unchecked = status only)'
+        type: boolean
+        default: false
 
 jobs:
   migrate:
@@ -22,7 +27,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Show migration status
+        run: pnpm migrate:status
+        env:
+          DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+
       - name: Run pending migrations
+        if: inputs.apply
         run: pnpm migrate
         env:
           DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
