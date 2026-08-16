@@ -127,8 +127,15 @@ pnpm payload migrate
 
 This project uses two separate Supabase Postgres databases:
 
-- **Development/Preview** — `DATABASE_URL` points to the dev Supabase project. The Payload adapter runs with `push: true`, so schema changes made locally are applied automatically.
-- **Production** — `DATABASE_URL` (Vercel "Production" environment) points to a separate Supabase project. The adapter runs with `push: false`, so schema changes only land via migrations.
+- **Local development** — `DATABASE_URL` points to the dev Supabase project. `pnpm dev` runs with `push: true`, so schema changes are applied automatically as you work.
+- **Production** — `DATABASE_URL` (Vercel "Production" environment) points to a separate Supabase project. Schema changes only land via migrations.
+
+> **Preview deployments do not push schema.** Payload ignores `push` whenever
+> `NODE_ENV === 'production'`, and `next build` always sets it — so *every* Vercel
+> deployment, preview included, gets its schema from migrations only. A preview
+> build whose `DATABASE_URL` has no migrations applied will fail at "Collecting
+> page data" with `relation "…" does not exist` (Postgres `42P01`). Preview needs
+> the same migration treatment as production, against whichever database it points at.
 
 Workflow for schema changes:
 

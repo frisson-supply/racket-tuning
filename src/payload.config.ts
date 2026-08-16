@@ -43,9 +43,11 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
-    push: process.env.VERCEL_ENV
-      ? process.env.VERCEL_ENV !== 'production'
-      : process.env.NODE_ENV !== 'production',
+    // Only local `pnpm dev` ever pushes. Payload ignores `push` entirely when
+    // NODE_ENV === 'production' (@payloadcms/db-postgres/dist/connect.js:110),
+    // which covers every Vercel build and runtime — preview deployments included.
+    // Those get their schema from migrations only.
+    push: process.env.NODE_ENV !== 'production',
   }),
   editor: lexicalEditor({
     features: () => {
