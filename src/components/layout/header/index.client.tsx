@@ -12,6 +12,9 @@ import { NavDropdown } from './nav-dropdown'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useAuth } from '@/providers/auth'
 import { cn } from '@/utilities/cn'
+import { localeFromPathname, localizedHref } from '@/utilities/localized-path'
+import { t } from '@/utilities/i18n'
+import { LocaleSwitcher } from '@/components/layout/locale-switcher'
 import styles from './header.module.css'
 
 type Props = {
@@ -43,6 +46,7 @@ export function HeaderClient({ header }: Props) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const { user } = useAuth()
+  const locale = localeFromPathname(pathname)
 
   const [menuOpen, setMenuOpen] = useState(false)
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null)
@@ -61,7 +65,7 @@ export function HeaderClient({ header }: Props) {
       <div className={cn('container', styles.navContainer)}>
         <div className={styles.navBg} />
         <div className={styles.navInner}>
-          <Link className={styles.navLogo} href="/">
+          <Link className={styles.navLogo} href={localizedHref(locale, '/')}>
             <LogoIcon className="w-full h-auto" />
           </Link>
 
@@ -111,26 +115,38 @@ export function HeaderClient({ header }: Props) {
               <li className={styles.accountItem}>
                 {user ? (
                   <div className={styles.accountLinks}>
-                    <Link className={styles.navLink} href="/orders">
-                      <span className={styles.navLinkLabel}>Orders</span>
+                    <Link className={styles.navLink} href={localizedHref(locale, '/orders')}>
+                      <span className={styles.navLinkLabel}>{t(locale, 'account', 'orders')}</span>
                     </Link>
-                    <Link className={styles.navLink} href="/account/addresses">
-                      <span className={styles.navLinkLabel}>Addresses</span>
+                    <Link
+                      className={styles.navLink}
+                      href={localizedHref(locale, '/account/addresses')}
+                    >
+                      <span className={styles.navLinkLabel}>
+                        {t(locale, 'account', 'addresses')}
+                      </span>
                     </Link>
-                    <Link className={styles.navLink} href="/account">
-                      <span className={styles.navLinkLabel}>Manage account</span>
+                    <Link className={styles.navLink} href={localizedHref(locale, '/account')}>
+                      <span className={styles.navLinkLabel}>
+                        {t(locale, 'account', 'manageAccount')}
+                      </span>
                     </Link>
-                    <Link className={styles.navLink} href="/logout">
-                      <span className={styles.navLinkLabel}>Log out</span>
+                    <Link className={styles.navLink} href={localizedHref(locale, '/logout')}>
+                      <span className={styles.navLinkLabel}>{t(locale, 'account', 'logOut')}</span>
                     </Link>
                   </div>
                 ) : (
                   <div className={styles.accountLinks}>
-                    <Link className={styles.navLink} href="/login">
-                      <span className={styles.navLinkLabel}>Log in</span>
+                    <Link className={styles.navLink} href={localizedHref(locale, '/login')}>
+                      <span className={styles.navLinkLabel}>{t(locale, 'account', 'logIn')}</span>
                     </Link>
-                    <Link className={styles.navLink} href="/create-account">
-                      <span className={styles.navLinkLabel}>Create an account</span>
+                    <Link
+                      className={styles.navLink}
+                      href={localizedHref(locale, '/create-account')}
+                    >
+                      <span className={styles.navLinkLabel}>
+                        {t(locale, 'account', 'createAccount')}
+                      </span>
                     </Link>
                   </div>
                 )}
@@ -139,6 +155,8 @@ export function HeaderClient({ header }: Props) {
           </div>
 
           <div className={styles.navEnd}>
+            <LocaleSwitcher />
+
             <Suspense fallback={<OpenCartButton />}>
               <Cart />
             </Suspense>

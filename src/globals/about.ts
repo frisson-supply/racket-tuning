@@ -17,10 +17,12 @@ export const About: GlobalConfig = {
       name: 'heading',
       type: 'text',
       defaultValue: 'About',
+      localized: true,
     },
     {
       name: 'body',
       type: 'textarea',
+      localized: true,
     },
     {
       name: 'socialLinks',
@@ -29,6 +31,7 @@ export const About: GlobalConfig = {
         {
           name: 'label',
           type: 'text',
+          localized: true,
           required: true,
         },
         {

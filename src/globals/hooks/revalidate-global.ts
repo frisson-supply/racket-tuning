@@ -10,7 +10,9 @@ export const revalidateGlobal: GlobalAfterChangeHook = ({
   if (!context.disableRevalidate) {
     payload.logger.info(`Revalidating global: ${global.slug}`)
 
-    revalidateTag(`global_${global.slug}`, 'max')
+    for (const locale of ['nl', 'en'] as const) {
+      revalidateTag(`global_${global.slug}_${locale}`, 'max')
+    }
   }
 
   return doc

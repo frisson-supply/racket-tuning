@@ -1,5 +1,6 @@
 import { PreviewSearchParams } from '@/app/(app)/next/preview/route'
 import { PayloadRequest, CollectionSlug } from 'payload'
+import { localizedHref, type Locale } from '@/utilities/localized-path'
 
 const collectionPrefixMap: Partial<Record<CollectionSlug, string>> = {
   pages: '',
@@ -12,16 +13,17 @@ type Props = {
   req: PayloadRequest
 }
 
-export const generatePreviewPath = ({ collection, slug }: Props) => {
+export const generatePreviewPath = ({ collection, slug, req }: Props) => {
   if (slug === undefined || slug === null) {
     return null
   }
 
   // Encode to support slugs with special characters
   const encodedSlug = encodeURIComponent(slug)
+  const locale: Locale = req.locale === 'en' ? 'en' : 'nl'
 
   const encodedParams = new URLSearchParams({
-    path: `${collectionPrefixMap[collection]}/${encodedSlug}`,
+    path: localizedHref(locale, `${collectionPrefixMap[collection]}/${encodedSlug}`),
     previewSecret: process.env.PREVIEW_SECRET || '',
   } satisfies PreviewSearchParams)
 

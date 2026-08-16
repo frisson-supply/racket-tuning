@@ -2,11 +2,14 @@
 
 import { useAuth } from '@/providers/auth'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React, { Fragment, useEffect, useState } from 'react'
 import proseStyles from '@/components/common/rich-text/rich-text.module.css'
+import { localeFromPathname, localizedHref } from '@/utilities/localized-path'
 
 export const LogoutPage: React.FC = (props) => {
   const { logout } = useAuth()
+  const locale = localeFromPathname(usePathname())
   const [success, setSuccess] = useState('')
   const [error, setError] = useState('')
 
@@ -32,11 +35,11 @@ export const LogoutPage: React.FC = (props) => {
             What would you like to do next?
             <Fragment>
               {' '}
-              <Link href="/search">Click here</Link>
+              <Link href={localizedHref(locale, '/search')}>Click here</Link>
               {` to shop.`}
             </Fragment>
             {` To log back in, `}
-            <Link href="/login">click here</Link>.
+            <Link href={localizedHref(locale, '/login')}>click here</Link>.
           </p>
         </div>
       )}

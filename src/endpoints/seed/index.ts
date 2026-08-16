@@ -41,7 +41,8 @@ const colorVariantOptions = [
   { label: 'White', value: 'white' },
 ]
 
-const globals: GlobalSlug[] = ['header', 'footer']
+// Only the nav globals are cleared here; `about` has no navItems and is left alone.
+const globals = ['header', 'footer'] as const satisfies readonly GlobalSlug[]
 
 const baseAddressUSData: Transaction['billingAddress'] = {
   title: 'Dr.',
@@ -237,32 +238,36 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding products...`)
 
+  const productHatSeed = productHatData({
+    galleryImage: imageHat,
+    metaImage: imageHat,
+    variantTypes: [colorVariantType],
+    categories: [hatsCategory],
+    relatedProducts: [],
+  })
+
   const productHat = await payload.create({
     collection: 'products',
     depth: 0,
-    data: productHatData({
-      galleryImage: imageHat,
-      metaImage: imageHat,
-      variantTypes: [colorVariantType],
-      categories: [hatsCategory],
-      relatedProducts: [],
-    }),
+    data: productHatSeed,
+  })
+
+  const productTshirtSeed = productTshirtData({
+    galleryImages: [
+      { image: imageTshirtBlack, variantOption: black },
+      { image: imageTshirtWhite, variantOption: white },
+    ],
+    metaImage: imageTshirtBlack,
+    contentImage: imageHero,
+    variantTypes: [colorVariantType, sizeVariantType],
+    categories: [tshirtsCategory],
+    relatedProducts: [productHat],
   })
 
   const productTshirt = await payload.create({
     collection: 'products',
     depth: 0,
-    data: productTshirtData({
-      galleryImages: [
-        { image: imageTshirtBlack, variantOption: black },
-        { image: imageTshirtWhite, variantOption: white },
-      ],
-      metaImage: imageTshirtBlack,
-      contentImage: imageHero,
-      variantTypes: [colorVariantType, sizeVariantType],
-      categories: [tshirtsCategory],
-      relatedProducts: [productHat],
-    }),
+    data: productTshirtSeed,
   })
 
   let hoodieID: number | string = productTshirt.id
@@ -313,21 +318,27 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding pages...`)
 
-  const [_, contactPage] = await Promise.all([
+  const homePageSeed = homePageData({
+    contentImage: imageHero,
+    metaImage: imageHat,
+  })
+
+  const contactPageSeed = contactPageData({
+    contactForm: contactForm,
+  })
+
+  const [homePage, contactPage] = await Promise.all([
     payload.create({
       collection: 'pages',
+      context: { disableRevalidate: true },
       depth: 0,
-      data: homePageData({
-        contentImage: imageHero,
-        metaImage: imageHat,
-      }),
+      data: homePageSeed,
     }),
     payload.create({
       collection: 'pages',
+      context: { disableRevalidate: true },
       depth: 0,
-      data: contactPageData({
-        contactForm: contactForm,
-      }),
+      data: contactPageSeed,
     }),
   ])
 
@@ -508,6 +519,7 @@ export const seed = async ({
   await Promise.all([
     payload.updateGlobal({
       slug: 'header',
+      context: { disableRevalidate: true },
       data: {
         navItems: [
           {
@@ -536,6 +548,7 @@ export const seed = async ({
     }),
     payload.updateGlobal({
       slug: 'footer',
+      context: { disableRevalidate: true },
       data: {
         navItems: [
           {
@@ -572,6 +585,49 @@ export const seed = async ({
       },
     }),
   ])
+
+  payload.logger.info(`— Seeding English locale...`)
+
+  // The seed copy is English to begin with, so `en` starts as a copy of `nl` that
+  // editors can then diverge in the admin.
+  //
+  // Each doc is read back and re-submitted under `en` rather than re-submitting the
+  // seed data: the read-back carries the array/block row ids, and without them Payload
+  // treats the rows as new, recreates them, and drops the `nl` values along the way.
+  const englishCopies: { collection: 'categories' | 'pages' | 'products'; id: number | string }[] =
+    [
+      ...[accessoriesCategory, tshirtsCategory, hatsCategory].map((doc) => ({
+        collection: 'categories' as const,
+        id: doc.id,
+      })),
+      ...[productHat, productTshirt].map((doc) => ({ collection: 'products' as const, id: doc.id })),
+      ...[homePage, contactPage].map((doc) => ({ collection: 'pages' as const, id: doc.id })),
+    ]
+
+  for (const { collection, id } of englishCopies) {
+    const source = await payload.findByID({ collection, id, depth: 0, locale: 'nl', req })
+
+    await payload.update({
+      collection,
+      id,
+      locale: 'en',
+      depth: 0,
+      context: { disableRevalidate: true },
+      data: source as never,
+    })
+  }
+
+  for (const global of globals) {
+    const source = await payload.findGlobal({ slug: global, depth: 0, locale: 'nl', req })
+
+    await payload.updateGlobal({
+      slug: global,
+      locale: 'en',
+      depth: 0,
+      context: { disableRevalidate: true },
+      data: source as never,
+    })
+  }
 
   payload.logger.info('Seeded database successfully!')
 }

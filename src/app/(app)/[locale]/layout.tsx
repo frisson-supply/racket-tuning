@@ -8,7 +8,9 @@ import { LivePreviewListener } from '@/components/admin/live-preview-listener'
 import { ensureStartsWith } from '@/utilities/ensure-starts-with'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/theme/init-theme'
+import { type Locale, locales } from '@/utilities/localized-path'
 import { Geist, Geist_Mono, Inter } from 'next/font/google'
+import { notFound } from 'next/navigation'
 import React from 'react'
 import './globals.css'
 
@@ -43,21 +45,33 @@ const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : 
     }),
 } */
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
+
 export default async function RootLayout({
   children,
   flyout,
   modal,
+  params,
 }: {
   children: ReactNode
   flyout: ReactNode
   modal: ReactNode
+  params: Promise<{ locale: string }>
 }) {
+  const { locale: segment } = await params
+
+  // `/favicon.ico`, `/anything.js` etc. slip past the proxy matcher and land here
+  if (!locales.includes(segment as Locale)) notFound()
+  const locale = segment as Locale
+
   return (
     <html
       className={[geistSans.variable, geistMono.variable, inter.variable]
         .filter(Boolean)
         .join(' ')}
-      lang="en"
+      lang={locale}
       suppressHydrationWarning
     >
       <head>
@@ -70,12 +84,12 @@ export default async function RootLayout({
           <AdminBar />
           <LivePreviewListener />
 
-          <AboutPanel />
+          <AboutPanel locale={locale} />
 
           <div data-flyout-main>
-            <Header />
+            <Header locale={locale} />
             <main>{children}</main>
-            <Footer />
+            <Footer locale={locale} />
           </div>
           {flyout}
           {modal}

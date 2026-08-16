@@ -8,11 +8,12 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuth } from '@/providers/auth'
 import Link from 'next/link'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React, { useCallback, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from '@/components/forms/forms.module.css'
 import proseStyles from '@/components/common/rich-text/rich-text.module.css'
+import { localeFromPathname, localizedHref } from '@/utilities/localized-path'
 
 type FormData = {
   email: string
@@ -25,6 +26,7 @@ export const LoginForm: React.FC = () => {
   const redirect = useRef(searchParams.get('redirect'))
   const { login } = useAuth()
   const router = useRouter()
+  const locale = localeFromPathname(usePathname())
   const [error, setError] = React.useState<null | string>(null)
 
   const {
@@ -38,7 +40,7 @@ export const LoginForm: React.FC = () => {
       try {
         await login(data)
         if (redirect?.current) router.push(redirect.current)
-        else router.push('/account')
+        else router.push(localizedHref(locale, '/account'))
       } catch (_) {
         setError('There was an error with the credentials provided. Please try again.')
       }

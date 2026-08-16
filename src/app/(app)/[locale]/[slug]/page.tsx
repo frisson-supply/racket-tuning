@@ -12,43 +12,52 @@ import type { Page } from '@/payload-types'
 import { notFound } from 'next/navigation'
 import styles from '../pages.module.css'
 import { queryPageBySlug } from '@/utilities/query-page-by-slug'
+import { type Locale, locales } from '@/utilities/localized-path'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
-  const pages = await payload.find({
-    collection: 'pages',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
 
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
+  const results = await Promise.all(
+    locales.map((locale) =>
+      payload.find({
+        collection: 'pages',
+        draft: false,
+        limit: 1000,
+        locale,
+        overrideAccess: false,
+        pagination: false,
+        select: {
+          slug: true,
+        },
+      }),
+    ),
+  )
 
-  return params
+  return results.flatMap((result, i) =>
+    result.docs
+      ?.filter((doc) => doc.slug !== 'home')
+      .map(({ slug }) => ({ locale: locales[i], slug })),
+  )
 }
 
 type Args = {
   params: Promise<{
+    locale: string
     slug?: string
   }>
 }
 
 export default async function Page({ params }: Args) {
-  const { slug = 'home' } = await params
+  const { locale, slug = 'home' } = await params
   const url = '/' + slug
+
+  // Pages render in parallel with the layout, so the layout's locale guard does
+  // not stop this query from running with a bogus segment (e.g. `/favicon.svg`).
+  if (!locales.includes(locale as Locale)) return notFound()
 
   let page: Page | null = await queryPageBySlug({
     slug,
+    locale: locale as Locale,
   })
 
   // Remove this code once your website is seeded
@@ -71,10 +80,13 @@ export default async function Page({ params }: Args) {
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await params
+  const { locale, slug = 'home' } = await params
+
+  if (!locales.includes(locale as Locale)) return {}
 
   const page = await queryPageBySlug({
     slug,
+    locale: locale as Locale,
   })
 
   return generateMeta({ doc: page })

@@ -1,8 +1,11 @@
+'use client'
 import type { Page, Product } from '@/payload-types'
 
 import { Button, type ButtonProps } from '@/components/ui/button'
 import { cn } from '@/utilities/cn'
+import { localeFromPathname, localizedHref } from '@/utilities/localized-path'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 type CMSLinkType = {
@@ -34,13 +37,16 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   } = props
 
   const appearance = appearanceFromProps ?? 'inline'
+  const locale = localeFromPathname(usePathname())
 
-  const href =
+  const internalPath =
     type === 'reference' && typeof reference?.value === 'object' && reference.value.slug
       ? `${reference?.relationTo !== 'pages' ? `/${reference?.relationTo}` : ''}/${
           reference.value.slug
         }`
-      : url
+      : null
+
+  const href = internalPath ? localizedHref(locale, internalPath) : url
 
   if (!href) return null
 

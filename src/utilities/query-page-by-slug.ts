@@ -2,7 +2,7 @@ import configPromise from '@payload-config'
 import { draftMode } from 'next/headers'
 import { getPayload } from 'payload'
 
-export const queryPageBySlug = async ({ slug }: { slug: string }) => {
+export const queryPageBySlug = async ({ slug, locale }: { slug: string; locale: 'nl' | 'en' }) => {
   const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config: configPromise })
@@ -10,7 +10,9 @@ export const queryPageBySlug = async ({ slug }: { slug: string }) => {
   const result = await payload.find({
     collection: 'pages',
     draft,
+    fallbackLocale: false,
     limit: 1,
+    locale,
     overrideAccess: draft,
     pagination: false,
     where: {

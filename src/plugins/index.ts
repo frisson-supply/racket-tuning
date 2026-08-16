@@ -10,6 +10,7 @@ import { stripeAdapter } from '@payloadcms/plugin-ecommerce/payments/stripe'
 
 import { Page, Product } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/get-url'
+import { localizedHref } from '@/utilities/localized-path'
 import { ProductsCollection } from '@/collections/products'
 import { adminOrPublishedStatus } from '@/access/admin-or-published-status'
 import { adminOnlyFieldAccess } from '@/access/admin-only-field-access'
@@ -18,13 +19,18 @@ import { isAdmin } from '@/access/is-admin'
 import { isDocumentOwner } from '@/access/is-document-owner'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Ecommerce Template` : 'Payload Ecommerce Template'
+  return doc?.title ? `${doc.title} | Racket Tuning` : 'Racket Tuning'
 }
 
-const generateURL: GenerateURL<Product | Page> = ({ doc }) => {
+const generateURL: GenerateURL<Product | Page> = ({ doc, locale, collectionConfig }) => {
   const url = getServerSideURL()
+  const localePrefix = locale === 'en' ? 'en' : 'nl'
 
-  return doc?.slug ? `${url}/${doc.slug}` : url
+  if (!doc?.slug) return `${url}${localizedHref(localePrefix, '')}`
+
+  const base = collectionConfig?.slug === 'products' ? '/products' : ''
+
+  return `${url}${localizedHref(localePrefix, `${base}/${doc.slug}`)}`
 }
 
 export const plugins: Plugin[] = [

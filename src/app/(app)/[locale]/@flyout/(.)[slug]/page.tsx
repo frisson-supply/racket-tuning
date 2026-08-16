@@ -8,21 +8,23 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import type { Header } from '@/payload-types'
+import type { Locale } from '@/utilities/localized-path'
 
 type Args = {
   params: Promise<{
+    locale: Locale
     slug: string
   }>
 }
 
 export default async function FlyoutPage({ params }: Args) {
-  const { slug } = await params
+  const { locale, slug } = await params
 
   // /about has its own dedicated intercepting route + always-mounted AboutPanel;
   // bail out here so the two flyouts don't both try to animate at once.
   if (slug === 'about') return null
 
-  const header: Header = await getCachedGlobal('header', 1)()
+  const header: Header = await getCachedGlobal('header', 1, locale)()
 
   const isFlyoutEnabled = (header.navItems || []).some((item) => {
     return (
@@ -38,7 +40,7 @@ export default async function FlyoutPage({ params }: Args) {
     return <FlyoutRedirect slug={slug} />
   }
 
-  const page = await queryPageBySlug({ slug })
+  const page = await queryPageBySlug({ slug, locale })
 
   if (!page) {
     return notFound()

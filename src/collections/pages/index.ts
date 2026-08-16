@@ -53,6 +53,7 @@ export const Pages: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
+      localized: true,
       required: true,
     },
     {
@@ -131,7 +132,7 @@ export const Pages: CollectionConfig = {
         },
       ],
     },
-    slugField(),
+    slugField({ localized: true }),
   ],
   hooks: {
     afterChange: [revalidatePage],

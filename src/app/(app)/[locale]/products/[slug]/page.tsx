@@ -14,16 +14,19 @@ import { Button } from '@/components/ui/button'
 import { ChevronLeftIcon } from 'lucide-react'
 import { Metadata } from 'next'
 import styles from '../product.module.css'
+import { localizedHref, type Locale } from '@/utilities/localized-path'
+import { t } from '@/utilities/i18n'
 
 type Args = {
   params: Promise<{
+    locale: Locale
     slug: string
   }>
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
-  const { slug } = await params
-  const product = await queryProductBySlug({ slug })
+  const { locale, slug } = await params
+  const product = await queryProductBySlug({ slug, locale })
 
   if (!product) return notFound()
 
@@ -61,8 +64,8 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
 }
 
 export default async function ProductPage({ params }: Args) {
-  const { slug } = await params
-  const product = await queryProductBySlug({ slug })
+  const { locale, slug } = await params
+  const product = await queryProductBySlug({ slug, locale })
 
   if (!product) return notFound()
 
@@ -120,9 +123,9 @@ export default async function ProductPage({ params }: Args) {
       />
       <div className={`container ${styles['page-wrap']}`}>
         <Button asChild variant="ghost" className={styles['back-btn']}>
-          <Link href="/shop">
+          <Link href={localizedHref(locale, '/shop')}>
             <ChevronLeftIcon />
-            All products
+            {t(locale, 'shop', 'allProducts')}
           </Link>
         </Button>
         <div className={styles['product-card']}>
@@ -142,7 +145,7 @@ export default async function ProductPage({ params }: Args) {
 
       {relatedProducts.length ? (
         <div className="container">
-          <RelatedProducts products={relatedProducts as Product[]} />
+          <RelatedProducts locale={locale} products={relatedProducts as Product[]} />
         </div>
       ) : (
         <></>
@@ -151,16 +154,19 @@ export default async function ProductPage({ params }: Args) {
   )
 }
 
-function RelatedProducts({ products }: { products: Product[] }) {
+function RelatedProducts({ locale, products }: { locale: Locale; products: Product[] }) {
   if (!products.length) return null
 
   return (
     <div className={styles.related}>
-      <h2 className={styles['related-heading']}>Related Products</h2>
+      <h2 className={styles['related-heading']}>{t(locale, 'shop', 'relatedProducts')}</h2>
       <ul className={styles['related-list']}>
         {products.map((product) => (
           <li className={styles['related-item']} key={product.id}>
-            <Link className={styles['related-link']} href={`/products/${product.slug}`}>
+            <Link
+              className={styles['related-link']}
+              href={localizedHref(locale, `/products/${product.slug}`)}
+            >
               <GridTileImage
                 label={{
                   amount: product.priceInUSD!,
@@ -176,7 +182,7 @@ function RelatedProducts({ products }: { products: Product[] }) {
   )
 }
 
-const queryProductBySlug = async ({ slug }: { slug: string }) => {
+const queryProductBySlug = async ({ slug, locale }: { slug: string; locale: Locale }) => {
   const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config: configPromise })
@@ -185,7 +191,9 @@ const queryProductBySlug = async ({ slug }: { slug: string }) => {
     collection: 'products',
     depth: 3,
     draft,
+    fallbackLocale: false,
     limit: 1,
+    locale,
     overrideAccess: draft,
     pagination: false,
     where: {

@@ -15,11 +15,12 @@ import { getPayload } from 'payload'
 import { OrderStatus } from '@/features/account/order-status'
 import { AddressItem } from '@/features/account/addresses/address-item'
 import styles from '../../account.module.css'
+import { localizedHref, type Locale } from '@/utilities/localized-path'
 
 export const dynamic = 'force-dynamic'
 
 type PageProps = {
-  params: Promise<{ id: string }>
+  params: Promise<{ id: string; locale: Locale }>
   searchParams: Promise<{ email?: string; accessToken?: string }>
 }
 
@@ -28,7 +29,7 @@ export default async function Order({ params, searchParams }: PageProps) {
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })
 
-  const { id } = await params
+  const { id, locale } = await params
   const { email = '', accessToken = '' } = await searchParams
 
   let order: Order | null = null
@@ -119,7 +120,7 @@ export default async function Order({ params, searchParams }: PageProps) {
         {user ? (
           <div>
             <Button asChild variant="ghost">
-              <Link href="/orders">
+              <Link href={localizedHref(locale, '/orders')}>
                 <ChevronLeftIcon />
                 All orders
               </Link>

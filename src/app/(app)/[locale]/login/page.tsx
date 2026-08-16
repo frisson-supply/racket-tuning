@@ -10,14 +10,22 @@ import { getPayload } from 'payload'
 import { LoginForm } from '@/features/auth/login-form'
 import { redirect } from 'next/navigation'
 import styles from '../pages.module.css'
+import { localizedHref, type Locale } from '@/utilities/localized-path'
 
-export default async function Login() {
+type PageProps = {
+  params: Promise<{ locale: Locale }>
+}
+
+export default async function Login({ params }: PageProps) {
+  const { locale } = await params
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })
 
   if (user) {
-    redirect(`/account?warning=${encodeURIComponent('You are already logged in.')}`)
+    redirect(
+      localizedHref(locale, `/account?warning=${encodeURIComponent('You are already logged in.')}`),
+    )
   }
 
   return (

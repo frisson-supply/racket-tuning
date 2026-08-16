@@ -9,8 +9,14 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
 import styles from '../account.module.css'
+import { localizedHref, type Locale } from '@/utilities/localized-path'
 
-export default async function Orders() {
+type PageProps = {
+  params: Promise<{ locale: Locale }>
+}
+
+export default async function Orders({ params }: PageProps) {
+  const { locale } = await params
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })
@@ -18,7 +24,12 @@ export default async function Orders() {
   let orders: Order[] | null = null
 
   if (!user) {
-    redirect(`/login?warning=${encodeURIComponent('Please login to access your orders.')}`)
+    redirect(
+      localizedHref(
+        locale,
+        `/login?warning=${encodeURIComponent('Please login to access your orders.')}`,
+      ),
+    )
   }
 
   try {

@@ -13,8 +13,14 @@ import { redirect } from 'next/navigation'
 import { cn } from '@/utilities/cn'
 import styles from '../account.module.css'
 import proseStyles from '@/components/common/rich-text/rich-text.module.css'
+import { localizedHref, type Locale } from '@/utilities/localized-path'
 
-export default async function AccountPage() {
+type PageProps = {
+  params: Promise<{ locale: Locale }>
+}
+
+export default async function AccountPage({ params }: PageProps) {
+  const { locale } = await params
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })
@@ -23,7 +29,10 @@ export default async function AccountPage() {
 
   if (!user) {
     redirect(
-      `/login?warning=${encodeURIComponent('Please login to access your account settings.')}`,
+      localizedHref(
+        locale,
+        `/login?warning=${encodeURIComponent('Please login to access your account settings.')}`,
+      ),
     )
   }
 
@@ -81,7 +90,7 @@ export default async function AccountPage() {
         )}
 
         <Button asChild variant="default">
-          <Link href="/orders">View all orders</Link>
+          <Link href={localizedHref(locale, '/orders')}>View all orders</Link>
         </Button>
       </div>
     </>

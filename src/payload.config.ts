@@ -85,6 +85,14 @@ export default buildConfig({
   //email: nodemailerAdapter(),
   endpoints: [],
   globals: [Header, Footer, About],
+  localization: {
+    locales: [
+      { label: 'Nederlands', code: 'nl' },
+      { label: 'English', code: 'en' },
+    ],
+    defaultLocale: 'nl',
+    fallback: true,
+  },
   plugins,
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
