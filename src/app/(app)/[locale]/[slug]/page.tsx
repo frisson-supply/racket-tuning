@@ -35,7 +35,8 @@ export async function generateStaticParams() {
 
   return results.flatMap((result, i) =>
     result.docs
-      ?.filter((doc) => doc.slug !== 'home')
+      // A page with no slug in this locale can't be routed to; skip it.
+      ?.filter((doc) => doc.slug && doc.slug !== 'home')
       .map(({ slug }) => ({ locale: locales[i], slug })),
   )
 }
