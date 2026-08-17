@@ -5,11 +5,12 @@ import { getCachedGlobal } from '@/utilities/get-globals'
 import Link from 'next/link'
 import React, { Suspense } from 'react'
 import { LogoIcon } from '@/components/common/icons/logo'
+import { localizedHref, type Locale } from '@/utilities/localized-path'
 import styles from './footer.module.css'
 
 const { COMPANY_NAME, SITE_NAME } = process.env
 
-export async function Footer() {
+export async function Footer({ locale }: { locale: Locale }) {
   const footer: Footer = await getCachedGlobal('footer', 1)()
   const menu = footer.navItems || []
   const currentYear = new Date().getFullYear()
@@ -21,7 +22,7 @@ export async function Footer() {
       <div className="container">
         <div className={styles.upper}>
           <div>
-            <Link className={styles['logo-link']} href="/">
+            <Link className={styles['logo-link']} href={localizedHref(locale, '/')}>
               <LogoIcon className={styles['logo-icon']} />
               <span className="sr-only">{SITE_NAME}</span>
             </Link>

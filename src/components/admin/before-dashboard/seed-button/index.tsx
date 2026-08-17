@@ -3,7 +3,7 @@
 import React, { Fragment, useCallback, useState, MouseEvent } from 'react'
 import { toast } from '@payloadcms/ui'
 
-import './index.scss'
+import './seed-button.scss'
 
 const SuccessMessage: React.FC = () => (
   <div>

@@ -2,11 +2,19 @@ name: Migrate production database
 
 on:
   workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Actually run migrations (unchecked = status only)'
+        type: boolean
+        default: false
 
 jobs:
   migrate:
     runs-on: ubuntu-latest
     environment: production
+    env:
+      DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+      PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
     steps:
       - uses: actions/checkout@v4
 
@@ -22,7 +30,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Show migration status
+        run: pnpm migrate:status
+
       - name: Run pending migrations
+        if: inputs.apply
         run: pnpm migrate
-        env:
-          DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}

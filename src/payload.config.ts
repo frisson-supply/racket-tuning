@@ -18,6 +18,7 @@ import { Categories } from '@/collections/categories'
 import { Media } from '@/collections/media'
 import { Pages } from '@/collections/pages'
 import { Users } from '@/collections/users'
+import { About } from '@/globals/about'
 import { Footer } from '@/globals/footer'
 import { Header } from '@/globals/header'
 import { plugins } from './plugins'
@@ -42,9 +43,11 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
-    push: process.env.VERCEL_ENV
-      ? process.env.VERCEL_ENV !== 'production'
-      : process.env.NODE_ENV !== 'production',
+    // Only local `pnpm dev` ever pushes. Payload ignores `push` entirely when
+    // NODE_ENV === 'production' (@payloadcms/db-postgres/dist/connect.js:110),
+    // which covers every Vercel build and runtime — preview deployments included.
+    // Those get their schema from migrations only.
+    push: process.env.NODE_ENV !== 'production',
   }),
   editor: lexicalEditor({
     features: () => {
@@ -83,7 +86,15 @@ export default buildConfig({
   }),
   //email: nodemailerAdapter(),
   endpoints: [],
-  globals: [Header, Footer],
+  globals: [Header, Footer, About],
+  localization: {
+    locales: [
+      { label: 'Nederlands', code: 'nl' },
+      { label: 'English', code: 'en' },
+    ],
+    defaultLocale: 'nl',
+    fallback: true,
+  },
   plugins,
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

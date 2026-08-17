@@ -6,6 +6,7 @@ import React from 'react'
 import { HeaderThemeProvider } from './header-theme'
 import { ThemeProvider } from './theme'
 import { SonnerProvider } from '@/providers/sonner'
+import { FlyoutProvider } from '@/providers/flyout'
 
 export const Providers: React.FC<{
   children: React.ReactNode
@@ -40,7 +41,7 @@ export const Providers: React.FC<{
               }),
             ]}
           >
-            {children}
+            <FlyoutProvider>{children}</FlyoutProvider>
           </EcommerceProvider>
         </HeaderThemeProvider>
       </AuthProvider>

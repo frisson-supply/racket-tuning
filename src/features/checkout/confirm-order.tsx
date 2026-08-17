@@ -2,9 +2,10 @@
 
 import { LoadingSpinner } from '@/components/common/loading-spinner'
 import { useCart, usePayments } from '@payloadcms/plugin-ecommerce/client/react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import styles from './checkout.module.css'
+import { localeFromPathname, localizedHref } from '@/utilities/localized-path'
 
 export const ConfirmOrder: React.FC = () => {
   const { confirmOrder } = usePayments()
@@ -12,6 +13,7 @@ export const ConfirmOrder: React.FC = () => {
 
   const searchParams = useSearchParams()
   const router = useRouter()
+  const locale = localeFromPathname(usePathname())
   const isConfirming = useRef(false)
 
   useEffect(() => {
@@ -43,12 +45,17 @@ export const ConfirmOrder: React.FC = () => {
             }
 
             const queryString = queryParams.toString()
-            router.push(`/orders/${result.orderID}${queryString ? `?${queryString}` : ''}`)
+            router.push(
+              localizedHref(
+                locale,
+                `/orders/${result.orderID}${queryString ? `?${queryString}` : ''}`,
+              ),
+            )
           }
         })
       }
     } else {
-      router.push('/')
+      router.push(localizedHref(locale, '/'))
     }
   }, [cart, confirmOrder, router, searchParams])
 
