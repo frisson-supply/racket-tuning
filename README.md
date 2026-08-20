@@ -44,17 +44,8 @@ Website for Racket Tuning, a Dutch racket-tuning specialist — built with Paylo
 
 This project uses two separate Supabase Postgres databases — one for development/preview, one for production. Both apply schema changes only via migrations; `push` is opt-in only (`PAYLOAD_DB_PUSH=true`), for a throwaway local sandbox DB you don't mind rebuilding from scratch.
 
-In Vercel, `DATABASE_URL` is scoped per environment (Project → Settings → Environment Variables): the **Production** entry points at the production Supabase project, and a separate **Preview** (+ Development) entry points at the dev Supabase project — matching local `.env`. Having two rows with the same name is expected; Vercel injects whichever one matches the environment being built. This means preview deployments (one per branch/PR) read/write the dev DB, not live production data — keep it that way rather than pointing Preview at production, since concurrent preview branches could otherwise collide on prod data and pending migrations.
-
-Workflow for shipping a schema change:
-
-1. Change collections/fields locally.
-2. Run `pnpm migrate:create <name>`, then `pnpm migrate` to apply it to the dev DB, then commit the generated files in `src/migrations/`.
-3. Merge to `main` (Vercel deploys the new code).
-4. Run the **"Migrate production database"** GitHub Actions workflow (Actions tab → "Migrate production database" → "Run workflow"). This runs against the `production` GitHub environment, which requires a `PRODUCTION_DATABASE_URL` secret pointing at the production Supabase project's pooled connection string.
-
-See [`docs/payload-template.md`](docs/payload-template.md#racket-tuning-environments) for more detail.
+For the full setup (Vercel env var scoping, the schema-change workflow, running/recovering production migrations), see [`docs/pipeline.md`](docs/pipeline.md).
 
 ## Documentation
 
-This project is based on the [Payload Ecommerce Template](https://github.com/payloadcms/payload/blob/3.x/templates/ecommerce). Template-specific reference docs (collections, access control, Stripe setup, deployment, migrations, seeding, etc.) live in [`docs/payload-template.md`](docs/payload-template.md).
+This project is based on the [Payload Ecommerce Template](https://github.com/payloadcms/payload/blob/3.x/templates/ecommerce). Template-specific reference docs (collections, access control, Stripe setup, deployment, migrations, seeding, etc.) live in [`docs/payload-template.md`](docs/payload-template.md); this project's actual deployment/migrations runbook lives in [`docs/pipeline.md`](docs/pipeline.md).
