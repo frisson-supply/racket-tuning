@@ -131,8 +131,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "_pages_v_blocks_about_us_section_order_idx" ON "_pages_v_blocks_about_us_section" USING btree ("_order");
   CREATE INDEX "_pages_v_blocks_about_us_section_parent_id_idx" ON "_pages_v_blocks_about_us_section" USING btree ("_parent_id");
   CREATE INDEX "_pages_v_blocks_about_us_section_path_idx" ON "_pages_v_blocks_about_us_section" USING btree ("_path");
-  CREATE UNIQUE INDEX "_pages_v_blocks_about_us_section_locales_locale_parent_id_un" ON "_pages_v_blocks_about_us_section_locales" USING btree ("_locale","_parent_id");
-  ALTER TABLE "header_nav_items" DROP COLUMN "enable_flyout";`)
+  CREATE UNIQUE INDEX "_pages_v_blocks_about_us_section_locales_locale_parent_id_un" ON "_pages_v_blocks_about_us_section_locales" USING btree ("_locale","_parent_id");`)
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
@@ -157,7 +156,6 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   CREATE TYPE "public"."enum__pages_v_version_hero_type" AS ENUM('none', 'highImpact', 'mediumImpact', 'lowImpact');
   ALTER TABLE "_pages_v" ALTER COLUMN "version_hero_type" SET DEFAULT 'lowImpact'::"public"."enum__pages_v_version_hero_type";
   ALTER TABLE "_pages_v" ALTER COLUMN "version_hero_type" SET DATA TYPE "public"."enum__pages_v_version_hero_type" USING "version_hero_type"::"public"."enum__pages_v_version_hero_type";
-  ALTER TABLE "header_nav_items" ADD COLUMN "enable_flyout" boolean DEFAULT false;
   ALTER TABLE "pages" DROP COLUMN "hero_button_type";
   ALTER TABLE "pages" DROP COLUMN "hero_button_new_tab";
   ALTER TABLE "pages_locales" DROP COLUMN "hero_eyebrow";
