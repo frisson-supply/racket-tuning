@@ -130,6 +130,8 @@ This project uses two separate Supabase Postgres databases:
 - **Local development** — `DATABASE_URL` points to the dev Supabase project. Schema changes land via migrations, same as production (see below).
 - **Production** — `DATABASE_URL` (Vercel "Production" environment) points to a separate Supabase project. Schema changes only land via migrations.
 
+In Vercel, `DATABASE_URL` is scoped per environment (Project → Settings → Environment Variables) — the **Production** entry points at the production Supabase project, and a separate **Preview** (+ Development) entry points at the dev Supabase project, matching local `.env`. Multiple rows sharing the name `DATABASE_URL` is expected; Vercel injects whichever one matches the environment being built. Preview deployments should always read/write the dev DB, never production — pointing Preview at prod risks concurrent PR branches colliding on live data and on each other's pending migrations.
+
 > **Preview deployments do not push schema.** Payload ignores `push` whenever
 > `NODE_ENV === 'production'`, and `next build` always sets it — so *every* Vercel
 > deployment, preview included, gets its schema from migrations only. A preview
