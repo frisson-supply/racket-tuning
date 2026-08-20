@@ -37,7 +37,7 @@
   backdrop-filter: blur(12px);
 }
 
-[data-theme='dark'] .title {
+[data-theme="dark"] .title {
   border-color: oklch(26.9% 0 0deg);
   background-color: rgb(0 0 0 / 70%);
   color: #fff;

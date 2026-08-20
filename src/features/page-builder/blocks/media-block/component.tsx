@@ -42,11 +42,7 @@ export const MediaBlock: React.FC<
         className,
       )}
     >
-      <Media
-        imgClassName={cn(styles.img, imgClassName)}
-        resource={media}
-        src={staticImage}
-      />
+      <Media imgClassName={cn(styles.img, imgClassName)} resource={media} src={staticImage} />
       {caption && (
         <div
           className={cn(

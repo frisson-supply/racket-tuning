@@ -4,7 +4,10 @@ export { locales, defaultLocale } from './localized-path'
 export type { Locale } from './localized-path'
 
 type Dictionary = {
-  account: Record<'addresses' | 'createAccount' | 'logIn' | 'logOut' | 'manageAccount' | 'orders', string>
+  account: Record<
+    'addresses' | 'createAccount' | 'logIn' | 'logOut' | 'manageAccount' | 'orders',
+    string
+  >
   cart: Record<'addToCart' | 'checkout' | 'empty', string>
   shop: Record<'allProducts' | 'relatedProducts', string>
 }

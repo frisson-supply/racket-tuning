@@ -1,0 +1,50 @@
+@layer components {
+  .wrap {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  @media (min-width: 64rem) {
+    .wrap {
+      grid-template-columns: minmax(18rem, 1fr) 2fr;
+      gap: 3rem;
+      padding: 4rem 3rem;
+      min-height: 80vh;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+  }
+
+  .media-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: var(--radius, 0);
+  }
+
+  @media (min-width: 64rem) {
+    .media-wrap {
+      height: 100%;
+      aspect-ratio: auto;
+    }
+  }
+
+  .media {
+    object-fit: cover;
+  }
+}

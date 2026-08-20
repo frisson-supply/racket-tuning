@@ -441,7 +441,8 @@ export interface Page {
   title: string;
   publishedOn?: string | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type: 'none' | 'main' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    eyebrow?: string | null;
     richText?: {
       root: {
         type: string;
@@ -457,6 +458,16 @@ export interface Page {
       };
       [k: string]: unknown;
     } | null;
+    button?: {
+      type?: ('reference' | 'custom') | null;
+      newTab?: boolean | null;
+      reference?: {
+        relationTo: 'pages';
+        value: number | Page;
+      } | null;
+      url?: string | null;
+      label: string;
+    };
     links?:
       | {
           link: {
@@ -487,6 +498,7 @@ export interface Page {
     | ThreeItemGridBlock
     | BannerBlock
     | FormBlock
+    | AboutUsSectionBlock
   )[];
   meta?: {
     title?: string | null;
@@ -878,6 +890,65 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutUsSectionBlock".
+ */
+export interface AboutUsSectionBlock {
+  eyebrow?: string | null;
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  aboutCardTitle?: string | null;
+  aboutCardDescription?: string | null;
+  aboutCardLink: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: number | Page;
+    } | null;
+    url?: string | null;
+    label: string;
+  };
+  /**
+   * Shown above the cards on mobile, alongside the carousel arrows.
+   */
+  cardsTitle?: string | null;
+  cards?:
+    | {
+        image?: (number | null) | Media;
+        title: string;
+        description?: string | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'aboutUsSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "variants".
  */
 export interface Variant {
@@ -1199,7 +1270,17 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        eyebrow?: T;
         richText?: T;
+        button?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
         links?:
           | T
           | {
@@ -1228,6 +1309,7 @@ export interface PagesSelect<T extends boolean = true> {
         threeItemGrid?: T | ThreeItemGridBlockSelect<T>;
         banner?: T | BannerBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        aboutUsSection?: T | AboutUsSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1357,6 +1439,45 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutUsSectionBlock_select".
+ */
+export interface AboutUsSectionBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  richText?: T;
+  aboutCardTitle?: T;
+  aboutCardDescription?: T;
+  aboutCardLink?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+      };
+  cardsTitle?: T;
+  cards?:
+    | T
+    | {
+        image?: T;
+        title?: T;
+        description?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1806,10 +1927,6 @@ export interface Header {
           url?: string | null;
           label: string;
         };
-        /**
-         * When checked, clicking this link opens the page in a flyout overlay instead of navigating away. The page remains reachable at its normal URL.
-         */
-        enableFlyout?: boolean | null;
         children?:
           | {
               link: {
@@ -1895,7 +2012,6 @@ export interface HeaderSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
-        enableFlyout?: T;
         children?:
           | T
           | {

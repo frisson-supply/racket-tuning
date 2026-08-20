@@ -9,15 +9,8 @@ import styles from './checkbox.module.css'
 
 function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
   return (
-    <CheckboxPrimitive.Root
-      data-slot="checkbox"
-      className={cn(styles.root, className)}
-      {...props}
-    >
-      <CheckboxPrimitive.Indicator
-        data-slot="checkbox-indicator"
-        className={styles.indicator}
-      >
+    <CheckboxPrimitive.Root data-slot="checkbox" className={cn(styles.root, className)} {...props}>
+      <CheckboxPrimitive.Indicator data-slot="checkbox-indicator" className={styles.indicator}>
         <CheckIcon style={{ width: '0.875rem', height: '0.875rem' }} />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>

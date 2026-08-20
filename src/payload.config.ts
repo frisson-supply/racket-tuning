@@ -43,11 +43,13 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
-    // Only local `pnpm dev` ever pushes. Payload ignores `push` entirely when
-    // NODE_ENV === 'production' (@payloadcms/db-postgres/dist/connect.js:110),
-    // which covers every Vercel build and runtime — preview deployments included.
-    // Those get their schema from migrations only.
-    push: process.env.NODE_ENV !== 'production',
+    // Schema changes only ever happen through a tracked migration
+    // (`pnpm migrate:create` + `pnpm migrate`) — in every environment,
+    // dev included. This keeps the dev DB in lockstep with the migration
+    // history instead of silently drifting from it. Push is opt-in only,
+    // for a throwaway local sandbox DB you don't mind rebuilding from
+    // scratch — set PAYLOAD_DB_PUSH=true for that session only.
+    push: process.env.PAYLOAD_DB_PUSH === 'true',
   }),
   editor: lexicalEditor({
     features: () => {

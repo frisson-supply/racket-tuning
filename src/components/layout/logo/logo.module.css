@@ -3,6 +3,6 @@
   filter: invert(1);
 }
 
-[data-theme='dark'] .logo {
+[data-theme="dark"] .logo {
   filter: invert(0);
 }

@@ -19,7 +19,7 @@
   transition: border-color 200ms;
 }
 
-[data-theme='dark'] .close-wrap {
+[data-theme="dark"] .close-wrap {
   border-color: oklch(43.9% 0 0deg);
   color: #fff;
 }
@@ -59,7 +59,7 @@
   color: #fff;
 }
 
-[data-theme='dark'] .delete-icon {
+[data-theme="dark"] .delete-icon {
   color: #000;
 }
 
@@ -98,7 +98,7 @@
   width: 1rem;
 }
 
-[data-theme='dark'] .quantity-icon {
+[data-theme="dark"] .quantity-icon {
   color: oklch(55.6% 0 0deg);
 }
 
@@ -190,7 +190,7 @@
   background-color: var(--border);
 }
 
-[data-theme='dark'] .item-image {
+[data-theme="dark"] .item-image {
   border-color: oklch(43.9% 0 0deg);
   background-color: oklch(20.5% 0 0deg);
 }
@@ -214,7 +214,7 @@
   text-transform: capitalize;
 }
 
-[data-theme='dark'] .item-variant {
+[data-theme="dark"] .item-variant {
   color: oklch(70.8% 0 0deg);
 }
 
@@ -262,7 +262,7 @@
   color: oklch(55.6% 0 0deg);
 }
 
-[data-theme='dark'] .cart-summary {
+[data-theme="dark"] .cart-summary {
   color: oklch(70.8% 0 0deg);
 }
 
@@ -281,7 +281,7 @@
   color: #000;
 }
 
-[data-theme='dark'] .subtotal-price {
+[data-theme="dark"] .subtotal-price {
   color: #fff;
 }
 

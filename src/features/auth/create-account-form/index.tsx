@@ -75,7 +75,10 @@ export const CreateAccountForm: React.FC = () => {
   )
 
   return (
-    <form className={`${styles['form--sm']} ${styles['form-padded']}`} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={`${styles['form--sm']} ${styles['form-padded']}`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className={cn(proseStyles.prose, styles['mb-6'])}>
         <p>
           {`This is where new customers can signup and create a new account. To manage all users, `}

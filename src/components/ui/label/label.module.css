@@ -9,13 +9,13 @@
   user-select: none;
 }
 
-[data-disabled='true'] .root {
+[data-disabled="true"] .root {
   pointer-events: none;
   opacity: 0.5;
 }
 
 .root:has(~ :disabled),
-.root:has(~ [data-disabled='true']) {
+.root:has(~ [data-disabled="true"]) {
   cursor: not-allowed;
   opacity: 0.5;
 }

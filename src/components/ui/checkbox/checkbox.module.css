@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.root[data-state='checked'] {
+.root[data-state="checked"] {
   background-color: var(--primary);
   color: var(--primary-foreground);
   border-color: var(--primary);
@@ -21,12 +21,12 @@
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
 }
 
-.root[aria-invalid='true'] {
+.root[aria-invalid="true"] {
   border-color: var(--destructive);
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 20%, transparent);
 }
 
-[data-theme='dark'] .root[aria-invalid='true'] {
+[data-theme="dark"] .root[aria-invalid="true"] {
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 40%, transparent);
 }
 

@@ -5,7 +5,7 @@
   color: #000;
 }
 
-[data-theme='dark'] .item {
+[data-theme="dark"] .item {
   color: #fff;
 }
 

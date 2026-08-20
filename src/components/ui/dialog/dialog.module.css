@@ -5,11 +5,11 @@
   background-color: rgb(0 0 0 / 50%);
 }
 
-.overlay[data-state='open'] {
+.overlay[data-state="open"] {
   animation: fade-in 200ms ease-out;
 }
 
-.overlay[data-state='closed'] {
+.overlay[data-state="closed"] {
   animation: fade-out 200ms ease-out;
 }
 
@@ -29,22 +29,28 @@
   border: 1px solid var(--border);
   background-color: var(--background);
   padding: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
 }
 
 @media (min-width: 40rem) {
-  .content { max-width: 32rem; }
+  .content {
+    max-width: 32rem;
+  }
 }
 
 @media (min-width: 64rem) {
-  .content { max-height: 95vh; }
+  .content {
+    max-height: 95vh;
+  }
 }
 
-.content[data-state='open'] {
+.content[data-state="open"] {
   animation: dialog-in 200ms ease-out;
 }
 
-.content[data-state='closed'] {
+.content[data-state="closed"] {
   animation: dialog-out 200ms ease-out;
 }
 
@@ -85,7 +91,7 @@
   height: 1rem;
 }
 
-.close-btn[data-state='open'] {
+.close-btn[data-state="open"] {
   background-color: var(--accent);
   color: var(--muted-foreground);
 }
@@ -98,7 +104,9 @@
 }
 
 @media (min-width: 40rem) {
-  .header { text-align: left; }
+  .header {
+    text-align: left;
+  }
 }
 
 .footer {
@@ -126,21 +134,41 @@
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-out {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes dialog-in {
-  from { opacity: 0; scale: 0.95; }
-  to   { opacity: 1; scale: 1; }
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }
 
 @keyframes dialog-out {
-  from { opacity: 1; scale: 1; }
-  to   { opacity: 0; scale: 0.95; }
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.95;
+  }
 }

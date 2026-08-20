@@ -1,0 +1,6 @@
+#!/bin/sh
+# ponytail: whole-repo check, Biome runs in ms. Narrow to staged files only if it ever gets slow.
+pnpm biome format . || {
+  echo "\nUnformatted files. Run: pnpm format"
+  exit 1
+}

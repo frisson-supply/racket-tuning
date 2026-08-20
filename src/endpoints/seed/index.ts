@@ -600,7 +600,10 @@ export const seed = async ({
         collection: 'categories' as const,
         id: doc.id,
       })),
-      ...[productHat, productTshirt].map((doc) => ({ collection: 'products' as const, id: doc.id })),
+      ...[productHat, productTshirt].map((doc) => ({
+        collection: 'products' as const,
+        id: doc.id,
+      })),
       ...[homePage, contactPage].map((doc) => ({ collection: 'pages' as const, id: doc.id })),
     ]
 

@@ -124,7 +124,7 @@
     align-items: center;
   }
 
-  [data-theme='dark'] .guest-box {
+  [data-theme="dark"] .guest-box {
     background-color: #000;
   }
 
@@ -134,7 +134,7 @@
     padding: 1rem;
   }
 
-  [data-theme='dark'] .user-box {
+  [data-theme="dark"] .user-box {
     background-color: var(--card);
   }
 

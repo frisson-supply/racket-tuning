@@ -5,11 +5,11 @@
   background-color: rgb(0 0 0 / 80%);
 }
 
-.overlay[data-state='open'] {
+.overlay[data-state="open"] {
   animation: fade-in 200ms ease-out;
 }
 
-.overlay[data-state='closed'] {
+.overlay[data-state="closed"] {
   animation: fade-out 300ms ease-out;
 }
 
@@ -35,14 +35,16 @@
 }
 
 @media (min-width: 40rem) {
-  .content--right { max-width: 24rem; }
+  .content--right {
+    max-width: 24rem;
+  }
 }
 
-.content--right[data-state='open'] {
+.content--right[data-state="open"] {
   animation: slide-in-right 500ms ease-in-out;
 }
 
-.content--right[data-state='closed'] {
+.content--right[data-state="closed"] {
   animation: slide-out-right 300ms ease-in-out;
 }
 
@@ -55,14 +57,16 @@
 }
 
 @media (min-width: 40rem) {
-  .content--left { max-width: 24rem; }
+  .content--left {
+    max-width: 24rem;
+  }
 }
 
-.content--left[data-state='open'] {
+.content--left[data-state="open"] {
   animation: slide-in-left 500ms ease-in-out;
 }
 
-.content--left[data-state='closed'] {
+.content--left[data-state="closed"] {
   animation: slide-out-left 300ms ease-in-out;
 }
 
@@ -73,11 +77,11 @@
   border-bottom: 1px solid var(--border);
 }
 
-.content--top[data-state='open'] {
+.content--top[data-state="open"] {
   animation: slide-in-top 500ms ease-in-out;
 }
 
-.content--top[data-state='closed'] {
+.content--top[data-state="closed"] {
   animation: slide-out-top 300ms ease-in-out;
 }
 
@@ -88,11 +92,11 @@
   border-top: 1px solid var(--border);
 }
 
-.content--bottom[data-state='open'] {
+.content--bottom[data-state="open"] {
   animation: slide-in-bottom 500ms ease-in-out;
 }
 
-.content--bottom[data-state='closed'] {
+.content--bottom[data-state="closed"] {
   animation: slide-out-bottom 300ms ease-in-out;
 }
 
@@ -114,12 +118,22 @@
   color: currentcolor;
 }
 
-.close-btn:hover { opacity: 1; }
-.close-btn:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
-.close-btn:disabled { pointer-events: none; }
-.close-btn svg { width: 1rem; height: 1rem; }
+.close-btn:hover {
+  opacity: 1;
+}
+.close-btn:focus {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.close-btn:disabled {
+  pointer-events: none;
+}
+.close-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
 
-.close-btn[data-state='open'] {
+.close-btn[data-state="open"] {
   background-color: var(--secondary);
 }
 
@@ -150,17 +164,87 @@
 }
 
 /* ── Keyframes ─────────────────────────────────────────────────── */
-@keyframes fade-in  { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
-@keyframes slide-in-right  { from { transform: translateX(100%); } to { transform: translateX(0); } }
-@keyframes slide-out-right { from { transform: translateX(0); } to { transform: translateX(100%); } }
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
 
-@keyframes slide-in-left   { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-@keyframes slide-out-left  { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 
-@keyframes slide-in-top    { from { transform: translateY(-100%); } to { transform: translateY(0); } }
-@keyframes slide-out-top   { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+@keyframes slide-in-top {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
 
-@keyframes slide-in-bottom { from { transform: translateY(100%); } to { transform: translateY(0); } }
-@keyframes slide-out-bottom { from { transform: translateY(0); } to { transform: translateY(100%); } }
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}

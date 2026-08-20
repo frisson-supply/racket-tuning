@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
+import { AboutUsSection } from '@/features/page-builder/blocks/about-us-section/config'
 import { Banner } from '@/features/page-builder/blocks/banner/config'
 import { Carousel } from '@/features/page-builder/blocks/carousel/config'
 import { ThreeItemGrid } from '@/features/page-builder/blocks/three-item-grid/config'
@@ -97,6 +98,7 @@ export const Pages: CollectionConfig = {
                 ThreeItemGrid,
                 Banner,
                 FormBlock,
+                AboutUsSection,
               ],
               required: true,
             },

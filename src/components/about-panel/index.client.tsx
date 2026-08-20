@@ -8,6 +8,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
 import { useFocusTrap } from '@/hooks/use-focus-trap'
+import { localeFromPathname, localizedHref } from '@/utilities/localized-path'
 
 import './index.css'
 
@@ -16,15 +17,14 @@ gsap.registerPlugin(CustomEase)
 const ABOUT_HREF = '/about'
 
 const prefersReducedMotion = () =>
-  typeof window !== 'undefined' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 type Props = Pick<About, 'heading' | 'body' | 'socialLinks' | 'contactEmail'>
 
 export function AboutPanelClient({ heading, body, socialLinks, contactEmail }: Props) {
   const pathname = usePathname()
   const router = useRouter()
-  const isOpen = pathname === ABOUT_HREF
+  const isOpen = pathname === localizedHref(localeFromPathname(pathname), ABOUT_HREF)
 
   const panelRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -38,7 +38,7 @@ export function AboutPanelClient({ heading, body, socialLinks, contactEmail }: P
   useEffect(() => {
     if (tlRef.current) return
 
-    const mainEl = document.querySelector<HTMLElement>('[data-flyout-main]')
+    const mainEl = document.querySelector<HTMLElement>('[data-about-main]')
     const overlayEl = overlayRef.current
     const panelEl = panelRef.current
     if (!mainEl || !overlayEl || !panelEl) return
@@ -105,7 +105,7 @@ export function AboutPanelClient({ heading, body, socialLinks, contactEmail }: P
     tlRef.current = tl
 
     // Direct URL load on /about: jump to open state without animating
-    if (pathname === ABOUT_HREF) {
+    if (isOpen) {
       isOpenRef.current = true
       tl.seek(enterEndTime.current)
       tl.pause()
@@ -123,8 +123,8 @@ export function AboutPanelClient({ heading, body, socialLinks, contactEmail }: P
     const tl = tlRef.current
     if (!tl) return
 
-    const shouldBeOpen = pathname === ABOUT_HREF
-    if (shouldBeOpen === isOpenRef.current) return
+    if (isOpen === isOpenRef.current) return
+    const shouldBeOpen = isOpen
 
     isOpenRef.current = shouldBeOpen
 
@@ -155,10 +155,7 @@ export function AboutPanelClient({ heading, body, socialLinks, contactEmail }: P
             <div data-corner className="aboutOverlay__corner" />
           </div>
           <div data-border-row className="aboutOverlay__borderRow">
-            <div
-              data-corner
-              className="aboutOverlay__corner aboutOverlay__corner--bottom"
-            />
+            <div data-corner className="aboutOverlay__corner aboutOverlay__corner--bottom" />
             <div className="aboutOverlay__border" />
           </div>
         </div>

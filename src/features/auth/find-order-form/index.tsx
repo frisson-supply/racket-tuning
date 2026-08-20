@@ -108,7 +108,12 @@ export const FindOrderForm: React.FC<Props> = ({ initialEmail }) => {
           {errors.orderID && <FormError message={errors.orderID.message} />}
         </FormItem>
         {submitError && <FormError message={submitError} />}
-        <Button type="submit" className={styles['self-start']} variant="default" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          className={styles['self-start']}
+          variant="default"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? 'Sending...' : 'Find order'}
         </Button>
       </form>

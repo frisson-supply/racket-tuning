@@ -1,0 +1,50 @@
+[
+  {
+    "label": "dev",
+    "command": "pnpm dev",
+    "allow_concurrent_runs": false,
+    "use_new_terminal": false
+  },
+  {
+    "label": "build",
+    "command": "pnpm build"
+  },
+  {
+    "label": "format",
+    "command": "pnpm format"
+  },
+  {
+    "label": "format:check",
+    "command": "pnpm format:check"
+  },
+  {
+    "label": "lint",
+    "command": "pnpm lint"
+  },
+  {
+    "label": "generate:types",
+    "command": "pnpm generate:types"
+  },
+  {
+    "label": "migrate:create",
+    "command": "pnpm migrate:create"
+  },
+  {
+    "label": "migrate:status",
+    "command": "pnpm migrate:status"
+  },
+  {
+    "label": "test:int",
+    "command": "pnpm test:int"
+  },
+  {
+    "label": "test:e2e",
+    "command": "pnpm test:e2e"
+  },
+  {
+    "label": "stripe-webhooks",
+    "command": "pnpm stripe-webhooks",
+    "allow_concurrent_runs": false,
+    "use_new_terminal": false
+  }
+]

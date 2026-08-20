@@ -14,7 +14,11 @@ type Props = {
 function ArrowIcon() {
   return (
     <svg className={styles.icon} fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9.33398 12.6666L14.0007 7.99992L9.33398 3.33325" stroke="currentColor" strokeMiterlimit="10" />
+      <path
+        d="M9.33398 12.6666L14.0007 7.99992L9.33398 3.33325"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+      />
       <path d="M14.0007 8H1.33398" stroke="currentColor" strokeMiterlimit="10" />
     </svg>
   )

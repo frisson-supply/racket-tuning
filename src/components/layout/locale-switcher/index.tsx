@@ -14,7 +14,8 @@ export function LocaleSwitcher() {
     <div className={styles.switcher}>
       {locales.map((locale) => {
         const isActive = locale === 'en' ? pathname.startsWith('/en') : !pathname.startsWith('/en')
-        const href = locale === 'en' ? `/en${strippedPath === '/' ? '' : strippedPath}` : strippedPath
+        const href =
+          locale === 'en' ? `/en${strippedPath === '/' ? '' : strippedPath}` : strippedPath
 
         return (
           <Link

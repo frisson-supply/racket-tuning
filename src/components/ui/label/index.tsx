@@ -7,13 +7,7 @@ import { cn } from '@/utilities/cn'
 import styles from './label.module.css'
 
 function Label({ className, ...props }: React.ComponentProps<typeof LabelPrimitive.Root>) {
-  return (
-    <LabelPrimitive.Root
-      data-slot="label"
-      className={cn(styles.root, className)}
-      {...props}
-    />
-  )
+  return <LabelPrimitive.Root data-slot="label" className={cn(styles.root, className)} {...props} />
 }
 
 export { Label }
