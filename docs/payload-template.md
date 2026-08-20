@@ -123,33 +123,7 @@ On the server, after building and before `pnpm start`, run pending migrations:
 pnpm payload migrate
 ```
 
-### Racket Tuning environments
-
-This project uses two separate Supabase Postgres databases:
-
-- **Local development** — `DATABASE_URL` points to the dev Supabase project. Schema changes land via migrations, same as production (see below).
-- **Production** — `DATABASE_URL` (Vercel "Production" environment) points to a separate Supabase project. Schema changes only land via migrations.
-
-In Vercel, `DATABASE_URL` is scoped per environment (Project → Settings → Environment Variables) — the **Production** entry points at the production Supabase project, and a separate **Preview** (+ Development) entry points at the dev Supabase project, matching local `.env`. Multiple rows sharing the name `DATABASE_URL` is expected; Vercel injects whichever one matches the environment being built. Preview deployments should always read/write the dev DB, never production — pointing Preview at prod risks concurrent PR branches colliding on live data and on each other's pending migrations.
-
-> **Preview deployments do not push schema.** Payload ignores `push` whenever
-> `NODE_ENV === 'production'`, and `next build` always sets it — so *every* Vercel
-> deployment, preview included, gets its schema from migrations only. A preview
-> build whose `DATABASE_URL` has no migrations applied will fail at "Collecting
-> page data" with `relation "…" does not exist` (Postgres `42P01`). Preview needs
-> the same migration treatment as production, against whichever database it points at.
-
-Workflow for schema changes:
-
-1. Make your collection/field changes locally.
-2. Run `pnpm migrate:create <name>` — Payload introspects your dev DB and diffs it against the config to generate the migration.
-3. Run `pnpm migrate` to apply it to the dev DB immediately, then commit the generated files in `src/migrations/`.
-4. Merge to `main` (Vercel deploys the new code automatically).
-5. Run the **"Migrate production database"** GitHub Actions workflow (manual `workflow_dispatch`, requires approval via the `production` environment) to apply pending migrations to the production Supabase DB via `pnpm migrate`.
-
-#### If a DB ever drifts from the migration history anyway
-
-This can happen if `PAYLOAD_DB_PUSH=true` was set against a shared DB by mistake, or from an older checkout. `pnpm migrate` will fail trying to re-run DDL for tables/columns that already exist. To recover without losing data, baseline the DB: insert one row per already-applied migration directly into the `payload_migrations` table (`name`, an incrementing `batch`, `created_at`/`updated_at`) via the Supabase SQL editor, matching the migration names in `src/migrations/`. No DDL is replayed and existing content is untouched. Then `pnpm migrate:status` should show zero pending, and the normal workflow above resumes.
+For this project's actual two-database setup, Vercel env var scoping, the full schema-change workflow, and how to run/recover production migrations, see [`docs/pipeline.md`](pipeline.md).
 
 ## Docker
 
