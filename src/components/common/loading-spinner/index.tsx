@@ -18,7 +18,12 @@ interface SpinnerContentProps {
   size?: SpinnerSize
 }
 
-export function LoadingSpinner({ size = 'medium', show = true, children, className }: SpinnerContentProps) {
+export function LoadingSpinner({
+  size = 'medium',
+  show = true,
+  children,
+  className,
+}: SpinnerContentProps) {
   return (
     <span className={cn(styles.wrapper, show && styles['wrapper--visible'])}>
       <Loader2 className={cn(styles.loader, sizeClass[size], className)} />

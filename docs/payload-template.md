@@ -107,7 +107,7 @@ Postgres follows a strict schema. Big schema changes risk losing data if not mig
 
 ### Local development
 
-By default the Postgres adapter has `push: true` for development, allowing schema changes without migrations. If pointed at production, set `push: false` to avoid losing data or migration drift.
+Schema changes only ever happen through a tracked migration — in every environment, dev included (`push` is opt-in only, via `PAYLOAD_DB_PUSH=true`, for a throwaway local sandbox DB you don't mind rebuilding from scratch). This keeps the dev DB in lockstep with the migration history instead of silently drifting from it, which used to cause `pnpm migrate` to fail with "relation already exists" once dev and the migration history disagreed about what had already been applied.
 
 ### Migrations
 
@@ -127,8 +127,10 @@ pnpm payload migrate
 
 This project uses two separate Supabase Postgres databases:
 
-- **Local development** — `DATABASE_URL` points to the dev Supabase project. `pnpm dev` runs with `push: true`, so schema changes are applied automatically as you work.
+- **Local development** — `DATABASE_URL` points to the dev Supabase project. Schema changes land via migrations, same as production (see below).
 - **Production** — `DATABASE_URL` (Vercel "Production" environment) points to a separate Supabase project. Schema changes only land via migrations.
+
+In Vercel, `DATABASE_URL` is scoped per environment (Project → Settings → Environment Variables) — the **Production** entry points at the production Supabase project, and a separate **Preview** (+ Development) entry points at the dev Supabase project, matching local `.env`. Multiple rows sharing the name `DATABASE_URL` is expected; Vercel injects whichever one matches the environment being built. Preview deployments should always read/write the dev DB, never production — pointing Preview at prod risks concurrent PR branches colliding on live data and on each other's pending migrations.
 
 > **Preview deployments do not push schema.** Payload ignores `push` whenever
 > `NODE_ENV === 'production'`, and `next build` always sets it — so *every* Vercel
@@ -139,10 +141,15 @@ This project uses two separate Supabase Postgres databases:
 
 Workflow for schema changes:
 
-1. Make your collection/field changes locally and let `push` sync the dev DB.
-2. Run `pnpm migrate:create <name>` to capture the change as a migration, and commit the generated files in `src/migrations/`.
-3. Merge to `main` (Vercel deploys the new code automatically).
-4. Run the **"Migrate production database"** GitHub Actions workflow (manual `workflow_dispatch`, requires approval via the `production` environment) to apply pending migrations to the production Supabase DB via `pnpm migrate`.
+1. Make your collection/field changes locally.
+2. Run `pnpm migrate:create <name>` — Payload introspects your dev DB and diffs it against the config to generate the migration.
+3. Run `pnpm migrate` to apply it to the dev DB immediately, then commit the generated files in `src/migrations/`.
+4. Merge to `main` (Vercel deploys the new code automatically).
+5. Run the **"Migrate production database"** GitHub Actions workflow (manual `workflow_dispatch`, requires approval via the `production` environment) to apply pending migrations to the production Supabase DB via `pnpm migrate`.
+
+#### If a DB ever drifts from the migration history anyway
+
+This can happen if `PAYLOAD_DB_PUSH=true` was set against a shared DB by mistake, or from an older checkout. `pnpm migrate` will fail trying to re-run DDL for tables/columns that already exist. To recover without losing data, baseline the DB: insert one row per already-applied migration directly into the `payload_migrations` table (`name`, an incrementing `batch`, `created_at`/`updated_at`) via the Supabase SQL editor, matching the migration names in `src/migrations/`. No DDL is replayed and existing content is untouched. Then `pnpm migrate:status` should show zero pending, and the normal workflow above resumes.
 
 ## Docker
 

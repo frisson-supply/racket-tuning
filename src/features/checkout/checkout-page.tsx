@@ -372,20 +372,22 @@ export const CheckoutPage: React.FC = () => {
               if (isVariant) {
                 price = variant?.priceInUSD
 
-                const imageVariant = product.gallery?.find((item: NonNullable<typeof product.gallery>[number]) => {
-                  if (!item.variantOption) return false
-                  const variantOptionID =
-                    typeof item.variantOption === 'object'
-                      ? item.variantOption.id
-                      : item.variantOption
+                const imageVariant = product.gallery?.find(
+                  (item: NonNullable<typeof product.gallery>[number]) => {
+                    if (!item.variantOption) return false
+                    const variantOptionID =
+                      typeof item.variantOption === 'object'
+                        ? item.variantOption.id
+                        : item.variantOption
 
-                  const hasMatch = variant?.options?.some((option: number | VariantOption) => {
-                    if (typeof option === 'object') return option.id === variantOptionID
-                    else return option === variantOptionID
-                  })
+                    const hasMatch = variant?.options?.some((option: number | VariantOption) => {
+                      if (typeof option === 'object') return option.id === variantOptionID
+                      else return option === variantOptionID
+                    })
 
-                  return hasMatch
-                })
+                    return hasMatch
+                  },
+                )
 
                 if (imageVariant && typeof imageVariant.image !== 'string') {
                   image = imageVariant.image

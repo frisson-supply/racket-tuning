@@ -42,15 +42,14 @@ Website for Racket Tuning, a Dutch racket-tuning specialist — built with Paylo
 
 ## Database & deployments
 
-This project uses two separate Supabase Postgres databases — one for development/preview, one for production:
+This project uses two separate Supabase Postgres databases — one for development/preview, one for production. Both apply schema changes only via migrations; `push` is opt-in only (`PAYLOAD_DB_PUSH=true`), for a throwaway local sandbox DB you don't mind rebuilding from scratch.
 
-- **Dev/preview**: `DATABASE_URL` runs with `push: true`, so schema changes from local development sync automatically.
-- **Production**: `DATABASE_URL` (Vercel "Production" environment) runs with `push: false` — schema changes only apply via migrations.
+In Vercel, `DATABASE_URL` is scoped per environment (Project → Settings → Environment Variables): the **Production** entry points at the production Supabase project, and a separate **Preview** (+ Development) entry points at the dev Supabase project — matching local `.env`. Having two rows with the same name is expected; Vercel injects whichever one matches the environment being built. This means preview deployments (one per branch/PR) read/write the dev DB, not live production data — keep it that way rather than pointing Preview at production, since concurrent preview branches could otherwise collide on prod data and pending migrations.
 
 Workflow for shipping a schema change:
 
-1. Change collections/fields locally — dev DB syncs via `push`.
-2. Run `pnpm migrate:create <name>` and commit the generated files in `src/migrations/`.
+1. Change collections/fields locally.
+2. Run `pnpm migrate:create <name>`, then `pnpm migrate` to apply it to the dev DB, then commit the generated files in `src/migrations/`.
 3. Merge to `main` (Vercel deploys the new code).
 4. Run the **"Migrate production database"** GitHub Actions workflow (Actions tab → "Migrate production database" → "Run workflow"). This runs against the `production` GitHub environment, which requires a `PRODUCTION_DATABASE_URL` secret pointing at the production Supabase project's pooled connection string.
 

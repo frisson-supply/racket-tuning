@@ -370,7 +370,7 @@
 }
 
 /* ─── color_semantics — dark ────────────────────────────────── */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --component-hack-do-not-implement: hsl(0 0 100% / 0);
   --component-button-destructive-border-hover: var(--system-negative-700, hsl(359 91% 34%));
   --component-button-destructive-border-pressed: var(--system-negative-900, hsl(359 100% 14%));

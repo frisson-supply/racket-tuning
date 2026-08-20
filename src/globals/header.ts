@@ -23,17 +23,6 @@ export const Header: GlobalConfig = {
           appearances: false,
         }),
         {
-          name: 'enableFlyout',
-          type: 'checkbox',
-          admin: {
-            condition: (_, siblingData) => siblingData?.link?.type === 'reference',
-            description:
-              'When checked, clicking this link opens the page in a flyout overlay instead of navigating away. The page remains reachable at its normal URL.',
-          },
-          defaultValue: false,
-          label: 'Open in flyout overlay instead of navigating',
-        },
-        {
           name: 'children',
           type: 'array',
           fields: [

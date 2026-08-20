@@ -22,16 +22,28 @@
 
   .inner--error {
     border-color: var(--error-500, oklch(62.8% 0.258 29.23));
-    background-color: color-mix(in oklch, var(--error-500, oklch(62.8% 0.258 29.23)) 30%, transparent);
+    background-color: color-mix(
+      in oklch,
+      var(--error-500, oklch(62.8% 0.258 29.23)) 30%,
+      transparent
+    );
   }
 
   .inner--success {
     border-color: var(--success-500, oklch(64.3% 0.206 151.31));
-    background-color: color-mix(in oklch, var(--success-500, oklch(64.3% 0.206 151.31)) 30%, transparent);
+    background-color: color-mix(
+      in oklch,
+      var(--success-500, oklch(64.3% 0.206 151.31)) 30%,
+      transparent
+    );
   }
 
   .inner--warning {
     border-color: var(--warning-500, oklch(79.5% 0.184 86.05));
-    background-color: color-mix(in oklch, var(--warning-500, oklch(79.5% 0.184 86.05)) 30%, transparent);
+    background-color: color-mix(
+      in oklch,
+      var(--warning-500, oklch(79.5% 0.184 86.05)) 30%,
+      transparent
+    );
   }
 }

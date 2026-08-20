@@ -63,7 +63,9 @@ export function VariantSelector({ product }: { product: Product }) {
 
                 if (matchingVariant) {
                   optionSearchParams.set('variant', String(matchingVariant.id))
-                  isAvailableForSale = !!(matchingVariant.inventory && matchingVariant.inventory > 0)
+                  isAvailableForSale = !!(
+                    matchingVariant.inventory && matchingVariant.inventory > 0
+                  )
                 }
               }
 

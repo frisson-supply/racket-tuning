@@ -1,3 +1,4 @@
+import { AboutUsSectionBlock } from '@/features/page-builder/blocks/about-us-section/component'
 import { ArchiveBlock } from '@/features/page-builder/blocks/archive-block/component'
 import { BannerBlock } from '@/features/page-builder/blocks/banner/component'
 import { CallToActionBlock } from '@/features/page-builder/blocks/call-to-action/component'
@@ -13,6 +14,7 @@ import styles from './render-blocks.module.css'
 import type { Page } from '@/payload-types'
 
 const blockComponents = {
+  aboutUsSection: AboutUsSectionBlock,
   archive: ArchiveBlock,
   banner: BannerBlock,
   carousel: CarouselBlock,

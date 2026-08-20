@@ -9,7 +9,9 @@
   border-radius: calc(var(--radius) - 2px);
   font-size: 0.875rem;
   font-weight: 500;
-  transition: color 200ms, box-shadow 200ms;
+  transition:
+    color 200ms,
+    box-shadow 200ms;
   outline: none;
   flex-shrink: 0;
   border: none;
@@ -27,7 +29,7 @@
   flex-shrink: 0;
 }
 
-.base svg:not([class*='size-']) {
+.base svg:not([class*="size-"]) {
   width: 1rem;
   height: 1rem;
 }
@@ -37,12 +39,12 @@
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
 }
 
-.base[aria-invalid='true'] {
+.base[aria-invalid="true"] {
   border-color: var(--destructive);
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 20%, transparent);
 }
 
-[data-theme='dark'] .base[aria-invalid='true'] {
+[data-theme="dark"] .base[aria-invalid="true"] {
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 40%, transparent);
 }
 
@@ -68,7 +70,7 @@
 .variant-destructive:focus-visible {
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 20%, transparent);
 }
-[data-theme='dark'] .variant-destructive:focus-visible {
+[data-theme="dark"] .variant-destructive:focus-visible {
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 40%, transparent);
 }
 

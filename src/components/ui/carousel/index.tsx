@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { cn } from '@/utilities/cn'
 import { Button } from '@/components/ui/button'
@@ -59,13 +59,22 @@ function Carousel({
     setCanScrollNext(api.canScrollNext())
   }, [])
 
-  const scrollPrev = React.useCallback(() => { api?.scrollPrev() }, [api])
-  const scrollNext = React.useCallback(() => { api?.scrollNext() }, [api])
+  const scrollPrev = React.useCallback(() => {
+    api?.scrollPrev()
+  }, [api])
+  const scrollNext = React.useCallback(() => {
+    api?.scrollNext()
+  }, [api])
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === 'ArrowLeft') { event.preventDefault(); scrollPrev() }
-      else if (event.key === 'ArrowRight') { event.preventDefault(); scrollNext() }
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault()
+        scrollPrev()
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault()
+        scrollNext()
+      }
     },
     [scrollPrev, scrollNext],
   )
@@ -80,15 +89,22 @@ function Carousel({
     onSelect(api)
     api.on('reInit', onSelect)
     api.on('select', onSelect)
-    return () => { api?.off('select', onSelect) }
+    return () => {
+      api?.off('select', onSelect)
+    }
   }, [api, onSelect])
 
   return (
     <CarouselContext.Provider
       value={{
-        carouselRef, api, opts,
+        carouselRef,
+        api,
+        opts,
         orientation: orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
-        scrollPrev, scrollNext, canScrollPrev, canScrollNext,
+        scrollPrev,
+        scrollNext,
+        canScrollPrev,
+        canScrollNext,
       }}
     >
       <div
@@ -162,7 +178,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft />
+      <ChevronLeft />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -190,7 +206,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight />
+      <ChevronRight />
       <span className="sr-only">Next slide</span>
     </Button>
   )

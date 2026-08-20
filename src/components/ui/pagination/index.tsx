@@ -19,13 +19,7 @@ function Pagination({ className, ...props }: React.ComponentProps<'nav'>) {
 }
 
 function PaginationContent({ className, ...props }: React.ComponentProps<'ul'>) {
-  return (
-    <ul
-      data-slot="pagination-content"
-      className={cn(styles.content, className)}
-      {...props}
-    />
-  )
+  return <ul data-slot="pagination-content" className={cn(styles.content, className)} {...props} />
 }
 
 function PaginationItem({ ...props }: React.ComponentProps<'li'>) {
@@ -43,10 +37,7 @@ function PaginationLink({ className, isActive, size = 'icon', ...props }: Pagina
       aria-current={isActive ? 'page' : undefined}
       data-slot="pagination-link"
       data-active={isActive}
-      className={cn(
-        getButtonClass(isActive ? 'outline' : 'ghost', size as ButtonSize),
-        className,
-      )}
+      className={cn(getButtonClass(isActive ? 'outline' : 'ghost', size as ButtonSize), className)}
       {...props}
     />
   )

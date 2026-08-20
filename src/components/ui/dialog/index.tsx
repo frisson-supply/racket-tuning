@@ -65,15 +65,11 @@ function DialogContent({
 }
 
 function DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div data-slot="dialog-header" className={cn(styles.header, className)} {...props} />
-  )
+  return <div data-slot="dialog-header" className={cn(styles.header, className)} {...props} />
 }
 
 function DialogFooter({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div data-slot="dialog-footer" className={cn(styles.footer, className)} {...props} />
-  )
+  return <div data-slot="dialog-footer" className={cn(styles.footer, className)} {...props} />
 }
 
 function DialogTitle({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) {

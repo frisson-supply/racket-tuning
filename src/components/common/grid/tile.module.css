@@ -14,7 +14,7 @@
   border-color: oklch(57.7% 0.245 264deg);
 }
 
-[data-theme='dark'] .tile {
+[data-theme="dark"] .tile {
   background-color: #000;
 }
 

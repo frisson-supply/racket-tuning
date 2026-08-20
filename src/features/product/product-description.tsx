@@ -64,9 +64,7 @@ export function ProductDescription({ product }: { product: Product }) {
           )}
         </div>
       </div>
-      {product.description ? (
-        <RichText data={product.description} enableGutter={false} />
-      ) : null}
+      {product.description ? <RichText data={product.description} enableGutter={false} /> : null}
       <hr />
       {hasVariants && (
         <>

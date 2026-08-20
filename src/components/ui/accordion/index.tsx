@@ -49,11 +49,7 @@ function AccordionContent({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
   return (
-    <AccordionPrimitive.Content
-      data-slot="accordion-content"
-      className={styles.content}
-      {...props}
-    >
+    <AccordionPrimitive.Content data-slot="accordion-content" className={styles.content} {...props}>
       <div className={cn(styles['content-inner'], className)}>{children}</div>
     </AccordionPrimitive.Content>
   )

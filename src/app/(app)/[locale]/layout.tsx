@@ -51,12 +51,10 @@ export function generateStaticParams() {
 
 export default async function RootLayout({
   children,
-  flyout,
   modal,
   params,
 }: {
   children: ReactNode
-  flyout: ReactNode
   modal: ReactNode
   params: Promise<{ locale: string }>
 }) {
@@ -68,9 +66,7 @@ export default async function RootLayout({
 
   return (
     <html
-      className={[geistSans.variable, geistMono.variable, inter.variable]
-        .filter(Boolean)
-        .join(' ')}
+      className={[geistSans.variable, geistMono.variable, inter.variable].filter(Boolean).join(' ')}
       lang={locale}
       suppressHydrationWarning
     >
@@ -86,12 +82,11 @@ export default async function RootLayout({
 
           <AboutPanel locale={locale} />
 
-          <div data-flyout-main>
+          <div data-about-main>
             <Header locale={locale} />
             <main>{children}</main>
             <Footer locale={locale} />
           </div>
-          {flyout}
           {modal}
         </Providers>
       </body>

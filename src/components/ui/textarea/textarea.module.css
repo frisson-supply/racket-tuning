@@ -10,7 +10,9 @@
   padding-block: 0.5rem;
   font-size: 1rem;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  transition: color 200ms, box-shadow 200ms;
+  transition:
+    color 200ms,
+    box-shadow 200ms;
   outline: none;
 }
 
@@ -24,7 +26,9 @@
 }
 
 @media (min-width: 48rem) {
-  .textarea { font-size: 0.875rem; }
+  .textarea {
+    font-size: 0.875rem;
+  }
 }
 
 .textarea:focus-visible {
@@ -32,11 +36,11 @@
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
 }
 
-.textarea[aria-invalid='true'] {
+.textarea[aria-invalid="true"] {
   border-color: var(--destructive);
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 20%, transparent);
 }
 
-[data-theme='dark'] .textarea[aria-invalid='true'] {
+[data-theme="dark"] .textarea[aria-invalid="true"] {
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 40%, transparent);
 }

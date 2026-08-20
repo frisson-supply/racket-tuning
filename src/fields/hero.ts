@@ -7,6 +7,7 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
+import { link } from './link'
 import { linkGroup } from './link-group'
 
 export const hero: Field = {
@@ -24,6 +25,10 @@ export const hero: Field = {
           value: 'none',
         },
         {
+          label: 'Main Hero',
+          value: 'main',
+        },
+        {
           label: 'High Impact',
           value: 'highImpact',
         },
@@ -37,6 +42,14 @@ export const hero: Field = {
         },
       ],
       required: true,
+    },
+    {
+      name: 'eyebrow',
+      type: 'text',
+      admin: {
+        condition: (_, { type } = {}) => type === 'main',
+      },
+      localized: true,
     },
     {
       name: 'richText',
@@ -54,8 +67,20 @@ export const hero: Field = {
       label: false,
       localized: true,
     },
+    link({
+      appearances: false,
+      overrides: {
+        name: 'button',
+        admin: {
+          condition: (_: unknown, { type }: { type?: string } = {}) => type === 'main',
+        },
+      },
+    }),
     linkGroup({
       overrides: {
+        admin: {
+          condition: (_, { type } = {}) => type !== 'main',
+        },
         maxRows: 2,
       },
     }),
@@ -63,7 +88,7 @@ export const hero: Field = {
       name: 'media',
       type: 'upload',
       admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+        condition: (_, { type } = {}) => ['main', 'highImpact', 'mediumImpact'].includes(type),
       },
       relationTo: 'media',
       required: true,

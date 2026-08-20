@@ -1,4 +1,4 @@
-@import './design-tokens.css';
+@import "./design-tokens.css";
 
 /* ─── Layer declaration ──────────────────────────────────────── */
 @layer reset, preflight, global, animations, pages, components, utilities, overrides;
@@ -54,7 +54,12 @@
 
 /* ─── global layer ───────────────────────────────────────────── */
 @layer global {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: unset;
     font-size: unset;
     font-family: var(--font-heading);
@@ -79,7 +84,7 @@
     opacity: 0;
   }
 
-  html[data-theme='light'] {
+  html[data-theme="light"] {
     opacity: initial;
   }
 }
@@ -93,7 +98,9 @@
   }
 
   @media (width >= 40rem) {
-    .container { max-width: 40rem; }
+    .container {
+      max-width: 40rem;
+    }
   }
 
   @media (width >= 48rem) {
@@ -104,15 +111,21 @@
   }
 
   @media (width >= 64rem) {
-    .container { max-width: 64rem; }
+    .container {
+      max-width: 64rem;
+    }
   }
 
   @media (width >= 80rem) {
-    .container { max-width: 80rem; }
+    .container {
+      max-width: 80rem;
+    }
   }
 
   @media (width >= 86rem) {
-    .container { max-width: 86rem; }
+    .container {
+      max-width: 86rem;
+    }
   }
 
   .sr-only {
@@ -146,7 +159,7 @@
   }
 
   .navLink::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
@@ -183,13 +196,13 @@ html {
   opacity: 0;
 }
 
-html[data-theme='dark'],
-html[data-theme='light'] {
+html[data-theme="dark"],
+html[data-theme="light"] {
   opacity: initial;
 }
 
-/* Shared by about-panel and flyout-panel: whichever is open slides this element */
-[data-flyout-main] {
+/* The about panel slides/filters this element while it is open */
+[data-about-main] {
   position: relative;
   z-index: 2;
   background-color: var(--background);

@@ -63,15 +63,11 @@ function SheetContent({
 }
 
 function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div data-slot="sheet-header" className={cn(styles.header, className)} {...props} />
-  )
+  return <div data-slot="sheet-header" className={cn(styles.header, className)} {...props} />
 }
 
 function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div data-slot="sheet-footer" className={cn(styles.footer, className)} {...props} />
-  )
+  return <div data-slot="sheet-footer" className={cn(styles.footer, className)} {...props} />
 }
 
 function SheetTitle({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Title>) {

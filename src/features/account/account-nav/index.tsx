@@ -31,7 +31,10 @@ export const AccountNav: React.FC<Props> = ({ className }) => {
           <Button asChild variant="link">
             <Link
               href="/account/addresses"
-              className={cn(styles.link, pathname === '/account/addresses' && styles['link--active'])}
+              className={cn(
+                styles.link,
+                pathname === '/account/addresses' && styles['link--active'],
+              )}
             >
               Addresses
             </Link>
@@ -42,7 +45,10 @@ export const AccountNav: React.FC<Props> = ({ className }) => {
           <Button
             asChild
             variant="link"
-            className={cn(styles.link, (pathname === '/orders' || pathname.includes('/orders')) && styles['link--active'])}
+            className={cn(
+              styles.link,
+              (pathname === '/orders' || pathname.includes('/orders')) && styles['link--active'],
+            )}
           >
             <Link href="/orders">Orders</Link>
           </Button>

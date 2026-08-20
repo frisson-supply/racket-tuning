@@ -46,11 +46,17 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
         }`
       : null
 
-  const href = internalPath ? localizedHref(locale, internalPath) : url
+  // Custom URLs that are site-relative get the locale prefix too, so a nav item
+  // pointing at e.g. /about keeps working under /en.
+  const href = internalPath
+    ? localizedHref(locale, internalPath)
+    : url?.startsWith('/')
+      ? localizedHref(locale, url)
+      : url
 
   if (!href) return null
 
-  const size = appearance === 'link' ? 'clear' : sizeFromProps ?? undefined
+  const size = appearance === 'link' ? 'clear' : (sizeFromProps ?? undefined)
   const newTabProps = newTab ? { rel: 'noopener noreferrer', target: '_blank' } : {}
 
   /* Ensure we don't break any styles set by richText */

@@ -8,7 +8,10 @@ export const LivePreviewListener: React.FC = () => {
   return (
     <PayloadLivePreview
       refresh={router.refresh}
-      serverURL={process.env.NEXT_PUBLIC_SERVER_URL || ''}
+      // ponytail: the admin iframes us on its own origin, so derive it instead of
+      // trusting NEXT_PUBLIC_SERVER_URL — any port/host/trailing-slash drift there
+      // makes isDocumentEvent reject every message and live preview goes silent.
+      serverURL={typeof window === 'undefined' ? '' : window.location.origin}
     />
   )
 }

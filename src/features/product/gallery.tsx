@@ -56,7 +56,11 @@ export const Gallery: React.FC<Props> = ({ gallery }) => {
         />
       </div>
 
-      <Carousel setApi={setApi} className={styles['gallery-carousel']} opts={{ align: 'start', loop: false }}>
+      <Carousel
+        setApi={setApi}
+        className={styles['gallery-carousel']}
+        opts={{ align: 'start', loop: false }}
+      >
         <CarouselContent>
           {gallery.map((item, i) => {
             if (typeof item.image !== 'object') return null

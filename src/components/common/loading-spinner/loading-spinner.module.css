@@ -14,10 +14,21 @@
   color: var(--primary);
 }
 
-.loader--sm { width: 1.5rem; height: 1.5rem; }
-.loader--md { width: 2rem;   height: 2rem; }
-.loader--lg { width: 3rem;   height: 3rem; }
+.loader--sm {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.loader--md {
+  width: 2rem;
+  height: 2rem;
+}
+.loader--lg {
+  width: 3rem;
+  height: 3rem;
+}
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }

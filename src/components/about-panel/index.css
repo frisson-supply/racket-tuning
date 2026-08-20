@@ -162,11 +162,7 @@
 }
 
 .aboutOverlay__corner {
-  background-image: radial-gradient(
-    circle farthest-side at 0 100%,
-    transparent 99%,
-    var(--card)
-  );
+  background-image: radial-gradient(circle farthest-side at 0 100%, transparent 99%, var(--card));
   flex-shrink: 0;
   height: 2em;
   transform-origin: 100% 0;
@@ -174,10 +170,6 @@
 }
 
 .aboutOverlay__corner--bottom {
-  background-image: radial-gradient(
-    circle farthest-side at 0 0,
-    transparent 99%,
-    var(--card)
-  );
+  background-image: radial-gradient(circle farthest-side at 0 0, transparent 99%, var(--card));
   transform-origin: 100% 100%;
 }

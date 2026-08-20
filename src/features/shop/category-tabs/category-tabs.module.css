@@ -31,7 +31,7 @@
   background-color: oklch(26.9% 0 0deg);
 }
 
-[data-theme='dark'] .skeleton--header {
+[data-theme="dark"] .skeleton--header {
   background-color: oklch(86.9% 0 0deg);
 }
 
@@ -39,11 +39,16 @@
   background-color: oklch(70.8% 0 0deg);
 }
 
-[data-theme='dark'] .skeleton--item {
+[data-theme="dark"] .skeleton--item {
   background-color: oklch(43.9% 0 0deg);
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }

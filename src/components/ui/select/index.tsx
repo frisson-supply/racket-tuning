@@ -54,10 +54,7 @@ function SelectContent({
       >
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
-          className={cn(
-            styles.viewport,
-            position === 'popper' && styles['viewport-popper'],
-          )}
+          className={cn(styles.viewport, position === 'popper' && styles['viewport-popper'])}
         >
           {children}
         </SelectPrimitive.Viewport>
@@ -83,11 +80,7 @@ function SelectItem({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Item>) {
   return (
-    <SelectPrimitive.Item
-      data-slot="select-item"
-      className={cn(styles.item, className)}
-      {...props}
-    >
+    <SelectPrimitive.Item data-slot="select-item" className={cn(styles.item, className)} {...props}>
       <span className={styles['item-indicator']}>
         <SelectPrimitive.ItemIndicator>
           <CheckIcon style={{ width: '1rem', height: '1rem' }} />

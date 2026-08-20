@@ -28,10 +28,7 @@ export const CarouselClient: React.FC<{ products: Product[] }> = async ({ produc
     >
       <CarouselContent>
         {carouselProducts.map((product, i) => (
-          <CarouselItem
-            className={styles['carousel-item']}
-            key={`${product.slug}${i}`}
-          >
+          <CarouselItem className={styles['carousel-item']} key={`${product.slug}${i}`}>
             <Link className={styles['item-link']} href={`/products/${product.slug}`}>
               <GridTileImage
                 label={{

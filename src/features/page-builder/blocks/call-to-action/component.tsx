@@ -22,14 +22,7 @@ export const CallToActionBlock: React.FC<
         </div>
         <div className={styles.links}>
           {(links || []).map(({ link }, i) => {
-            return (
-              <CMSLink
-                key={i}
-                size="lg"
-                {...link}
-                appearance={link.appearance ?? undefined}
-              />
-            )
+            return <CMSLink key={i} size="lg" {...link} appearance={link.appearance ?? undefined} />
           })}
         </div>
       </div>

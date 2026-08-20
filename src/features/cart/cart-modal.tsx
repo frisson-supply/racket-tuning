@@ -83,22 +83,24 @@ export function CartModal() {
                   if (isVariant) {
                     price = variant?.priceInUSD
 
-                    const imageVariant = product.gallery?.find((galleryItem: NonNullable<Product['gallery']>[number]) => {
-                      if (!galleryItem.variantOption) return false
-                      const variantOptionID =
-                        typeof galleryItem.variantOption === 'object'
-                          ? galleryItem.variantOption.id
-                          : galleryItem.variantOption
+                    const imageVariant = product.gallery?.find(
+                      (galleryItem: NonNullable<Product['gallery']>[number]) => {
+                        if (!galleryItem.variantOption) return false
+                        const variantOptionID =
+                          typeof galleryItem.variantOption === 'object'
+                            ? galleryItem.variantOption.id
+                            : galleryItem.variantOption
 
-                      const hasMatch = variant?.options?.some(
-                        (option: number | VariantOption) => {
-                          if (typeof option === 'object') return option.id === variantOptionID
-                          else return option === variantOptionID
-                        },
-                      )
+                        const hasMatch = variant?.options?.some(
+                          (option: number | VariantOption) => {
+                            if (typeof option === 'object') return option.id === variantOptionID
+                            else return option === variantOptionID
+                          },
+                        )
 
-                      return hasMatch
-                    })
+                        return hasMatch
+                      },
+                    )
 
                     if (imageVariant && typeof imageVariant.image === 'object') {
                       image = imageVariant.image
